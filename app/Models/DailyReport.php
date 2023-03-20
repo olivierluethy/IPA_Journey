@@ -9,7 +9,7 @@ class DailyReport
     }
 
 	// Adds a daily journal into the database
-    public function add_dailyjournal($text, $status){
+    public function addDailyJournal($text, $status){
 		$statement = $this->db->prepare('INSERT INTO `journal` (text, status, fk_benutzerId) VALUES (:text, :status, :id)');
 		$statement->bindParam(':text', $text, PDO::PARAM_STR);
 		$statement->bindParam(':status', $status, PDO::PARAM_STR);
@@ -34,7 +34,7 @@ class DailyReport
 	}
 
 	// Adds all selected topics from added daily report
-    public function add_ausgewaehlte_themen($topic, $journalId){
+    public function addSelectedTopics($topic, $journalId){
 		if($topic != NULL){
 			$statement = $this->db->prepare('INSERT INTO ausgewaehlte_themen (fk_themaId, fk_journalId) VALUES (:themaId, :journalId)');
 			$statement->bindParam(':themaId', $topic, PDO::PARAM_STR);

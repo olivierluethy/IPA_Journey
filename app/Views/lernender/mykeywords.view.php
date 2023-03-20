@@ -20,31 +20,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 ?>
 
     <main>
-        <?php if (count($arrayKeywords) > 0){?>
-        <div class="withData">
-            <div class="dataTitle">
-                <h2>My keywords</h2>
-                <button onclick="navigateTo('addkeyword')" title="Add a keyword">+</button>
-            </div>
-            <?php foreach ($arrayKeywords as $keyword){ ?>
-            <div class="grid-container">
-                <div><?= $keyword['thema'] ?></div>
-                <div><button class="btn1" title="Edit this keyword"
-                        onclick='editKeyword(<?php echo $keyword["themaId"] ?>)'><i class="fas fa-edit"></i>
-                        Edit</button></div>
-                <div><button class="btn2" title="Delete this keyword"
-                        onclick='deleteKeyword(<?php echo $keyword["themaId"] ?>)'><i class="fas fa-trash"></i>
-                        Delete</button></div>
-            </div>
-            <?php } ?>
-        </div>
-        <?php } else { ?>
-        <h1>There are no keywords</h1>
-        <button onclick="navigateTo('addkeyword')" title="Click to add a keyword" class="addReport">Create your first
-            keyword!</button>
-        <?php }?>
     </main>
-
 
     <script src="public/js/app.js"></script>
     <script src="public/js/route.js"></script>

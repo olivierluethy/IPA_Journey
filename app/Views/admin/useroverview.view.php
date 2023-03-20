@@ -23,27 +23,6 @@ include ("navside.view.php");
     <main>
         <div class="withData">
             <h2>User</h2>
-            <?php
-            if (count($arrayUsers) > 0) {
-                foreach ($arrayUsers as $user) {
-                    $date = date('dS M Y', strtotime($user['created_at']));
-            ?>
-                    <div class='grid-container'>
-                        <div><?php echo $user['email']; ?></div>
-                        <div><?php echo $user['full_name']; ?></div>
-                        <div><?php echo $date; ?></div>
-                        <div><button class='btn1' onclick='editUser(<?php echo $user["benutzerId"]; ?>)'><i class='fas fa-edit'></i> Edit</button></div>
-                        <div><button class='btn2' onclick='deleteUser(<?php echo $user["benutzerId"]; ?>)'><i class='fas fa-trash'></i> Delete</button></div>
-                    </div>
-            <?php
-                }
-            } else {
-            ?>
-                <div class='noData'>
-                    <h1>There are no learners or specialists</h1>
-                    <p onclick='copyLink()' id='copyIt'>Send this link to your people to login</p>
-                </div>
-            <?php } ?>
         </div>
     </main>
 

@@ -21,38 +21,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 
     <main>
         <div class="withData">
-            <?php 
-            if(count($arrayWeeklyInProcess) > 0 || count($arrayWeeklyIsReleased) > 0){
-                if (count($arrayWeeklyInProcess) > 0){
-                    echo "<h2>Still in process</h2>";
-                    foreach ($arrayWeeklyInProcess as $weeklyIsProcess){
-                        $date = date('dS M Y', strtotime($weeklyIsProcess['datum']));
-                        echo "
-                        <div class='grid-container'>
-                            <div>Report from the " . $date . "</div>
-                            <div><button class='btn1' onclick='editWeeklyReport(" . $weeklyIsProcess["wochenreportId"] . ")'><i class='fas fa-edit'></i> Edit</button></div>
-                            <div><button class='btn2' onclick='deleteWeeklyReport(" . $weeklyIsProcess["wochenreportId"] . ")'><i class='fas fa-trash'></i> Delete</button></div>
-                            <div><button class='btn3' onclick='releaseWeeklyReport(" . $weeklyIsProcess["wochenreportId"] . ")'><i class='fas fa-upload'></i> Release</button></div>
-                        </div>
-                    ";}
-                }else {
-                    echo "<button class='addReport' onclick='navigateTo(\"addweeklyjournal\")'>Write your next weekly report</button>";
-                }
-                if (count($arrayWeeklyIsReleased) > 0){
-                    echo "<h2>Released</h2>";
-                    foreach ($arrayWeeklyIsReleased as $weeklyIsReleased){
-                        $date = date('dS M Y', strtotime($weeklyIsReleased['datum']));
-                        echo "
-                        <div class='grid-container'>
-                            <div>Report from the " . $date . "</div>
-                        </div>
-                    ";}
-                }
-            }else {
-                echo "<h1>There are no weekly reports</h1>";
-                echo "<button class='addReport' onclick='navigateTo(\"addweeklyjournal\")'>Write your first Weekly Raport</button>";
-            }     
-        ?>
+        
         </div>
 
     </main>
