@@ -1,0 +1,87 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    margin-top: 8rem;
+    margin-left: 240px;
+}
+
+.title {
+    display: flex;
+    button{
+        margin-left: 2rem;
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 13px 29px;
+        text-align: center;
+        height: 71px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 35px;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: royalblue; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: black; 
+  }
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .flex-container > div {
+    border: 5px solid black;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+    line-height: 35px;
+    font-size: 15px;
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-right: 1rem;
+    flex-basis: 40%;
+    margin-bottom: 1rem;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .flex-container > div {
+      flex-basis: 48%;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .flex-container > div {
+      flex-basis: 100%;
+      margin-right: 0;
+    }
+  }
+  
+  .datopic{
+    display: flex;
+  }
+  .datopic > *:first-child {
+    margin-right: 10px;
+  }
+
+  
+  .content{
+    margin-left:1rem;
+  }
