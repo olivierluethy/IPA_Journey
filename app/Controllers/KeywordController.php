@@ -4,8 +4,8 @@ class KeywordController
 {
 	/* This page shows all keywords */
     public function keywords(){		
-			// Load the "mykeywords" view file to display the list of keywords
-			require 'app/Views/lernender/mykeywords.view.php';	
+		// Load the "mykeywords" view file to display the list of keywords
+		require 'app/Views/lernender/mykeywords.view.php';	
 	}
 
 	/* In this page you can add a keyword */

@@ -6,7 +6,7 @@ class AdminController
     public function useroverview()
 	{
 		// Load the useroverview view
-		require 'app/Views/useroverview.view.php';
+		require 'app/Views/admin/useroverview.view.php';
 	}
 
 	/* The page to edit a user */

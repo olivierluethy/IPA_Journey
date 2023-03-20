@@ -14,8 +14,6 @@
 
 <body>
 
-<button id="burger" onclick="toggleSidebar()">&#9776;</button>
-
     <?php
 $actual_link = basename(__FILE__); // aktueller dateiname (wird für header.php benötigt)
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");

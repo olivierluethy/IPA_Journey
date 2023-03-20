@@ -1,0 +1,118 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: lightgray;
+  main {
+    margin-top: 8rem;
+    margin-left: 240px;
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      .content{
+        margin-left:1rem;
+        .header {
+            display: flex;
+            h2 {
+                margin-right: 1rem;
+            }
+          button{
+            border-radius: 50px;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            margin-left: 2rem;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px; 
+            height: 43px;
+            margin-top: 0.8rem;
+          }
+          button:nth-child(3){
+            background-color: red;
+          }
+        }
+        .datopic{
+          display: flex;
+        }
+        .datopic > *:first-child {
+          margin-right: 10px;
+        }
+      }
+    }
+    .flex-container > div {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      border: 5px solid black;
+      border-radius: 50px;
+      background-color: #f1f1f1;
+      line-height: 35px;
+      font-size: 15px;
+      max-height: 400px;
+      overflow: auto;
+      overflow-x: hidden;
+      margin-right: 1rem;
+      flex-basis: 40%;
+      margin-bottom: 1rem;
+      background-attachment: local, local, scroll, scroll;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    main{
+      .flex-container{
+        .content{
+          .header{
+            button{
+              margin-top: 1rem;
+            }
+          }
+        }
+      }
+      .flex-container > div {
+        flex-basis: 100%;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1404px) {
+  body {
+    main{
+      .flex-container{
+        .content{
+          .header{
+            button{
+              margin-top: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: royalblue; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: black; 
+  }

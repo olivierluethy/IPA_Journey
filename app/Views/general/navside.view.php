@@ -80,11 +80,11 @@ if(isset($_SESSION['role'])){
                     'deleteKeyword' => '<h1>Delete Keyword</h1>',
                     'login' => '<h1>Login</h1>',
                     'editUser' => '<h1>Edit User</h1>',
+
+                    'useroverview' => '<h1>User Overview</h1>',
                     
                     'overview' => '<h1>Overview</h1>',
                     'releasedreports' => '<h1>Released Reports</h1>',
-
-                    'useroverview' => '<h1>User Overview</h1>',
 
                     'adddailyjournal' => '<h1>Add Daily Report</h1>',
                     'addweeklyjournal' => '<h1>Add Weekly Report</h1>',

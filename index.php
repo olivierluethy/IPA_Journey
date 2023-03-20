@@ -29,7 +29,7 @@ $routes = [
 	'addkeyword' => 'KeywordController@addkeyword',
 
 	/* Für Fachkraft */
-	'overview' => 'FachkraftController@overview',
+	'overview' => 'SpecialistController@overview',
 	'releasedreports' => 'JournalController@releasedreports',
 	'seeDaily' => 'DailyReportController@seeDaily',
 	'seeWeekly' => 'WeeklyReportController@seeWeekly',
