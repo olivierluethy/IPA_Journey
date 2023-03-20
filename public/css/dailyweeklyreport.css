@@ -5,16 +5,14 @@
 body {
   background-color: lightgray;
 }
-
-main {
+body main {
   margin-top: 8rem;
   margin-left: 240px;
 }
-
-.title {
+body main .title {
   display: flex;
 }
-.title button {
+body main .title button {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border: 5px solid black;
   border-radius: 30%;
@@ -29,7 +27,68 @@ main {
   display: inline-block;
   font-size: 35px;
 }
+body main .flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+body main .flex-container .content {
+  margin-left: 1rem;
+}
+body main .flex-container .content .header button {
+  border-radius: 50px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  margin-left: 2rem;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 43px;
+}
+body main .flex-container .content .header button:nth-child(2) {
+  background-color: royalblue;
+}
+body main .flex-container .content .header button:nth-child(3) {
+  background-color: red;
+}
+body main .flex-container .content .datopic {
+  display: flex;
+}
+body main .flex-container .content .datopic > *:first-child {
+  margin-right: 10px;
+}
+body main .flex-container > div {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 5px solid black;
+  border-radius: 50px;
+  background-color: #f1f1f1;
+  line-height: 35px;
+  font-size: 15px;
+  max-height: 400px;
+  overflow: auto;
+  overflow-x: hidden;
+  margin-right: 1rem;
+  flex-basis: 40%;
+  margin-bottom: 1rem;
+  background-attachment: local, local, scroll, scroll;
+}
 
+@media only screen and (max-width: 900px) {
+  body main .flex-container .content .header button {
+    margin-top: 1rem;
+  }
+  body main .flex-container > div {
+    flex-basis: 100%;
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 1404px) {
+  body main .flex-container .content .header button {
+    margin-top: 1rem;
+  }
+}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -48,43 +107,4 @@ main {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: black;
-}
-
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.flex-container > div {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border: 5px solid black;
-  border-radius: 50px;
-  background-color: #f1f1f1;
-  line-height: 35px;
-  font-size: 15px;
-  max-height: 400px;
-  overflow: auto;
-  overflow-x: hidden;
-  margin-right: 1rem;
-  flex-basis: 40%;
-  margin-bottom: 1rem;
-  background-attachment: local, local, scroll, scroll;
-}
-
-@media only screen and (max-width: 900px) {
-  .flex-container > div {
-    flex-basis: 100%;
-    margin-right: 0;
-  }
-}
-.datopic {
-  display: flex;
-}
-
-.datopic > *:first-child {
-  margin-right: 10px;
-}
-
-.content {
-  margin-left: 1rem;
 }/*# sourceMappingURL=dailyweeklyreport.css.map */

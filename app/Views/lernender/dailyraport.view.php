@@ -21,15 +21,20 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 
     <main>
         <div class="withData">
-<div class="title">
-<h1>Recently completed</h1>
-            <button>+</button>
-</div>
+            <div class="title">
+                <h1>Recently completed</h1>
+                <button>+</button>
+            </div>
 
             <div class="flex-container">
                 <div>
                     <div class="content">
-                        <h2>{Name}</h2>
+                        <div class="header">
+                            <h2>{Name}</h2>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                            <button>Release</button>
+                        </div>
                         <p>Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
                             Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello
                             World.
@@ -47,7 +52,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                         <div class="datopic">
                             <p>{Datum}</p>
                             <p>{Themen}</p>
-                        </div>
+                        </div><br>
                     </div>
                 </div>
                 <div>
@@ -77,19 +82,21 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                     </div>
                 </div>
                 <div>
-                <div>
-                    <div class="content">
-                        <h2>{Name}</h2>
-                        <p>Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello
-                            World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.</p>
-                        <div class="datopic">
-                            <p>{Datum}</p>
-                            <p>{Themen}</p>
+                    <div>
+                        <div class="content">
+                            <h2>{Name}</h2>
+                            <p>Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
+                                Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello
+                                World.Hello
+                                World.
+                                Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
+                                Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
+                                Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
+                                Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.</p>
+                            <div class="datopic">
+                                <p>{Datum}</p>
+                                <p>{Themen}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

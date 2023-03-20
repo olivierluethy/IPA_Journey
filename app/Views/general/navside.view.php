@@ -4,7 +4,7 @@ $url = "$_SERVER[HTTP_HOST]"; // gibt die URL
 $havePort = preg_match('/[0-9]/', $url); // die Seite Localhost hat einen bestimmtem Port, daher auch einen Root Ordner
 
 if (!$havePort) {
-    $navigationFiller .= "PA_Journal_Webapplikation/";
+    $navigationFiller .= "IPA_Olivier/";
 }
 echo "<button id='burger' onclick='toggleSidebar()'>&#9776;</button>";
 
