@@ -29,70 +29,45 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             <div class="flex-container">
                 <div>
                     <div class="content">
-                        <div class="header">
+                        <div class="contentText">
                             <h2>{Name}</h2>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                            <button>Release</button>
-                        </div>
-                        <p>Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello
-                            World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello
-                            World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.</p>
-                        <div class="datopic">
-                            <p>{Datum}</p>
-                            <p>{Themen}</p>
-                        </div><br>
-                    </div>
-                </div>
-                <div>
-                    <div class="content">
-                        <h2>{Name}</h2>
-                        <p>Hello World. .</p>
-                        <div class="datopic">
-                            <p>{Datum}</p>
-                            <p>{Themen}</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="content">
-                        <h2>{Name}</h2>
-                        <p>Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello
-                            World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                            Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.</p>
-                        <div class="datopic">
-                            <p>{Datum}</p>
-                            <p>{Themen}</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <div class="content">
-                            <h2>{Name}</h2>
-                            <p>Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                                Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello
-                                World.Hello
-                                World.
-                                Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                                Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                                Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.
-                                Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.</p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                            </p>
                             <div class="datopic">
                                 <p>{Datum}</p>
                                 <p>{Themen}</p>

@@ -61,12 +61,12 @@ body main .flex-container > div {
   background-attachment: local, local, scroll, scroll;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1211px) {
   body main .flex-container .content .header button {
     margin-top: 1rem;
   }
   body main .flex-container > div {
-    flex-basis: 100%;
+    flex-basis: 60%;
     margin-right: 0;
   }
 }
