@@ -45,10 +45,11 @@
   transition-duration: 0.4s;
   cursor: pointer;
   outline: none;
+  border: 1px solid black;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
 #sidebar button:hover {
-  transform: scale(1.19);
+  transform: scale(1.15);
 }
 #sidebar input[type=text] {
   width: 80%;
@@ -101,10 +102,13 @@ header .grid-container div:nth-child(3) {
   justify-content: flex-end;
 }
 header .grid-container div:nth-child(3) .user-image {
+  width: 10%;
   border-radius: 50px;
   -o-object-fit: contain;
      object-fit: contain;
   margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 header .grid-container div:nth-child(3) h2 {
   margin-top: auto;
@@ -152,13 +156,26 @@ header .grid-container > div {
     margin-top: auto;
     margin-bottom: auto;
   }
+  body header .grid-container div:nth-child(3) .user-image {
+    margin-left: -10rem;
+  }
   body header .grid-container div:nth-child(3) h2 {
     font-size: 25px;
-    margin-left: -2rem;
+    margin-left: 1rem;
     margin-top: auto;
     margin-bottom: auto;
   }
   body main {
     margin-left: 0;
+  }
+}
+@media (max-width: 530px) {
+  body header .grid-container div:nth-child(3) .user-image {
+    margin-left: 5rem;
+    width: 20%;
+  }
+  body header .grid-container div:nth-child(3) h2 {
+    margin-left: 4rem;
+    font-size: 20px;
   }
 }/*# sourceMappingURL=navside.css.map */

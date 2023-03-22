@@ -79,11 +79,15 @@
     }
 }
 
-@media(max-width: 900px){
+@media(max-width: 768px){
     body {
         main{
             .menu{
                 display: block;
+                margin-left: -15rem;
+                div {
+                    width: 400px;
+                }
             }
         }
     }
