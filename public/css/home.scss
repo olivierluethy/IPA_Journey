@@ -30,73 +30,52 @@
         }
         .menu {
             display: flex;
-    
-            button {
-                background-color: #4CAF50;
-                border: 1px solid black;
-                border-radius: 25px;
-                color: white;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 25px;
-                margin: 4px 2px;
-                padding: 16px 32px;
-                transition-duration: 0.4s;
-                cursor: pointer;
-                outline: none;
-                &:hover{
-                    transform: scale(1.05);
-                }
+            flex-wrap: wrap;
+            justify-content: center; // Align flex items horizontally
+            align-items: center; // Align flex items vertically
+          
+            div {
+              border: 1px solid black;
+              border-radius: 25px;
+              background-color: #f1f1f1;
+              width: 500px;
+              margin: 10px;
+              text-align: left;
+              padding: 20px; // Add padding around text
+              font-size: 25px;
+              display: flex; // Enable flex display for text and image
+              align-items: center; // Align text and image vertically
+              cursor: pointer;
+              transition-duration: 0.4s;
+          
+              &:hover {
+                transform: scale(1.05);
+              }
+          
+              img {
+                width: 20%;
+                margin-right: 30px; // Add margin between text and image
+              }
             }
-            button:nth-child(1){
+            div:nth-child(1){
                 background: rgb(230,230,230);
-    background: linear-gradient(90deg, rgba(230,230,230,1) 0%, rgba(115,115,115,1) 100%);
+                background: linear-gradient(90deg, rgba(230,230,230,1) 0%, rgba(115,115,115,1) 100%);
                 box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
-                margin-right: 2rem;
-                width: 38%;
-                color: black;
-    
-                .grid-container {
-                    display: grid;
-                    flex-wrap: wrap;
-                    grid-template-columns: auto auto;
-                    width: 100%;
-                }
-                .grid-container > div {
-                    text-align: center;
-                    img {
-                        width: 130px;
-                    }
-                  }
             }
-            button:nth-child(2){
+            div:nth-child(2){
                 background: rgb(115,115,115);
-    background: linear-gradient(90deg, rgba(115,115,115,1) 0%, rgba(48,48,48,1) 100%);
+                background: linear-gradient(90deg, rgba(115,115,115,1) 0%, rgba(48,48,48,1) 100%);
                 box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
-                width: 40%;
-    
-                .grid-container {
-                    display: grid;
-                    grid-template-columns: auto auto;
-                    width: 100%;
-                }
-    
-                .grid-container > div {
-                    text-align: center;
-                    img {
-                        width: 130px;
-                    }
-                }
+                color: white;
                 img {
                     filter: invert(100%);
                 }
+            }
+        }          
+        h2 {
+            text-align: left;
+            font-size: 2rem;
         }
-    }
-    h2 {
-        text-align: left;
-        font-size: 2rem;
-    }
     }
 }
 

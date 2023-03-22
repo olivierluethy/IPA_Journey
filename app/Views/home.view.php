@@ -21,23 +21,16 @@ include ("general/navside.view.php");
 
     <main>
         <?php if($_SESSION['role'] == 0){?>
+
         <div class="menu">
-            <button onclick="navigateTo('adddailyjournal')">
-                <div class="grid-container">
-                    <div><img src="images/writedailyreport.png" alt=""></div>
-                    <div>
-                        <h2>Write the daily report</h2>
-                    </div>
-                </div>
-            </button>
-            <button onclick="navigateTo('addweeklyjournal')">
-                <div class="grid-container">
-                    <div><img src="images/writedailyreport.png" alt=""></div>
-                    <div>
-                        <h2>Write the weekly report</h2>
-                    </div>
-                </div>
-            </button>
+            <div onclick="navigateTo('adddailyjournal')">
+                <img src="images/writedailyreport.png" alt="">
+                <p>Write the daily report</p>
+            </div>
+            <div onclick="navigateTo('addweeklyjournal')">
+                <img src="images/writedailyreport.png" alt="">
+                <p>Write the weekly report</p>
+            </div>
         </div>
 
         <?php
