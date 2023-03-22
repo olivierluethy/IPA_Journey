@@ -23,7 +23,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <div class="withData">
             <div class="title">
                 <h1>Recently completed</h1>
-                <button>+</button>
+                <button title="Add a daily report">+</button>
             </div>
 
             <div class="flex-container">

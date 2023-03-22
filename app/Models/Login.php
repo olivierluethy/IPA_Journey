@@ -10,7 +10,7 @@ class Login
 
     // Check if the user exists in the database
 	public function doesUserExist($email){
-        $statement = $this->db->prepare('SELECT * FROM benutzer WHERE email = :email');
+        $statement = $this->db->prepare('SELECT * FROM user WHERE email = :email');
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
         $statement->execute();
         return $statement->fetch();
@@ -18,7 +18,7 @@ class Login
 
     // Gets role of given email
     public function getRole($email){
-        $statement = $this->db->prepare('SELECT role FROM benutzer WHERE email = :email');
+        $statement = $this->db->prepare('SELECT role FROM user WHERE email = :email');
         $statement->bindParam(':email', $email);
         $statement->execute();
         return $statement->fetch();
@@ -26,7 +26,7 @@ class Login
 
     // Gets ID of given email
     public function getId($email){
-        $statement = $this->db->prepare('SELECT benutzerId FROM benutzer WHERE email = :email');
+        $statement = $this->db->prepare('SELECT userId FROM user WHERE email = :email');
         $statement->bindParam(':email', $email);
         $statement->execute();
         return $statement->fetch();
@@ -34,7 +34,7 @@ class Login
 
     // If the user is not in the database, add them
     public function addUser($email, $firstName, $lastName, $gender, $name, $profileImageUrl, $verifiedEmail, $token){
-        $statement = $this->db->prepare("INSERT INTO benutzer (email, first_name, last_name, gender, full_name, picture, verifiedEmail, token, role) 
+        $statement = $this->db->prepare("INSERT INTO user (email, first_name, last_name, gender, full_name, picture, verifiedEmail, token, role) 
         VALUES (:email, :first_name, :last_name, :gender, :full_name, :picture, :verifiedEmail, :token, 0)");
         $statement->bindParam(':email', $email);
         $statement->bindParam(':first_name', $firstName);

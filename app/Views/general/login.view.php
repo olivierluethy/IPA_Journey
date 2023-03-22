@@ -13,22 +13,29 @@
 </head>
 
 <body>
-<?php
+    <?php
 $actual_link = basename(__FILE__); // aktueller dateiname (wird für header.php benötigt)
 include ("navside.view.php");
 ?>
 
     <main>
-        <!-- main content goes here -->
-        <h1>Welcome To Journal <br> Web-App</h1>
-
-        <?php
+        <div class="login">
+            <!-- main content goes here -->
+            <h1>Welcome To Journal Web-App</h1>
+            <p>Write journals like never before!</p>
+            <?php
             if (isset($_SESSION['user_token'])) {
-            header("Location: home");
+                header("Location: home");
             } else {
-            echo "<a href='" . $client->createAuthUrl() . "'><button class='loginBtn'>Login with Google</button></a>";
+        ?>
+            <button onclick="window.location='<?php echo $client->createAuthUrl(); ?>'" class="loginBtn">
+                <img src="images/google logo.png" alt="Image">
+                <span>Login with Google</span>
+            </button>
+            <?php
             }
         ?>
+        </div>
     </main>
 
     <script src="public/js/app.js"></script>

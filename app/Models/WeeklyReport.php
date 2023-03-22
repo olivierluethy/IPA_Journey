@@ -9,8 +9,8 @@ class WeeklyReport
     }
 
     public function getAllWeeklyJournals(){
-		$statement = $this->db->prepare('SELECT * FROM aufgabe WHERE fk_BenutzerId = :id AND status = 1
-		ORDER BY prioritaet DESC');
+		$statement = $this->db->prepare('SELECT * FROM weeklyreport WHERE fk_userId = :id AND status = 1
+		ORDER BY date DESC');
 		$statement->bindParam(':id', $_SESSION["id"], PDO::PARAM_STR);
 		$statement->execute();
         return $statement;
@@ -30,17 +30,17 @@ class WeeklyReport
 	}
 
     public function getAllWeeklyInProcess(){
-		$statement = $this->db->prepare('SELECT wochenreport.wochenreportId, wochenreport.kalenderwoche, wochenreport.erledigte_arbeiten, 
-		wochenreport.laufende_arbeiten, wochenreport.reflexion, wochenreport.aufgetretene_probleme, 
-		wochenreport.status, wochenreport.datum, benutzer.full_name FROM wochenreport INNER JOIN benutzer ON benutzer.benutzerId = wochenreport.fk_benutzerId WHERE status = 0');
+		$statement = $this->db->prepare('SELECT weeklyreport.weeklyReportId, weeklyreport.calendarWeek, weeklyreport.doneWork, 
+		weeklyreport.ongoingWork, weeklyreport.reflection, weeklyreport.occurredProblems, 
+		weeklyreport.status, weeklyreport.date, user.full_name FROM weeklyreport INNER JOIN user ON user.userId = weeklyreport.fk_userId WHERE status = 0');
 		$statement->execute();
         return $statement;
 	}
 
 	public function getAllWeeklyInRelease(){
-		$statement = $this->db->prepare('SELECT wochenreport.wochenreportId, wochenreport.kalenderwoche, wochenreport.erledigte_arbeiten, 
-		wochenreport.laufende_arbeiten, wochenreport.reflexion, wochenreport.aufgetretene_probleme, 
-		wochenreport.status, wochenreport.datum, benutzer.full_name FROM wochenreport INNER JOIN benutzer ON benutzer.benutzerId = wochenreport.fk_benutzerId WHERE status = 1');
+		$statement = $this->db->prepare('SELECT weeklyreport.weeklyReportId, weeklyreport.calendarWeek, weeklyreport.doneWork, 
+		weeklyreport.ongoingWork, weeklyreport.reflection, weeklyreport.occurredProblems, 
+		weeklyreport.status, weeklyreport.date, user.full_name FROM weeklyreport INNER JOIN user ON user.userId = weeklyreport.fk_userId WHERE status = 1');
 		$statement->execute();
         return $statement;
 	}

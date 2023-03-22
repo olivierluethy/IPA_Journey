@@ -32,7 +32,7 @@ if(isset($_SESSION['role'])){
         $a .= '>Daily reports</button>';
         echo $a;
     
-        $a = '<button title="Go To Daily Raports" onclick="navigateTo(\'weeklyraport\')"';
+        $a = '<button title="Go To Weekly Raports" onclick="navigateTo(\'weeklyraport\')"';
         if (preg_match("/weeklyraport/i", $actual_link)) {
             $a .= ' class="active"';
         }

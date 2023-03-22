@@ -20,8 +20,6 @@ include ("general/navside.view.php");
 ?>
 
     <main>
-        <?php if($_SESSION['role'] == 0){?>
-
         <div class="menu">
             <div onclick="navigateTo('adddailyjournal')">
                 <img src="images/writedailyreport.png" alt="">
@@ -33,64 +31,112 @@ include ("general/navside.view.php");
             </div>
         </div>
 
-        <?php
-        echo "<div class='withData'>";
-        if(count($arrayJournalsInRelease) > 0){
-            echo "<h2>Recently written reports</h2>";
-            foreach ($arrayJournalsInRelease as $journalInReleased){?>
-        <div class='grid-container'>
-            <div>
-                <div><textarea readonly id="recentlyReleased" name="recentlyReleased" cols="30"
-                        rows="10"><?= $journalInReleased['text'] ?></textarea></div>
+        <div class="withData">
+            <h2>Recently written reports</h2>
+            <div class="switch">
+                <button onclick="showPart('daily')">Daily</button>
+                <button onclick="showPart('weekly')">Weekly</button>
             </div>
         </div>
-        <?php } }
-        echo "</div>";
-            }
 
-        // Check if user is a professional
-if ($_SESSION['role'] == 1) {
-    if(count($arrayJournalsInRelease) == 0 && count($arrayWeeklyIsInRelease) == 0){
-        echo "<h1>No reports found</h1>";
-    }else {
-        // Check if there are any daily reports that have been released
-        if (count($arrayJournalsInRelease) > 0) {
-            echo "<h2>Daily reports</h2>";
-
-            // Loop through the array of daily reports that have been released
-            foreach ($arrayJournalsInRelease as $journalInReleased) {
-                // Format the date to 'dS M Y' format
-                $date = date('dS M Y', strtotime($journalInReleased['datum']));
-                echo "<div class='grid-container'>
-                        <div>Report from {$journalInReleased['full_name']} written on {$date} 
-                        <button onclick='seeDaily({$journalInReleased['journalId']})' style='color: black;'>See</button>
-                        </div>
-                    </div>";
-            }
-        } else {
-            echo "<h1>No daily reports</h1>";
-        }
-
-        // Check if there are any weekly reports that have been released
-        if (count($arrayWeeklyIsInRelease) > 0) {
-            echo "<h2>Weekly reports</h2>";
-
-            // Loop through the array of weekly reports that have been released
-            foreach ($arrayWeeklyIsInRelease as $weeklyInReleased) {
-                // Format the date to 'dS M Y' format
-                $date = date('dS M Y', strtotime($weeklyInReleased['datum']));
-                echo "<div class='grid-container'>
-                            <div>Report from {$weeklyInReleased['full_name']} written on {$date} 
-                            <button onclick='seeWeekly({$weeklyInReleased['wochenreportId']})' style='color: black;'>See</button>
+        <div class="flex-container">
+                <div>
+                    <div class="content">
+                        <div class="contentText">
+                            <h2>{Name}</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                            </p>
+                            <div class="datopic">
+                                <p>{Datum}</p>
+                                <p>{Themen}</p>
                             </div>
-                        </div>";
-            }
-        } else {
-            echo "<h1>No weekly reports</h1>";
-        }
-    }
-}
-?>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="content">
+                        <div class="contentText">
+                            <h2>{Name}</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                                reprehenderit eius rem sequi
+                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                                amet quidem omnis
+                                quae distinctio.<br>
+                            </p>
+                            <div class="datopic">
+                                <p>{Datum}</p>
+                                <p>{Themen}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </main>
 
     <script src="public/js/app.js"></script>
