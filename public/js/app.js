@@ -42,3 +42,23 @@ function copyLink() {
   // Alert the copied text
   alert("Copied the text: " + link);
 }
+
+function showPart(topic){
+  if(topic == "daily"){
+    document.querySelector("main .withData .switch button:nth-child(1)").style.zIndex = 100;
+    document.querySelector("main .withData .switch button:nth-child(1)").style.backgroundColor ="black";
+    document.querySelector("main .withData .switch button:nth-child(1)").style.color ="white";
+
+    document.querySelector("main .withData .switch button:nth-child(2)").style.zIndex = 99;
+    document.querySelector("main .withData .switch button:nth-child(2)").style.backgroundColor ="white";
+    document.querySelector("main .withData .switch button:nth-child(2)").style.color ="black";
+  }else if(topic == "weekly"){
+    document.querySelector("main .withData .switch button:nth-child(1)").style.zIndex = 99;
+    document.querySelector("main .withData .switch button:nth-child(1)").style.backgroundColor ="white";
+    document.querySelector("main .withData .switch button:nth-child(1)").style.color ="black";
+
+    document.querySelector("main .withData .switch button:nth-child(2)").style.zIndex = 100;
+    document.querySelector("main .withData .switch button:nth-child(2)").style.backgroundColor ="black";
+    document.querySelector("main .withData .switch button:nth-child(2)").style.color ="white";
+  }
+}

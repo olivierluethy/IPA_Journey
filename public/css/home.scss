@@ -10,22 +10,38 @@
         margin-top: 7rem;
         margin-left: 218px;
         text-align: center;
-        .loginBtn{
-            background-color: black;
-            border: 1px solid black;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 25px;
-            margin: 4px 2px;
-            padding: 16px 32px;
-            transition-duration: 0.4s;
-            cursor: pointer;
-            box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
-            outline: none;
-            &:hover{
-                transform: scale(1.09);
+        .login{
+            h1 {
+                margin-top: 10rem;
+                font-size: 50px;
+            }
+            p {
+                font-size: 25px;
+            }
+            .loginBtn{
+                background-color: black;
+                border: 1px solid black;
+                border-radius: 20px;
+                width: 500px;
+                margin: 10px;
+                text-align: left;
+                padding: 20px; // Add padding around text
+                font-size: 30px;
+                display: flex; // Enable flex display for text and image
+                align-items: center; // Align text and image vertically
+                margin-right: auto;
+                margin-left: auto;
+                color: white;
+                cursor: pointer;
+                transition-duration: 0.4s;
+                box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
+                &:hover {
+                    transform: scale(1.05);
+                }
+                img {
+                    width: 20%;
+                    margin-right: 30px; // Add margin between text and image
+                }
             }
         }
         .menu {
@@ -58,20 +74,63 @@
               }
             }
             div:nth-child(1){
-                background: rgb(230,230,230);
-                background: linear-gradient(90deg, rgba(230,230,230,1) 0%, rgba(115,115,115,1) 100%);
+                background: rgb(216,212,212);
+                background: linear-gradient(90deg, rgba(216,212,212,1) 0%, rgba(136,132,132,1) 100%);
                 box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
             }
             div:nth-child(2){
-                background: rgb(115,115,115);
-                background: linear-gradient(90deg, rgba(115,115,115,1) 0%, rgba(48,48,48,1) 100%);
+                background: rgb(128,124,124);
+                background: linear-gradient(90deg, rgba(128,124,124,1) 0%, rgba(48,44,44,1) 100%);
                 box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
                 color: white;
                 img {
                     filter: invert(100%);
                 }
             }
-        }          
+        }
+        
+        .withData {
+            display: flex;
+            width: 100%;
+            position: relative;
+        
+            .switch {
+                margin-top: 1rem;
+                height: 1vh;
+                width: 50%;
+        
+                button {
+                    position:relative ;
+                    background-color:#4CAF50 ; /* Green */
+                    border:none ;
+                    border-radius:25px ;
+                    color:white ;
+                    padding:15px 32px ;
+                    text-align:center ;
+                    text-decoration:none ;
+                    display:inline-block ;
+                    font-size:16px ;
+                    margin-right:-1rem ; /* This removes the space between the buttons */
+                    cursor: pointer;
+                    transition-duration: 0.4s;
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+        
+                button:nth-child(1) {
+                    z-index:200 ; /* This places the button on top */
+                    background-color: black;
+                    color: white;
+                }
+        
+                button:nth-child(2) {
+                    background-color: white;
+                    color: black;
+                    z-index:100 ;
+                }
+            }
+        }
         h2 {
             text-align: left;
             font-size: 2rem;
@@ -82,6 +141,10 @@
 @media(max-width: 768px){
     body {
         main{
+            .login{
+                margin-left: -13rem;
+                text-align: left;
+            }
             .menu{
                 display: block;
                 margin-left: -15rem;
