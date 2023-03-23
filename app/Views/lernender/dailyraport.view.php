@@ -23,65 +23,42 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <div class="withData">
             <div class="title">
                 <h1>Recently completed</h1>
-                <button title="Add a daily report">+</button>
+                <button title="Add a daily report" onclick='navigateTo("adddailyjournal")'>+</button>
             </div>
 
+            <?php
+            foreach ($arrayJournalIsReleased as $journalIsReleased) {?>
             <div class="flex-container">
                 <div>
                     <div class="content">
                         <div class="contentText">
-                            <h2>{Name}</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                            </p>
+                            <h2><?= $journalIsReleased['full_name'] ?></h2>
+                            <textarea readonly class="ckeditor" name="text"
+                                id="text"><?php echo $journalIsReleased['text'] ?></textarea>
                             <div class="datopic">
-                                <p>{Datum}</p>
-                                <p>{Themen}</p>
+                                <?php 
+                                    $pickedKeywordsIds = array_column($getPickedKeywords, 'topicId');
+                                    foreach ($getKeywords as $keyword) {
+                                        $checked = in_array($keyword['topicId'], $pickedKeywordsIds);
+                                        echo "<p>" . ($checked ? $keyword['topic'] : "") . "</p>";
+                                    }
+                                    ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
     </main>
 
     <script src="public/js/app.js"></script>
     <script src="public/js/route.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
 
+    <script>
+    CKEDITOR.replace('text');
+    </script>
 </body>
 
 </html>

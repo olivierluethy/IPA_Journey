@@ -34,109 +34,109 @@ include ("general/navside.view.php");
         <div class="withData">
             <h2>Recently written reports</h2>
             <div class="switch">
-                <button onclick="showPart('daily')">Daily</button>
-                <button onclick="showPart('weekly')">Weekly</button>
+                <button title="Show daily sector" onclick="showPart('daily')">Daily</button>
+                <button title="Show weekly sector" onclick="showPart('weekly')">Weekly</button>
             </div>
         </div>
 
         <div class="flex-container">
-                <div>
-                    <div class="content">
-                        <div class="contentText">
-                            <h2>{Name}</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                            </p>
-                            <div class="datopic">
-                                <p>{Datum}</p>
-                                <p>{Themen}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="content">
-                        <div class="contentText">
-                            <h2>{Name}</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                            </p>
-                            <div class="datopic">
-                                <p>{Datum}</p>
-                                <p>{Themen}</p>
-                            </div>
+            <div>
+                <div class="content">
+                    <div class="contentText">
+                        <h2>{Name}</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                        </p>
+                        <div class="datopic">
+                            <p>{Datum}</p>
+                            <p>{Themen}</p>
                         </div>
                     </div>
                 </div>
             </div>
+            <div>
+                <div class="content">
+                    <div class="contentText">
+                        <h2>{Name}</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
+                            reprehenderit eius rem sequi
+                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
+                            amet quidem omnis
+                            quae distinctio.<br>
+                        </p>
+                        <div class="datopic">
+                            <p>{Datum}</p>
+                            <p>{Themen}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script src="public/js/app.js"></script>

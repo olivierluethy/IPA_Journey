@@ -17,7 +17,7 @@ class WeeklyReport
 	}
 
     public function addWeeklyRaport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $status){
-		$statement = $this->db->prepare('INSERT INTO `wochenreport` (kalenderwoche, erledigte_arbeiten, laufende_arbeiten, reflexion, aufgetretene_probleme, status, fk_benutzerId) 
+		$statement = $this->db->prepare('INSERT INTO `weeklyreport` (calendarWeek, doneWork, ongoingWork, reflection, occurredProblems, status, fk_userId) 
 		VALUES (:kalenderwoche, :erledigte_arbeiten, :laufende_arbeiten, :reflexion, :aufgetretene_probleme, :status, :id)');
 		$statement->bindParam(':kalenderwoche', $calendar_week, PDO::PARAM_STR);
 		$statement->bindParam(':erledigte_arbeiten', $completed_tasks, PDO::PARAM_STR);

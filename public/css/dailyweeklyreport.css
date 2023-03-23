@@ -57,6 +57,13 @@ body main .flex-container .content .contentText {
   overflow-y: auto;
   margin-left: 1rem;
 }
+body main .flex-container .content .contentText textarea {
+  height: 100px;
+  width: 100px;
+}
+body main .flex-container .content .contentText .cke_top {
+  display: none;
+}
 body main .flex-container .content .contentText button {
   border-radius: 50px;
   background-color: #4CAF50; /* Green */

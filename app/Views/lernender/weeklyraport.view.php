@@ -23,65 +23,48 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <div class="withData">
             <div class="title">
                 <h1>Recently completed</h1>
-                <button title="Add a weekly report">+</button>
+                <button title="Add a weekly report" onclick='navigateTo("addweeklyjournal")'>+</button>
             </div>
+            <?php
+           foreach ($arrayWeeklyIsReleased as $weeklyIsReleased){?>
             <div class="flex-container">
                 <div>
                     <div class="content">
                         <div class="contentText">
-                            <h2>{Name}</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                                reprehenderit eius rem sequi
-                                voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                                amet quidem omnis
-                                quae distinctio.<br>
-                            </p>
+                            <h2><?= $weeklyIsReleased['full_name'] ?></h2>
+                            <p>Done Work:</p>
+                            <textarea readonly class="ckeditor" name="doneWork"
+                                id="doneWork"><?php echo $weeklyIsReleased['doneWork'] ?></textarea>
+                            <p>Ongoing work:</p>
+                            <textarea readonly class="ckeditor" name="ongoingWork"
+                                id="ongoingWork"><?php echo $weeklyIsReleased['ongoingWork'] ?></textarea>
+                                <p>Reflection:</p>
+                            <textarea readonly class="ckeditor" name="reflection"
+                                id="reflection"><?php echo $weeklyIsReleased['reflection'] ?></textarea>
+                                <p>Occurred problems:</p>
+                            <textarea readonly class="ckeditor" name="occurredProblems"
+                                id="occurredProblems"><?php echo $weeklyIsReleased['occurredProblems'] ?></textarea>
                             <div class="datopic">
-                                <p>{Datum}</p>
-                                <p>{Themen}</p>
+                                <p><?= $weeklyIsReleased['date'] ?></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
-
     </main>
-
 
     <script src="public/js/app.js"></script>
     <script src="public/js/route.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+
+    <script>
+    CKEDITOR.replace('doneWork');
+    CKEDITOR.replace('ongoingWork');
+    CKEDITOR.replace('reflection');
+    CKEDITOR.replace('occurredProblems');
+    </script>
 
 </body>
 

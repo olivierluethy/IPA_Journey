@@ -20,6 +20,25 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 ?>
 
     <main>
+        <div class="withData">
+            <div class="title">
+                <h1>My keywords</h1>
+                <button title="Add a keyword" onclick='navigateTo("addkeyword")'>+</button>
+            </div>
+
+            <?php
+            foreach ($arrayKeywords as $keyword) {?>
+            <div class="flex-container">
+                <div>
+                    <div class="content">
+                        <div class="contentText">
+                            <h2><?= $keyword['topic'] ?></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
     </main>
 
     <script src="public/js/app.js"></script>

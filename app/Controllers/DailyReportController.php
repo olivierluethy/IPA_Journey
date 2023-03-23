@@ -19,6 +19,13 @@ class DailyReportController
 		
 		// Get all daily journals which are released
 		$arrayJournalIsReleased = $Journal->getAllDailyJournalsInRelease()->fetchAll();
+
+		// Retrieve all available keywords
+		$Keyword = new Keyword();
+		$getKeywords = $Keyword->getAllKeywords()->fetchAll();
+	
+		// Retrieve the keywords associated with the daily report
+		$getPickedKeywords = $Keyword->getSelectedKeywords()->fetchAll();
 		
 		// Load dailyraport view
 		require 'app/Views/lernender/dailyraport.view.php';
@@ -50,11 +57,11 @@ class DailyReportController
 		
 			// Add the daily journal entry to the database
 			$DailyReport = new DailyReport();
-			$journalId = $DailyReport->add_dailyjournal($text, $status);
+			$journalId = $DailyReport->addDailyJournal($text, $status);
 		
 			// Add the selected topics to the database
 			foreach ($topics as $topic) {
-				$DailyReport->add_ausgewaehlte_themen($topic, $journalId);
+				$DailyReport->addSelectedTopics($topic, $journalId);
 			}
 		
 			// Redirect the user to the daily report page
@@ -90,7 +97,7 @@ class DailyReportController
 				
 				// Updating topics of the daily report
 				foreach ($topics as $topic) {
-					$dailyReport->add_ausgewaehlte_themen($topic, $id);
+					$dailyReport->addSelectedTopics($topic, $id);
 				}
 				
 				header('Location: dailyraport');

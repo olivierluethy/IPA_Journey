@@ -64,7 +64,7 @@ class LoginController
 					$_SESSION['token'] = $token;
 					$_SESSION['role'] = $role;
 					$_SESSION['loggedin'] = true;
-					$_SESSION['id'] = $user['benutzerId'];
+					$_SESSION['id'] = $user['userId'];
                     header("Location: home");
                     exit;
 				}
@@ -74,7 +74,7 @@ class LoginController
 					try {
 						$login->addUser($email, $firstName, $lastName, $gender, $name, $profileImageUrl, $verifiedEmail, $token);
 						$_SESSION['role'] = $login->getRole($email)['role'];
-						$_SESSION['id'] = $login->getId($email)['benutzerId'];
+						$_SESSION['id'] = $login->getId($email)['userId'];
 						$_SESSION['loggedin'] = true;
                         header("Location: home");
                         exit();

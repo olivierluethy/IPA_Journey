@@ -27,8 +27,8 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             <?php 
             if(count($arrayTopics) > 0){
                 foreach ($arrayTopics as $topic) {
-                    echo "<input id=" . $topic['themaId'] ." type='checkbox' name='topics[]' value=" . $topic['themaId'] .">";
-                    echo "<label for=" . $topic['themaId'] .">" . $topic['thema'] . "</label><br>";
+                    echo "<input id=" . $topic['topicId'] ." type='checkbox' name='topics[]' value=" . $topic['topicId'] .">";
+                    echo "<label for=" . $topic['topicId'] .">" . $topic['topic'] . "</label><br>";
                 }
                 echo "<br><input type='submit' class='send' value='+ Add your daily report'>";
             }else{?>

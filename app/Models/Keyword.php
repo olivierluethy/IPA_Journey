@@ -48,10 +48,9 @@ class Keyword
 		$statement->execute();
 	}
 
-	public function getSelectedKeywords($journalId){
+	public function getSelectedKeywords(){
 		$statement = $this->db->prepare('SELECT DISTINCT topic.topicId, topic.topic FROM topic
-		INNER JOIN selectedtopics ON fk_topicId = topic.topicId WHERE selectedtopics.fk_journalId = :id');
-		$statement->bindParam(':id', $journalId, PDO::PARAM_STR);
+		INNER JOIN selectedtopics ON fk_topicId = topic.topicId');
 		$statement->execute();
         return $statement;
 	}

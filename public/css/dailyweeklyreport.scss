@@ -50,8 +50,15 @@ body {
       overflow: hidden;
         .contentText {
           height: 300px;
-      overflow-y: auto;
-      margin-left: 1rem;
+          overflow-y: auto;
+          margin-left: 1rem;
+          textarea{
+            height: 100px;
+            width: 100px;
+          }
+          .cke_top {
+            display: none;
+          }
           button{
             border-radius: 50px;
             background-color: #4CAF50; /* Green */
