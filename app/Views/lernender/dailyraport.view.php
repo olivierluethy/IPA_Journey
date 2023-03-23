@@ -36,13 +36,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                             <textarea readonly class="ckeditor" name="text"
                                 id="text"><?php echo $journalIsReleased['text'] ?></textarea>
                             <div class="datopic">
-                                <?php 
-                                    $pickedKeywordsIds = array_column($getPickedKeywords, 'topicId');
-                                    foreach ($getKeywords as $keyword) {
-                                        $checked = in_array($keyword['topicId'], $pickedKeywordsIds);
-                                        echo "<p>" . ($checked ? $keyword['topic'] : "") . "</p>";
-                                    }
-                                    ?>
+                                <p><?= $journalIsReleased['selected_topics'] ?></p>
                             </div>
                         </div>
                     </div>
