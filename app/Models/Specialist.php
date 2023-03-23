@@ -10,24 +10,24 @@ class Fachkraft
 
     // Gets all daily raports
 	public function getDailyRaports(){
-		$statement = $this->db->prepare('SELECT journal.journalId, journal.text, journal.datum, benutzer.full_name FROM journal 
-		INNER JOIN benutzer ON benutzer.benutzerId = journal.fk_benutzerId WHERE journal.status = 1');
+		$statement = $this->db->prepare('SELECT journal.journalId, journal.text, journal.date, user.full_name FROM journal 
+		INNER JOIN user ON user.userId = journal.fk_userId WHERE journal.status = 1');
 		$statement->execute();
         return $statement;
 	}
 
     // Gets all weekly raports
 	public function getWeeklyRaports(){
-		$statement = $this->db->prepare('SELECT wochenreport.wochenreportId, wochenreport.datum, benutzer.full_name FROM wochenreport 
-		INNER JOIN benutzer ON benutzer.benutzerId = wochenreport.fk_benutzerId WHERE wochenreport.status = 1');
+		$statement = $this->db->prepare('SELECT *, user.full_name FROM weeklyreport 
+		INNER JOIN user ON user.userId = weeklyreport.fk_userId WHERE weeklyreport.status = 1');
 		$statement->execute();
         return $statement;
 	}
 
     // Gets all apprentices
     public function getAllLernende(){
-        $statement = $this->db->prepare('SELECT * FROM benutzer
-        WHERE benutzer.role = 0');
+        $statement = $this->db->prepare('SELECT * FROM user
+        WHERE user.role = 0');
 		$statement->execute();
         return $statement;
     }

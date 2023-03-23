@@ -113,7 +113,7 @@ body main .withData .switch button:hover {
   transform: scale(1.05);
 }
 body main .withData .switch button:nth-child(1) {
-  z-index: 200; /* This places the button on top */
+  z-index: 101; /* This places the button on top */
   background-color: black;
   color: white;
 }

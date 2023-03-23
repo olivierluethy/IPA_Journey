@@ -7,6 +7,12 @@ body {
   main {
     margin-top: 8rem;
     margin-left: 240px;
+    input[type=text] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
     .title {
       display: flex;
       button{
@@ -71,6 +77,11 @@ body {
             display: inline-block;
             font-size: 16px; 
             height: 43px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            &:hover {
+              transform: scale(1.1);
+            }
           }
           button:nth-child(2){
             background-color: royalblue;

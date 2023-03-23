@@ -18,8 +18,9 @@
 $actual_link = basename(__FILE__); // aktueller dateiname (wird für header.php benötigt)
 include ("general/navside.view.php");
 ?>
-
     <main>
+
+        <?php if ($_SESSION['role'] == 0) {?>
         <div class="menu">
             <div onclick="navigateTo('adddailyjournal')">
                 <img src="images/writedailyreport.png" alt="">
@@ -30,9 +31,14 @@ include ("general/navside.view.php");
                 <p>Write the weekly report</p>
             </div>
         </div>
+        <?php } ?>
 
         <div class="withData">
+            <?php if ($_SESSION['role'] == 0) {?>
             <h2>Recently written reports</h2>
+            <?php } else if ($_SESSION['role'] == 1){?>
+            <h2>Recently published reports</h2>
+            <?php } ?>
             <div class="switch">
                 <button title="Show daily sector" onclick="showPart('daily')">Daily</button>
                 <button title="Show weekly sector" onclick="showPart('weekly')">Weekly</button>
@@ -85,6 +91,7 @@ include ("general/navside.view.php");
                         <textarea readonly class="ckeditor" name="occurredProblems"
                             id="occurredProblems"><?php echo $weeklyreports['occurredProblems'] ?></textarea>
                         <div class="datopic">
+                            <h3>Published:</h3>
                             <?php $date = date('dS M Y H:i:s', strtotime($weeklyreports['date']));?>
                             <p><?= $date?> o'clock</p>
                         </div>

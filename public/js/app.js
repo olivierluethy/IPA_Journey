@@ -53,7 +53,7 @@ function showPart(topic){
     document.querySelector("main .withData .switch button:nth-child(2)").style.backgroundColor ="white";
     document.querySelector("main .withData .switch button:nth-child(2)").style.color ="black";
 
-    document.getElementById("dailyreports").style.display="block";
+    document.getElementById("dailyreports").style.display="flex";
     document.getElementById("weeklyreports").style.display="none";
   }else if(topic == "weekly"){
     document.querySelector("main .withData .switch button:nth-child(1)").style.zIndex = 99;
@@ -65,7 +65,7 @@ function showPart(topic){
     document.querySelector("main .withData .switch button:nth-child(2)").style.color ="white";
 
     document.getElementById("dailyreports").style.display="none";
-    document.getElementById("weeklyreports").style.display="block";
+    document.getElementById("weeklyreports").style.display="flex";
   }
 }
 

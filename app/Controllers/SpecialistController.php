@@ -2,7 +2,7 @@
 
 use Google\Service\Classroom\Topic;
 
-class FachkraftController
+class SpecialistController
 {
 	// This page gives an overview about all reports and apprenticeses
     public function overview(){		

@@ -31,16 +31,22 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                 <div class="content">
                     <div class="contentText">
                         <h2><?= $journalIsProcess['full_name'] ?></h2>
-                        <button onclick="editDailyReport(<?= $journalIsProcess['journalId'] ?>)">Edit</button>
-                        <button onclick="deleteDailyReport(<?= $journalIsProcess['journalId'] ?>)">Delete</button>
+                        <button onclick="editDailyReport(<?= $journalIsProcess['journalId'] ?>)" title="Edit this daily report">Edit</button>
+                        <button onclick="deleteDailyReport(<?= $journalIsProcess['journalId'] ?>)" title="Delete this daily report">Delete</button>
                         <button
-                            onclick="releaseDailyReport(<?= $journalIsProcess['journalId'] ?>)">Publish</button><br><br>
+                            onclick="releaseDailyReport(<?= $journalIsProcess['journalId'] ?>)" title="Publish this daily report">Publish</button><br><br>
                         <textarea readonly class="ckeditor" name="text"
                             id="text"><?php echo $journalIsProcess['text'] ?></textarea>
+                        <?php if(!empty($journalIsProcess['selected_topics'])){?>
                         <div class="datopic">
-                            <?php $date = date('dS M Y H:i:s', strtotime($journalIsProcess['date']));?>
-                            <p><?= $date?> o'clock</p>&nbsp;
+                            <h3>Topics:</h3>
                             <p><?= $journalIsProcess['selected_topics'] ?></p>
+                        </div>
+                        <?php } ?>
+                        <div class="datopic">
+                            <h3>Published:</h3>
+                            <?php $date = date('dS M Y H:i:s', strtotime($journalIsProcess['date']));?>
+                            <p><?= $date?> o'clock</p>
                         </div>
                     </div>
                 </div>
