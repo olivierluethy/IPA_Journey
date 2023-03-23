@@ -46,19 +46,19 @@ class WeeklyReport
 	}
 
     public function deleteWeeklyReport($id){
-		$statement = $this->db->prepare('DELETE FROM `wochenreport` WHERE wochenreportId = :id');
+		$statement = $this->db->prepare('DELETE FROM `weeklyreport` WHERE weeklyReportId = :id');
         $statement->bindParam(':id', $id, PDO::PARAM_STR);
         $statement->execute();
 	}
 
 	public function releaseWeeklyReport($id){
-		$statement = $this->db->prepare('UPDATE wochenreport SET status = 1 WHERE wochenreportId = :id');
+		$statement = $this->db->prepare('UPDATE weeklyreport SET status = 1 WHERE weeklyReportId = :id');
 		$statement->bindParam(':id', $id, PDO::PARAM_STR);
 		$statement->execute();
 	}
 
 	public function editWeeklyReport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $id){
-		$statement = $this->db->prepare('UPDATE wochenreport SET kalenderwoche = :kalenderwoche, erledigte_arbeiten = :erledigte_arbeiten, laufende_arbeiten = :laufende_arbeiten, reflexion = :reflexion, aufgetretene_probleme = :aufgetretene_probleme WHERE wochenreportId = :id');
+		$statement = $this->db->prepare('UPDATE weeklyreport SET calendarWeek = :kalenderwoche, doneWork = :erledigte_arbeiten, ongoingWork = :laufende_arbeiten, reflection = :reflexion, occurredProblems = :aufgetretene_probleme WHERE weeklyReportId = :id');
 		$statement->bindParam(':kalenderwoche', $calendar_week, PDO::PARAM_STR);
 		$statement->bindParam(':erledigte_arbeiten', $completed_tasks, PDO::PARAM_STR);
 		$statement->bindParam(':laufende_arbeiten', $still_in_work, PDO::PARAM_STR);
@@ -69,14 +69,14 @@ class WeeklyReport
 	}
 
 	public function getWeeklyReport($id){
-		$statement = $this->db->prepare('SELECT * FROM wochenreport WHERE wochenreportId = :id');
+		$statement = $this->db->prepare('SELECT * FROM weeklyreport WHERE weeklyReportId = :id');
 		$statement->bindParam(':id', $id, PDO::PARAM_STR);
 		$statement->execute();
         return $statement;
 	}
 
 	public function seeWeekly($id){
-		$statement = $this->db->prepare('SELECT * FROM wochenreport WHERE wochenreportId = :id');
+		$statement = $this->db->prepare('SELECT * FROM weeklyreport WHERE weeklyReportId = :id');
 		$statement->bindParam(':id', $id, PDO::PARAM_STR);
 		$statement->execute();
         return $statement;

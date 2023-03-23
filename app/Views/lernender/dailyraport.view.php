@@ -20,7 +20,8 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 ?>
 
     <main>
-        <?php if(count($arrayJournalsInProcess) > 0 && count($arrayJournalIsReleased)){ ?>
+        <?php 
+        if(count($arrayJournalsInProcess) > 0 || count($arrayJournalIsReleased) > 0){ ?>
         <?php if(count($arrayJournalsInProcess) > 0){ ?>
         <h1>Still in process</h1>
         <div class="flex-container">
@@ -64,10 +65,16 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                             <h2><?= $journalIsReleased['full_name'] ?></h2>
                             <textarea readonly class="ckeditor" name="text"
                                 id="text"><?php echo $journalIsReleased['text'] ?></textarea>
+                            <?php if(!empty($journalIsReleased['selected_topics'])){?>
                             <div class="datopic">
+                                <h3>Topics:</h3>
+                                <p><?= $journalIsReleased['selected_topics'] ?></p>
+                            </div>
+                            <?php } ?>
+                            <div class="datopic">
+                                <h3>Published:</h3>
                                 <?php $date = date('dS M Y H:i:s', strtotime($journalIsReleased['date']));?>
-                                <p><?= $date?> o'clock</p>&nbsp;
-                                <p><?= $journalIsReleased['selected_topi&cs'] ?></p>
+                                <p><?= $date?> o'clock</p>
                             </div>
                         </div>
                     </div>

@@ -48,10 +48,16 @@ include ("general/navside.view.php");
                         <h2><?= $dailyreports['full_name'] ?></h2>
                         <textarea readonly class="ckeditor" name="text"
                             id="text"><?php echo $dailyreports['text'] ?></textarea>
+                        <?php if(!empty($dailyreports['selected_topics'])){?>
                         <div class="datopic">
+                            <h3>Topics:</h3>
+                            <p><?= $dailyreports['selected_topics'] ?></p>
+                        </div>
+                        <?php } ?>
+                        <div class="datopic">
+                            <h3>Published:</h3>
                             <?php $date = date('dS M Y H:i:s', strtotime($dailyreports['date']));?>
-                            <p><?= $date?> o'clock</p>&nbsp;
-                            <p><?= $dailyreports['selected_topi&cs'] ?></p>
+                            <p><?= $date?> o'clock</p>
                         </div>
                     </div>
                 </div>

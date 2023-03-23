@@ -20,7 +20,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 ?>
 
     <main>
-        <?php if(count($arrayWeeklyInProcess) > 0 && count($arrayWeeklyIsReleased) > 0){?>
+        <?php if(count($arrayWeeklyInProcess) > 0 || count($arrayWeeklyIsReleased) > 0){?>
         <?php if(count($arrayWeeklyInProcess) > 0){?>
         <h1>Still in process</h1>
 
@@ -29,11 +29,11 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                         foreach ($arrayWeeklyInProcess as $weeklyIsProcess){?>
             <div>
                 <div class="content">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                    <button>Publish</button>
                     <div class="contentText">
                         <h1><?= $weeklyIsProcess['full_name'] ?></h1>
+                        <button onclick="editWeeklyReport(<?= $weeklyIsProcess['weeklyReportId'] ?>)">Edit</button>
+                        <button onclick="deleteWeeklyReport(<?= $weeklyIsProcess['weeklyReportId'] ?>)">Delete</button>
+                        <button onclick="releaseWeeklyReport(<?= $weeklyIsProcess['weeklyReportId'] ?>)">Publish</button>
                         <h3>Done Work:</h3>
                         <textarea readonly class="ckeditor" name="doneWork"
                             id="doneWork"><?php echo $weeklyIsProcess['doneWork'] ?></textarea>
@@ -96,8 +96,8 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         </div>
         <?php }
     } else {?>
-    <h1>There are no weekly reports</h1>
-    <?php } ?>
+        <h1>There are no weekly reports</h1>
+        <?php } ?>
     </main>
 
     <script src="public/js/app.js"></script>

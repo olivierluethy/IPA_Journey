@@ -86,7 +86,6 @@ body main .flex-container .content .contentText button:nth-child(3) {
 body main .flex-container .content .datopic {
   display: flex;
   margin-right: 10px;
-  margin-bottom: 1rem;
 }
 body main .flex-container .content .datopic > *:first-child {
   margin-right: 10px;
