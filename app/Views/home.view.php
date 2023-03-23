@@ -39,103 +39,53 @@ include ("general/navside.view.php");
             </div>
         </div>
 
-        <div class="flex-container">
+        <div class="flex-container" id="dailyreports">
+            <?php
+            foreach($arrayJournalsInRelease as $dailyreports){?>
             <div>
                 <div class="content">
                     <div class="contentText">
-                        <h2>{Name}</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                        </p>
+                        <h2><?= $dailyreports['full_name'] ?></h2>
+                        <textarea readonly class="ckeditor" name="text"
+                            id="text"><?php echo $dailyreports['text'] ?></textarea>
                         <div class="datopic">
-                            <p>{Datum}</p>
-                            <p>{Themen}</p>
+                            <?php $date = date('dS M Y H:i:s', strtotime($dailyreports['date']));?>
+                            <p><?= $date?> o'clock</p>&nbsp;
+                            <p><?= $dailyreports['selected_topi&cs'] ?></p>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php } ?>
+        </div>
+
+        <div class="flex-container" id="weeklyreports">
+            <?php
+            foreach($arrayWeeklyIsInRelease as $weeklyreports){?>
             <div>
                 <div class="content">
                     <div class="contentText">
-                        <h2>{Name}</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum eveniet
-                            reprehenderit eius rem sequi
-                            voluptatem adipisci quaerat explicabo, voluptate odit perspiciatis cupiditate cumque eum
-                            amet quidem omnis
-                            quae distinctio.<br>
-                        </p>
+                        <h1><?= $weeklyreports['full_name'] ?></h1>
+                        <h3>Done Work:</h3>
+                        <textarea readonly class="ckeditor" name="doneWork"
+                            id="doneWork"><?php echo $weeklyreports['doneWork'] ?></textarea>
+                        <h3>Ongoing work:</h3>
+                        <textarea readonly class="ckeditor" name="ongoingWork"
+                            id="ongoingWork"><?php echo $weeklyreports['ongoingWork'] ?></textarea>
+                        <h3>Reflection:</h3>
+                        <textarea readonly class="ckeditor" name="reflection"
+                            id="reflection"><?php echo $weeklyreports['reflection'] ?></textarea>
+                        <h3>Occurred problems:</h3>
+                        <textarea readonly class="ckeditor" name="occurredProblems"
+                            id="occurredProblems"><?php echo $weeklyreports['occurredProblems'] ?></textarea>
                         <div class="datopic">
-                            <p>{Datum}</p>
-                            <p>{Themen}</p>
+                            <?php $date = date('dS M Y H:i:s', strtotime($weeklyreports['date']));?>
+                            <p><?= $date?> o'clock</p>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
     </main>
 
@@ -145,6 +95,7 @@ include ("general/navside.view.php");
 
     <script>
     CKEDITOR.replace('recentlyReleased');
+    CKEDITOR.replace('dailyreport');
     </script>
 </body>
 

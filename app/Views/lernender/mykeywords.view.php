@@ -34,6 +34,8 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                         <div class="contentText">
                             <h2><?= $keyword['topic'] ?></h2>
                         </div>
+                        <button onclick="editKeyword(<?= $keyword['topicId'] ?>)">Edit</button>
+                        <button onclick="deleteKeyword(<?= $keyword['topicId'] ?>)">Delete</button>
                     </div>
                 </div>
             </div>

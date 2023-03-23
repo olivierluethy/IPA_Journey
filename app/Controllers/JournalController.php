@@ -14,8 +14,6 @@ class JournalController
 			// Retrieve all daily journals that are released
 			$Journal = new Journal();
 			$arrayJournalsInRelease = $Journal->getAllDailyJournalsInRelease()->fetchAll();
-
-			var_dump($arrayJournalsInRelease);
 	
 			// Retrieve all weekly reports that are released
 			$Wochenrapport = new WeeklyReport();

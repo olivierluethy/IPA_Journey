@@ -20,39 +20,84 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 ?>
 
     <main>
-        <div class="withData">
-            <div class="title">
-                <h1>Recently completed</h1>
-                <button title="Add a weekly report" onclick='navigateTo("addweeklyjournal")'>+</button>
-            </div>
+        <?php if(count($arrayWeeklyInProcess) > 0 && count($arrayWeeklyIsReleased) > 0){?>
+        <?php if(count($arrayWeeklyInProcess) > 0){?>
+        <h1>Still in process</h1>
+
+        <div class="flex-container">
             <?php
-           foreach ($arrayWeeklyIsReleased as $weeklyIsReleased){?>
-            <div class="flex-container">
-                <div>
-                    <div class="content">
-                        <div class="contentText">
-                            <h2><?= $weeklyIsReleased['full_name'] ?></h2>
-                            <p>Done Work:</p>
-                            <textarea readonly class="ckeditor" name="doneWork"
-                                id="doneWork"><?php echo $weeklyIsReleased['doneWork'] ?></textarea>
-                            <p>Ongoing work:</p>
-                            <textarea readonly class="ckeditor" name="ongoingWork"
-                                id="ongoingWork"><?php echo $weeklyIsReleased['ongoingWork'] ?></textarea>
-                                <p>Reflection:</p>
-                            <textarea readonly class="ckeditor" name="reflection"
-                                id="reflection"><?php echo $weeklyIsReleased['reflection'] ?></textarea>
-                                <p>Occurred problems:</p>
-                            <textarea readonly class="ckeditor" name="occurredProblems"
-                                id="occurredProblems"><?php echo $weeklyIsReleased['occurredProblems'] ?></textarea>
-                            <div class="datopic">
-                                <p><?= $weeklyIsReleased['date'] ?></p>
-                            </div>
+                        foreach ($arrayWeeklyInProcess as $weeklyIsProcess){?>
+            <div>
+                <div class="content">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                    <button>Publish</button>
+                    <div class="contentText">
+                        <h1><?= $weeklyIsProcess['full_name'] ?></h1>
+                        <h3>Done Work:</h3>
+                        <textarea readonly class="ckeditor" name="doneWork"
+                            id="doneWork"><?php echo $weeklyIsProcess['doneWork'] ?></textarea>
+                        <h3>Ongoing work:</h3>
+                        <textarea readonly class="ckeditor" name="ongoingWork"
+                            id="ongoingWork"><?php echo $weeklyIsProcess['ongoingWork'] ?></textarea>
+                        <h3>Reflection:</h3>
+                        <textarea readonly class="ckeditor" name="reflection"
+                            id="reflection"><?php echo $weeklyIsProcess['reflection'] ?></textarea>
+                        <h3>Occurred problems:</h3>
+                        <textarea readonly class="ckeditor" name="occurredProblems"
+                            id="occurredProblems"><?php echo $weeklyIsProcess['occurredProblems'] ?></textarea>
+                        <div class="datopic">
+                            <h3>Published:</h3>
+                            <?php $date = date('dS M Y H:i:s', strtotime($weeklyIsProcess['date']));?>
+                            <p><?= $date?> o'clock</p>
                         </div>
                     </div>
                 </div>
             </div>
             <?php } ?>
         </div>
+        <?php } ?>
+
+        <?php if(count($arrayWeeklyIsReleased) > 0){?>
+        <div class="withData">
+            <div class="title">
+                <h1>Recently completed</h1>
+                <button title="Add a weekly report" onclick='navigateTo("addweeklyjournal")'>+</button>
+            </div>
+            <div class="flex-container">
+                <?php
+                    foreach ($arrayWeeklyIsReleased as $weeklyIsReleased){?>
+                <div>
+                    <div class="content">
+                        <div class="contentText">
+                            <h1><?= $weeklyIsReleased['full_name'] ?></h1>
+                            <h3>Done Work:</h3>
+                            <textarea readonly class="ckeditor" name="doneWork"
+                                id="doneWork"><?php echo $weeklyIsReleased['doneWork'] ?></textarea>
+                            <h3>Ongoing work:</h3>
+                            <textarea readonly class="ckeditor" name="ongoingWork"
+                                id="ongoingWork"><?php echo $weeklyIsReleased['ongoingWork'] ?></textarea>
+                            <h3>Reflection:</h3>
+                            <textarea readonly class="ckeditor" name="reflection"
+                                id="reflection"><?php echo $weeklyIsReleased['reflection'] ?></textarea>
+                            <h3>Occurred problems:</h3>
+                            <textarea readonly class="ckeditor" name="occurredProblems"
+                                id="occurredProblems"><?php echo $weeklyIsReleased['occurredProblems'] ?></textarea>
+                            <div class="datopic">
+                                <h3>Published:</h3>
+                                <?php $date = date('dS M Y H:i:s', strtotime($weeklyIsReleased['date']));?>
+                                <p><?= $date?> o'clock</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+        <?php }
+    } else {?>
+    <h1>There are no weekly reports</h1>
+    <?php } ?>
     </main>
 
     <script src="public/js/app.js"></script>

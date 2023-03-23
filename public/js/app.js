@@ -52,6 +52,9 @@ function showPart(topic){
     document.querySelector("main .withData .switch button:nth-child(2)").style.zIndex = 99;
     document.querySelector("main .withData .switch button:nth-child(2)").style.backgroundColor ="white";
     document.querySelector("main .withData .switch button:nth-child(2)").style.color ="black";
+
+    document.getElementById("dailyreports").style.display="block";
+    document.getElementById("weeklyreports").style.display="none";
   }else if(topic == "weekly"){
     document.querySelector("main .withData .switch button:nth-child(1)").style.zIndex = 99;
     document.querySelector("main .withData .switch button:nth-child(1)").style.backgroundColor ="white";
@@ -60,5 +63,10 @@ function showPart(topic){
     document.querySelector("main .withData .switch button:nth-child(2)").style.zIndex = 100;
     document.querySelector("main .withData .switch button:nth-child(2)").style.backgroundColor ="black";
     document.querySelector("main .withData .switch button:nth-child(2)").style.color ="white";
+
+    document.getElementById("dailyreports").style.display="none";
+    document.getElementById("weeklyreports").style.display="block";
   }
 }
+
+document.getElementById("weeklyreports").style.display="none";

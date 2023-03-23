@@ -28,11 +28,11 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 
             <h2>Keywords:</h2>
             <?php 
-            $pickedKeywordsIds = array_column($getPickedKeywords, 'themaId');
+            $pickedKeywordsIds = array_column($getPickedKeywords, 'topicId');
             foreach ($getKeywords as $keyword) {
-                $checked = in_array($keyword['themaId'], $pickedKeywordsIds);
-                echo "<input type='checkbox' name='topics[]' id=" . $keyword['themaId'] . " " . ($checked ? "checked" : "") . " value=" . $keyword['themaId'] .">";
-                echo "<label for=" . $keyword['themaId'] . ">" . $keyword['thema'] . "</label>";
+                $checked = in_array($keyword['topicId'], $pickedKeywordsIds);
+                echo "<input type='checkbox' name='topics[]' id=" . $keyword['topicId'] . " " . ($checked ? "checked" : "") . " value=" . $keyword['topicId'] .">";
+                echo "<label for=" . $keyword['topicId'] . ">" . $keyword['topic'] . "</label>";
             }
             echo "<br><input type='submit'>";
             ?>

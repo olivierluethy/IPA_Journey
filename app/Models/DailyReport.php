@@ -28,7 +28,7 @@ class DailyReport
 		$statement->bindParam(':id', $id, PDO::PARAM_STR);
 		$statement->execute();
 
-		$statement = $this->db->prepare('DELETE FROM `ausgewaehlte_themen` WHERE fk_journalId = :id');
+		$statement = $this->db->prepare('DELETE FROM `selectedtopics` WHERE fk_journalId = :id');
     	$statement->bindParam(':id', $id, PDO::PARAM_STR);
     	$statement->execute();
 	}

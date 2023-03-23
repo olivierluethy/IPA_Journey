@@ -20,15 +20,44 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 ?>
 
     <main>
+        <?php if(count($arrayJournalsInProcess) > 0 && count($arrayJournalIsReleased)){ ?>
+        <?php if(count($arrayJournalsInProcess) > 0){ ?>
+        <h1>Still in process</h1>
+        <div class="flex-container">
+            <?php
+                    foreach ($arrayJournalsInProcess as $journalIsProcess) {?>
+            <div>
+                <div class="content">
+                    <div class="contentText">
+                        <h2><?= $journalIsProcess['full_name'] ?></h2>
+                        <button onclick="editDailyReport(<?= $journalIsProcess['journalId'] ?>)">Edit</button>
+                        <button onclick="deleteDailyReport(<?= $journalIsProcess['journalId'] ?>)">Delete</button>
+                        <button
+                            onclick="releaseDailyReport(<?= $journalIsProcess['journalId'] ?>)">Publish</button><br><br>
+                        <textarea readonly class="ckeditor" name="text"
+                            id="text"><?php echo $journalIsProcess['text'] ?></textarea>
+                        <div class="datopic">
+                            <?php $date = date('dS M Y H:i:s', strtotime($journalIsProcess['date']));?>
+                            <p><?= $date?> o'clock</p>&nbsp;
+                            <p><?= $journalIsProcess['selected_topics'] ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+        <?php } ?>
+
+        <?php if(count($arrayJournalIsReleased) > 0){ ?>
         <div class="withData">
             <div class="title">
                 <h1>Recently completed</h1>
                 <button title="Add a daily report" onclick='navigateTo("adddailyjournal")'>+</button>
             </div>
 
-            <?php
-            foreach ($arrayJournalIsReleased as $journalIsReleased) {?>
             <div class="flex-container">
+                <?php
+                    foreach ($arrayJournalIsReleased as $journalIsReleased) {?>
                 <div>
                     <div class="content">
                         <div class="contentText">
@@ -36,14 +65,22 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                             <textarea readonly class="ckeditor" name="text"
                                 id="text"><?php echo $journalIsReleased['text'] ?></textarea>
                             <div class="datopic">
-                                <p><?= $journalIsReleased['selected_topics'] ?></p>
+                                <?php $date = date('dS M Y H:i:s', strtotime($journalIsReleased['date']));?>
+                                <p><?= $date?> o'clock</p>&nbsp;
+                                <p><?= $journalIsReleased['selected_topi&cs'] ?></p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php } ?>
             </div>
-            <?php } ?>
         </div>
+        <?php } ?>
+        <?php } else { ?>
+
+        <h1>There are no daily reports</h1>
+        <?php } ?>
+
     </main>
 
     <script src="public/js/app.js"></script>
