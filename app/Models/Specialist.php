@@ -1,5 +1,5 @@
 <?php
-class Fachkraft
+class Specialist
 {
     public $db;
 
@@ -10,8 +10,13 @@ class Fachkraft
 
     // Gets all daily raports
 	public function getDailyRaports(){
-		$statement = $this->db->prepare('SELECT journal.journalId, journal.text, journal.date, user.full_name FROM journal 
-		INNER JOIN user ON user.userId = journal.fk_userId WHERE journal.status = 1');
+		$statement = $this->db->prepare("SELECT journal.journalId, journal.text, journal.date, user.full_name, GROUP_CONCAT(t.topic SEPARATOR ' | ') AS selected_topics
+        FROM journal
+        LEFT JOIN selectedtopics ON journal.journalId = selectedtopics.fk_journalId
+        LEFT JOIN topic AS t ON selectedtopics.fk_topicId = t.topicId
+        INNER JOIN user ON user.userId = journal.fk_userId
+        WHERE journal.status = 1 AND (selectedtopics.fk_topicId IS NULL OR selectedtopics.fk_topicId != '')
+        GROUP BY journal.journalId");
 		$statement->execute();
         return $statement;
 	}

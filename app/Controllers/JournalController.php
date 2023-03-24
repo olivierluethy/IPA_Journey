@@ -27,6 +27,6 @@ class JournalController
 	public function releasedreports(){		
 		require_once 'app/Views/general/config.php';
 
-		require 'app/Views/fachkraft/releasedreports.view.php';
+		require 'app/Views/specialist/releasedreports.view.php';
 	}
 }

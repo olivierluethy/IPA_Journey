@@ -18,7 +18,7 @@ class WeeklyReportController
 			$arrayWeeklyIsReleased = $WeeklyReport->getAllWeeklyInRelease()->fetchAll();
 
 			// Load the "weeklyraport" view file to display the lists of weekly reports
-			require 'app/Views/lernender/weeklyraport.view.php';
+			require 'app/Views/learner/weeklyraport.view.php';
 		}else{
 			// Redirect user to "login" page if not logged in
 			header("Location: login");
@@ -54,7 +54,7 @@ class WeeklyReportController
 			}
 	
 			// Load the add weekly journal entry form view
-			require 'app/Views/lernender/addweeklyjournal.view.php';
+			require 'app/Views/learner/addweeklyjournal.view.php';
 		}
 	}	
 
@@ -93,7 +93,7 @@ class WeeklyReportController
 			}
 	
 			// Load the view for editing the weekly report
-			require 'app/Views/lernender/editWeeklyJournal.view.php';
+			require 'app/Views/learner/editWeeklyJournal.view.php';
 		}
 	}	
 
@@ -163,7 +163,7 @@ class WeeklyReportController
 			$WeeklyReport = $WeeklyReport->seeWeekly($id)->fetchAll();
 	
 			// Load the view to display the weekly report data
-			require 'app/Views/lernender/seeWeekly.view.php';
+			require 'app/Views/learner/seeWeekly.view.php';
 		}
 	}	
 }

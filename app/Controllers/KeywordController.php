@@ -16,7 +16,7 @@ class KeywordController
 			$arrayKeywords = $Keyword->getAllKeywords()->fetchAll();
 			
 			// Load the "mykeywords" view file to display the list of keywords
-			require 'app/Views/lernender/mykeywords.view.php';	
+			require 'app/Views/learner/mykeywords.view.php';	
 		}
 		/* Redirect user to "login" page */
 		else {
@@ -47,7 +47,7 @@ class KeywordController
 			}
 
 			// Load add keyword view file
-			require 'app/Views/lernender/addkeyword.view.php';
+			require 'app/Views/learner/addkeyword.view.php';
 		}
 		/* Redirect user to "login" page */
 		else {
@@ -84,7 +84,7 @@ class KeywordController
 			}
 
 			// Load edit keyword view file
-			require 'app/Views/lernender/editKeyword.view.php';
+			require 'app/Views/learner/editKeyword.view.php';
 		}else{
 			// Redirect user to "login" page
 			header("Location: login");

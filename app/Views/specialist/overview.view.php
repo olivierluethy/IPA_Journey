@@ -21,12 +21,13 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 
     <main>
 
-        <input type="text" id="inputSearch" onkeyup="search()" placeholder="Search by user or keyword">
+        <input type="text" id="inputSearch" onkeyup="search()" placeholder="Search by user, content inside text, keyword or date">
 
+        <h1>Weekly reports:</h1>
         <div class="flex-container" id="weekly">
             <?php
                     foreach ($arrayWeeklyRaports as $weeklyraports){?>
-            <div>
+            <div class="container-child">
                 <div class="content">
                     <div class="contentText">
                         <h1><?= $weeklyraports['full_name'] ?></h1>
@@ -53,13 +54,14 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             <?php } ?>
         </div>
 
+        <h1>Daily reports:</h1>
         <div class="flex-container" id="daily">
             <?php
                     foreach ($arrayDailyRaports as $dailyraports) {?>
-            <div>
+            <div class="container-child">
                 <div class="content">
                     <div class="contentText">
-                        <h2><?= $dailyraports['full_name'] ?></h2>
+                        <h1><?= $dailyraports['full_name'] ?></h1>
                         <textarea readonly class="ckeditor" name="text"
                             id="text"><?php echo $dailyraports['text'] ?></textarea>
                         <?php if(!empty($dailyraports['selected_topics'])){?>

@@ -21,7 +21,7 @@ class DailyReportController
 		$arrayJournalIsReleased = $Journal->getAllDailyJournalsInRelease()->fetchAll();
 		
 		// Load dailyraport view
-		require 'app/Views/lernender/dailyraport.view.php';
+		require 'app/Views/learner/dailyraport.view.php';
 	}
 	
 	/* The page to add daily journal */
@@ -62,7 +62,7 @@ class DailyReportController
 		}
 		
 		// Load the daily journal form view
-		require 'app/Views/lernender/adddailyjournal.view.php';
+		require 'app/Views/learner/adddailyjournal.view.php';
 	}	
 
 	/* The page to edit a daily report */
@@ -104,7 +104,7 @@ class DailyReportController
 			}
 			
 			// Loading the edit daily journal view
-			require 'app/Views/lernender/editDailyJournal.view.php';
+			require 'app/Views/learner/editDailyJournal.view.php';
 		}else {
 			// Redirecting to the login page if user is not logged in
 			header('Location: login');
@@ -184,6 +184,6 @@ class DailyReportController
 		$getPickedKeywords = $Keyword->getSelectedKeywords($id)->fetchAll();
 	
 		// Load the view for displaying the daily report
-		require 'app/Views/fachkraft/seeDaily.view.php';
+		require 'app/Views/specialist/seeDaily.view.php';
 	}	
 }
