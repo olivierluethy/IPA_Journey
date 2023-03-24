@@ -14,35 +14,31 @@
 
 <body>
     <?php
-$actual_link = basename(__FILE__); // aktueller dateiname (wird für header.php benötigt)
+$actual_link = basename(__FILE__);
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
     <main>
+        <?php if(count($arrayUsers) > 0){?>
         <div class="withData">
             <div class="flex-container">
+                <?php foreach($arrayUsers as $user){?>
                 <div>
                     <div class="content">
                         <div class="header">
-                            <h2>{Name}</h2>
-                            <h2>{Email}</h2>
-                            <button>Edit</button>
-                            <button>Delete</button>
+                            <h2><?= $user['full_name'] ?></h2>
+                            <h2><?= $user['email'] ?></h2>
+                            <button onclick="editUser(<?= $user['userId'] ?>)">Edit</button>
+                            <button onclick="deleteUser(<?= $user['userId'] ?>)">Delete</button>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="content">
-                        <div class="header">
-                            <h2>{Name}</h2>
-                            <h2>{Email}</h2>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
+        <?php } else {?>
+        <h1>There are no users</h1>
+        <?php }?>
     </main>
 
     <script src="public/js/app.js"></script>

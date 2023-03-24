@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <?php
-$actual_link = basename(__FILE__); // aktueller dateiname (wird für header.php benötigt)
+<?php
+$actual_link = basename(__FILE__);
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 

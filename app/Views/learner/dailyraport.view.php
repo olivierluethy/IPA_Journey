@@ -14,11 +14,10 @@
 
 <body>
 
-    <?php
-$actual_link = basename(__FILE__); // aktueller dateiname (wird für header.php benötigt)
+<?php
+$actual_link = basename(__FILE__);
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
-
     <main>
         <?php 
         if(count($arrayJournalsInProcess) > 0 || count($arrayJournalIsReleased) > 0){ ?>
@@ -60,9 +59,10 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             <div class="title">
                 <h1>Recently completed</h1>
                 <button title="Add a daily report" onclick='navigateTo("adddailyjournal")'>+</button>
+                <input type="text" id="inputSearch" onkeyup="sortByDaily()" placeholder="Search by content inside text, keyword or date">
             </div>
 
-            <div class="flex-container">
+            <div class="flex-container" id="daily">
                 <?php
                     foreach ($arrayJournalIsReleased as $journalIsReleased) {?>
                 <div>
@@ -98,6 +98,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 
     <script src="public/js/app.js"></script>
     <script src="public/js/route.js"></script>
+    <script src="public/js/search.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
 
     <script>

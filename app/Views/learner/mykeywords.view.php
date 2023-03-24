@@ -14,8 +14,8 @@
 
 <body>
 
-    <?php
-$actual_link = basename(__FILE__); // aktueller dateiname (wird für header.php benötigt)
+<?php
+$actual_link = basename(__FILE__);
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
@@ -33,9 +33,9 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                     <div class="content">
                         <div class="contentText">
                             <h2><?= $keyword['topic'] ?></h2>
+                            <button onclick="editKeyword(<?= $keyword['topicId'] ?>)">Edit</button>
+                            <button onclick="deleteKeyword(<?= $keyword['topicId'] ?>)">Delete</button>
                         </div>
-                        <button onclick="editKeyword(<?= $keyword['topicId'] ?>)">Edit</button>
-                        <button onclick="deleteKeyword(<?= $keyword['topicId'] ?>)">Delete</button>
                     </div>
                 </div>
             </div>

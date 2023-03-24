@@ -1,25 +1,29 @@
 #burger {
   display: none;
   position: absolute;
-  z-index: 102;
+  background-color: rgb(230, 230, 230);
+  z-index: 401;
   top: 30px;
   left: 7px;
   width: 30px;
-  height: 34px;
-  background-color: white;
-  font-size: 16px;
+  border: 2px solid black;
+  border-radius: 50px;
+  height: 35px;
+  font-weight: bold;
+  font-size: 18px;
   transition-duration: 0.4s;
   cursor: pointer;
 }
 #burger:hover {
-  background-color: lightgray;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 4px 1px #000000;
   cursor: pointer;
 }
 
 #sidebar {
   position: fixed;
   text-align: center;
-  z-index: 199;
+  z-index: 400;
   top: 0;
   bottom: 0;
   left: 0;
@@ -64,7 +68,7 @@
 header {
   position: fixed;
   top: 0;
-  z-index: 200;
+  z-index: 199;
   left: 200px;
   width: 100%;
   right: 0;
@@ -137,7 +141,7 @@ header .grid-container > div {
     width: 200px;
     background-color: yellow;
     transition: left 0.5s ease-in-out;
-    z-index: 100;
+    z-index: 400;
   }
   body #sidebar ul {
     display: none;

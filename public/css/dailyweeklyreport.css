@@ -18,6 +18,13 @@ body main input[type=text] {
 body main .title {
   display: flex;
 }
+body main .title input[type=text] {
+  margin-left: 2rem;
+  width: 30%;
+  height: 45px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
 body main .title button {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border: none;

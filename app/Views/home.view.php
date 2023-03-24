@@ -24,11 +24,11 @@ include ("general/navside.view.php");
         <div class="menu">
             <div onclick="navigateTo('adddailyjournal')">
                 <img src="images/writedailyreport.png" alt="">
-                <p>Write the daily report</p>
+                <p>Write a daily report</p>
             </div>
             <div onclick="navigateTo('addweeklyjournal')">
                 <img src="images/writedailyreport.png" alt="">
-                <p>Write the weekly report</p>
+                <p>Write a weekly report</p>
             </div>
         </div>
         <?php } ?>
@@ -39,6 +39,7 @@ include ("general/navside.view.php");
             <?php } else if ($_SESSION['role'] == 1){?>
             <h2>Recently published reports</h2>
             <?php } ?>
+            <?php if ($_SESSION['role'] != 2){?>
             <div class="switch">
                 <button title="Show daily sector" onclick="showPart('daily')">Daily</button>
                 <button title="Show weekly sector" onclick="showPart('weekly')">Weekly</button>
@@ -100,6 +101,13 @@ include ("general/navside.view.php");
             </div>
             <?php } ?>
         </div>
+        <?php } ?>
+
+        <!-- For the administrator -->
+        <?php if($_SESSION['role'] == 2) {?>
+
+
+        <?php } ?>
     </main>
 
     <script src="public/js/app.js"></script>

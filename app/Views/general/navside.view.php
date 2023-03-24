@@ -1,12 +1,12 @@
 <?php
 $navigationFiller = "/";
-$url = "$_SERVER[HTTP_HOST]"; // gibt die URL
-$havePort = preg_match('/[0-9]/', $url); // die Seite Localhost hat einen bestimmtem Port, daher auch einen Root Ordner
+$url = "$_SERVER[HTTP_HOST]"; // gives the URL
+$havePort = preg_match('/[0-9]/', $url); // the localhost page has a specific port, so also a root folder
 
 if (!$havePort) {
     $navigationFiller .= "IPA_Olivier/";
 }
-echo "<button id='burger' onclick='toggleSidebar()'>&#9776;</button>";
+echo "<button id='burger' onclick='toggleSidebar()' title='Show sidenavigation'>&#9776;</button>";
 
 echo "<nav id='sidebar'>
         <h2>Journal <br>
@@ -102,7 +102,7 @@ if(isset($_SESSION['role'])){
                     }
                 }
             ?>
-            
+
         </div>
         <div></div>
         <div>
@@ -110,7 +110,7 @@ if(isset($_SESSION['role'])){
             if(isset($_SESSION['role'])){
                 echo '<img src="' . $_SESSION['profileImageUrl'] . '" class="user-image" />';
                 ?>
-                <h2>Hey, <?= $_SESSION['full_name'] ?>!</h2>
+            <h2>Hey, <?= $_SESSION['full_name'] ?>!</h2>
             <?php } ?>
         </div>
     </div>

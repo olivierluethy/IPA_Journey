@@ -6,10 +6,10 @@ showOnOff = showOnOff === 0 ? 1 : 0;
 
   if (showOnOff === 1) {
     document.getElementById("sidebar").style.left = "0px";
-    document.querySelector("#sidebar ul").style.display = "block";
+    document.getElementById("burger").title="Hide sidenavigation";
   } else {
     document.getElementById("sidebar").style.left = "-200px";
-    document.querySelector("#sidebar ul").style.display = "none";
+    document.getElementById("burger").title="Show sidenavigation";
   }
 }
 

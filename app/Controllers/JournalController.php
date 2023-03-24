@@ -10,7 +10,11 @@ class JournalController
 		if (!isset($_SESSION['token'])) {
 			header("Location: login");
 			return;
-		}else {
+		}
+		else {
+			if($_SESSION['role'] == 2){
+				header("Location: useroverview");
+			}
 			// Retrieve all daily journals that are released
 			$Journal = new Journal();
 			$arrayJournalsInRelease = $Journal->getAllDailyJournalsInRelease()->fetchAll();

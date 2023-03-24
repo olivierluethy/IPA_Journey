@@ -15,7 +15,7 @@
 <body>
 
     <?php
-$actual_link = basename(__FILE__); // aktueller dateiname (wird für header.php benötigt)
+$actual_link = basename(__FILE__);
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
@@ -33,7 +33,8 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                         <h1><?= $weeklyIsProcess['full_name'] ?></h1>
                         <button onclick="editWeeklyReport(<?= $weeklyIsProcess['weeklyReportId'] ?>)">Edit</button>
                         <button onclick="deleteWeeklyReport(<?= $weeklyIsProcess['weeklyReportId'] ?>)">Delete</button>
-                        <button onclick="releaseWeeklyReport(<?= $weeklyIsProcess['weeklyReportId'] ?>)">Publish</button>
+                        <button
+                            onclick="releaseWeeklyReport(<?= $weeklyIsProcess['weeklyReportId'] ?>)">Publish</button>
                         <h3>Done Work:</h3>
                         <textarea readonly class="ckeditor" name="doneWork"
                             id="doneWork"><?php echo $weeklyIsProcess['doneWork'] ?></textarea>
@@ -63,6 +64,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             <div class="title">
                 <h1>Recently completed</h1>
                 <button title="Add a weekly report" onclick='navigateTo("addweeklyjournal")'>+</button>
+                <input type="text" placeholder="Search by content inside text, keyword or date">
             </div>
             <div class="flex-container">
                 <?php

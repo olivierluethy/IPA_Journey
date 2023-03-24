@@ -15,13 +15,14 @@
 <body>
 
     <?php
-$actual_link = basename(__FILE__); // aktueller dateiname (wird für header.php benötigt)
+$actual_link = basename(__FILE__);
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
     <main>
 
-        <input type="text" id="inputSearch" onkeyup="search()" placeholder="Search by user, content inside text, keyword or date">
+        <input type="text" id="inputSearch" onkeyup="search()"
+            placeholder="Search by user, content inside text, keyword or date">
 
         <h1>Weekly reports:</h1>
         <div class="flex-container" id="weekly">

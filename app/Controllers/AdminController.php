@@ -9,7 +9,7 @@ class AdminController
 		require_once 'app/Views/general/config.php';
 
 		// Redirect to login page if user is not logged in
-		if (!isset($_SESSION['user_token'])) {
+		if (!isset($_SESSION['token'])) {
 			header("Location: login");
 			die();
 		}
@@ -25,7 +25,7 @@ class AdminController
 		$arrayUsers = $Admin->getAllUsers()->fetchAll();
 
 		// Load the useroverview view
-		require 'app/Views/useroverview.view.php';
+		require 'app/Views/admin/useroverview.view.php';
 	}
 
 	/* The page to edit a user */
