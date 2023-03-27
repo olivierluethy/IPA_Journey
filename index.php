@@ -28,16 +28,16 @@ $routes = [
 	'addweeklyjournal' => 'WeeklyReportController@addweeklyjournal',
 	'addkeyword' => 'KeywordController@addkeyword',
 
-	/* Für Fachkraft */
+	/* For Specialists */
 	'overview' => 'SpecialistController@overview',
 	'releasedreports' => 'JournalController@releasedreports',
 	'seeDaily' => 'DailyReportController@seeDaily',
 	'seeWeekly' => 'WeeklyReportController@seeWeekly',
 
-	/* Für Admin */
+	/* For Admin */
 	'useroverview' => 'AdminController@useroverview',
 
-	/* Für alle */
+	/* For everyone */
 	'logout' => 'LoginController@logout',
 	'login' => 'LoginController@login',
 

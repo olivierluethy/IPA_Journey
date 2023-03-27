@@ -67,42 +67,42 @@ if(isset($_SESSION['role'])){
     <div class="grid-container">
         <div>
             <?php
-                $links = [
-                    'home' => '<h1>Home</h1>',
-
-                    'dailyraport' => '<h1>Daily reports</h1>',
-                    'editDailyReport' => '<h1>Edit reports</h1>',
-
-                    'weeklyraport' => '<h1>Weekly reports</h1>',
-
-                    'keywords' => '<h1>Keywords</h1>',
-                    'editKeyword' => '<h1>Edit Keyword</h1>',
-                    'deleteKeyword' => '<h1>Delete Keyword</h1>',
-                    'login' => '<h1>Login</h1>',
-                    'editUser' => '<h1>Edit User</h1>',
-
-                    'useroverview' => '<h1>User Overview</h1>',
-                    
-                    'overview' => '<h1>Overview</h1>',
-                    'releasedreports' => '<h1>Released Reports</h1>',
-
-                    'adddailyjournal' => '<h1>Add Daily Report</h1>',
-                    'addweeklyjournal' => '<h1>Add Weekly Report</h1>',
-                    'addkeyword' => '<h1>Add Keyword</h1>',
-
-                    'editWeeklyRaport' => '<h1>Edit Weekly Reports</h1>',
-                ];
-                
-                $found = false;
-                foreach($links as $link => $title) {
-                    if (preg_match("/$link/i", $actual_link)) {
-                        echo $title;
-                        $found = true;
-                        break;
-                    }
+            // Define an array with key-value pairs where keys are links and values are titles
+            $links = [
+                'home' => '<h1>Home</h1>',
+                'dailyraport' => '<h1>Daily reports</h1>',
+                'editDailyReport' => '<h1>Edit reports</h1>',
+                'weeklyraport' => '<h1>Weekly reports</h1>',
+                'keywords' => '<h1>Keywords</h1>',
+                'editKeyword' => '<h1>Edit Keyword</h1>',
+                'deleteKeyword' => '<h1>Delete Keyword</h1>',
+                'login' => '<h1>Login</h1>',
+                'editUser' => '<h1>Edit User</h1>',
+                'useroverview' => '<h1>User Overview</h1>',
+                'overview' => '<h1>Overview</h1>',
+                'releasedreports' => '<h1>Released Reports</h1>',
+                'adddailyjournal' => '<h1>Add Daily Report</h1>',
+                'addweeklyjournal' => '<h1>Add Weekly Report</h1>',
+                'addkeyword' => '<h1>Add Keyword</h1>',
+                'editWeeklyRaport' => '<h1>Edit Weekly Reports</h1>',
+            ];
+            
+            // Initialize a variable to indicate if a link is found
+            $found = false;
+            
+            // Loop through the links and check if any match the current URL
+            foreach($links as $link => $title) {
+                // Use regular expression to check if the link is found in the current URL (case-insensitive)
+                if (preg_match("/$link/i", $actual_link)) {
+                    // Print the title of the link
+                    echo $title;
+                    // Set the found variable to true
+                    $found = true;
+                    // Break out of the loop once a match is found
+                    break;
                 }
-            ?>
-
+            }
+        ?>
         </div>
         <div></div>
         <div>

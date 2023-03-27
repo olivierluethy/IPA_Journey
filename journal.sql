@@ -6,7 +6,7 @@ USE journal;
 -- Table 'User'
 --
 
-CREATE TABLE user (
+CREATE TABLE `user` (
   `userId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `email` varchar(100) NOT NULL DEFAULT '',
   `first_name` varchar(50) NOT NULL DEFAULT '',
@@ -31,7 +31,7 @@ CREATE TABLE journal (
   date DATETIME DEFAULT CURRENT_TIMESTAMP, /* Date of creation */
   released DATETIME,
   fk_userId INT NOT NULL,
-  FOREIGN KEY (fk_userId) REFERENCES benutzer(userId)
+  FOREIGN KEY (fk_userId) REFERENCES user(userId)
 );
 
 --

@@ -91,6 +91,13 @@ function search() {
 }
 
 function sortByDaily(){
+    // Defining all the variables used in this function
+  var input, filter, div, container_children, content, name, textareas, topics, i, txtValue;
+  // Get the search field
+  input = document.getElementById("inputSearch");
+  // Put the value of the input search into the variable filter
+  filter = input.value.toUpperCase();
+  
     /* Search through the elements inside the daily div as well */
   // Get the daily div element
   div = document.getElementById("daily");

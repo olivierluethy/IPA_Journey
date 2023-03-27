@@ -64,12 +64,13 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             <div class="title">
                 <h1>Recently completed</h1>
                 <button title="Add a weekly report" onclick='navigateTo("addweeklyjournal")'>+</button>
-                <input type="text" placeholder="Search by content inside text, keyword or date">
+                <input type="text" placeholder="Search by content inside text, keyword or date" id="inputSearch"
+                    onkeyup="sortByWeekly()">
             </div>
-            <div class="flex-container">
+            <div class="flex-container" id="weekly">
                 <?php
                     foreach ($arrayWeeklyIsReleased as $weeklyIsReleased){?>
-                <div>
+                <div class="container-child">
                     <div class="content">
                         <div class="contentText">
                             <h1><?= $weeklyIsReleased['full_name'] ?></h1>
@@ -98,12 +99,19 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         </div>
         <?php }
     } else {?>
-        <h1>There are no weekly reports</h1>
+        <div class="withData">
+            <div class="title">
+                <h1>There are no weekly reports</h1>
+                <button title="Add a daily report"
+                    onclick='navigateTo("addweeklyjournal")'>+</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
         <?php } ?>
     </main>
 
     <script src="public/js/app.js"></script>
     <script src="public/js/route.js"></script>
+    <script src="public/js/search.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
 
     <script>

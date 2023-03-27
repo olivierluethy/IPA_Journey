@@ -14,12 +14,13 @@
 
 <body>
 
-<?php
+    <?php
 $actual_link = basename(__FILE__);
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
     <main>
+        <?php if(count($arrayKeywords) > 0){?>
         <div class="withData">
             <div class="title">
                 <h1>My keywords</h1>
@@ -41,6 +42,14 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             </div>
             <?php } ?>
         </div>
+        <?php } else {?>
+        <div class="withData">
+            <div class="title">
+                <h1>There are no keywords</h1>
+                <button title="Add a keyword" onclick='navigateTo("addkeyword")'>+</button>
+            </div>
+        </div>
+        <?php } ?>
     </main>
 
     <script src="public/js/app.js"></script>

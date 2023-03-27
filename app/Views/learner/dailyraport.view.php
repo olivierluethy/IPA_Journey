@@ -14,7 +14,7 @@
 
 <body>
 
-<?php
+    <?php
 $actual_link = basename(__FILE__);
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
@@ -30,10 +30,12 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                 <div class="content">
                     <div class="contentText">
                         <h2><?= $journalIsProcess['full_name'] ?></h2>
-                        <button onclick="editDailyReport(<?= $journalIsProcess['journalId'] ?>)" title="Edit this daily report">Edit</button>
-                        <button onclick="deleteDailyReport(<?= $journalIsProcess['journalId'] ?>)" title="Delete this daily report">Delete</button>
-                        <button
-                            onclick="releaseDailyReport(<?= $journalIsProcess['journalId'] ?>)" title="Publish this daily report">Publish</button><br><br>
+                        <button onclick="editDailyReport(<?= $journalIsProcess['journalId'] ?>)"
+                            title="Edit this daily report">Edit</button>
+                        <button onclick="deleteDailyReport(<?= $journalIsProcess['journalId'] ?>)"
+                            title="Delete this daily report">Delete</button>
+                        <button onclick="releaseDailyReport(<?= $journalIsProcess['journalId'] ?>)"
+                            title="Publish this daily report">Publish</button><br><br>
                         <textarea readonly class="ckeditor" name="text"
                             id="text"><?php echo $journalIsProcess['text'] ?></textarea>
                         <?php if(!empty($journalIsProcess['selected_topics'])){?>
@@ -59,13 +61,14 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             <div class="title">
                 <h1>Recently completed</h1>
                 <button title="Add a daily report" onclick='navigateTo("adddailyjournal")'>+</button>
-                <input type="text" id="inputSearch" onkeyup="sortByDaily()" placeholder="Search by content inside text, keyword or date">
+                <input type="text" id="inputSearch" onkeyup="sortByDaily()"
+                    placeholder="Search by content inside text, keyword or date">
             </div>
 
             <div class="flex-container" id="daily">
                 <?php
                     foreach ($arrayJournalIsReleased as $journalIsReleased) {?>
-                <div>
+                <div class="container-child">
                     <div class="content">
                         <div class="contentText">
                             <h2><?= $journalIsReleased['full_name'] ?></h2>
@@ -90,8 +93,13 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         </div>
         <?php } ?>
         <?php } else { ?>
-
-        <h1>There are no daily reports</h1>
+        <div class="withData">
+            <div class="title">
+                <h1>There are no daily reports</h1>
+                <button title="Add a daily report"
+                    onclick='navigateTo("adddailyjournal")'>+</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
         <?php } ?>
 
     </main>
