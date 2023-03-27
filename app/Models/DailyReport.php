@@ -68,12 +68,4 @@ class DailyReport
 		$statement->execute();
         return $statement;
 	}
-
-	// Gets all the information from selected daily report
-	public function seeDaily($id){
-		$statement = $this->db->prepare('SELECT * FROM journal WHERE journalId = :id');
-		$statement->bindParam(':id', $id, PDO::PARAM_STR);
-		$statement->execute();
-        return $statement;
-	}
 }

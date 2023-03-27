@@ -32,17 +32,7 @@ function reportWindowSize() {
   }
 }
 
-/* Copy link to clipboard */
-function copyLink() {
-  link = "http://localhost/PA_Journal_Webapplikation/"
-
-   // Copy the text inside the text field
-  navigator.clipboard.writeText(link);
-
-  // Alert the copied text
-  alert("Copied the text: " + link);
-}
-
+// When the user clicks an daily or weekly on the switch, parts will be shown or hidden
 function showPart(topic){
   if(topic == "daily"){
     document.querySelector("main .withData .switch button:nth-child(1)").style.zIndex = 100;

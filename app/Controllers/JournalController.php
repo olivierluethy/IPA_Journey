@@ -13,7 +13,7 @@ class JournalController
 		}
 		else {
 			if($_SESSION['role'] == 2){
-				header("Location: useroverview");
+				header("Location: userOverview");
 			}
 			// Retrieve all daily journals that are released
 			$Journal = new Journal();
@@ -26,11 +26,5 @@ class JournalController
 			// Load the home view
 			require 'app/Views/home.view.php';
 		}
-	}	
-
-	public function releasedreports(){		
-		require_once 'app/Views/general/config.php';
-
-		require 'app/Views/specialist/releasedreports.view.php';
 	}
 }

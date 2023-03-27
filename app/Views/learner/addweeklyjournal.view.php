@@ -19,7 +19,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 ?>
 
     <main>
-        <form action="addweeklyjournal" method="POST">
+        <form action="addWeeklyJournal" method="POST">
             <h2>Calendar week:</h2>
             <input type="number" name="calendar_week" id="calendar_week" min="1" max="52"><br><br><br><br>
 

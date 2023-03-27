@@ -3,7 +3,7 @@
 class AdminController
 {
 	/* Shows all users except with role as admin */
-    public function useroverview()
+    public function userOverview()
 	{
 		// Include the configuration file
 		require_once 'app/Views/general/config.php';
@@ -24,8 +24,8 @@ class AdminController
 		$Admin = new Admin();
 		$arrayUsers = $Admin->getAllUsers()->fetchAll();
 
-		// Load the useroverview view
-		require 'app/Views/admin/useroverview.view.php';
+		// Load the userOverview view
+		require 'app/Views/admin/userOverview.view.php';
 	}
 
 	/* The page to edit a user */
@@ -52,7 +52,7 @@ class AdminController
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$role = e(post('role'));
 			$Admin->editUser($id, $role);
-			header('Location: useroverview');
+			header('Location: userOverview');
 			die();
 		}
 	
@@ -90,7 +90,7 @@ class AdminController
 		// Call the deleteUser method of the Admin object to delete the user
 		$Admin->deleteUser($id);
 	
-		// Redirect to the useroverview page
-		header('Location: useroverview');
+		// Redirect to the userOverview page
+		header('Location: userOverview');
 	}	
 }

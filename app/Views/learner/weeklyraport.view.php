@@ -63,7 +63,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <div class="withData">
             <div class="title">
                 <h1>Recently completed</h1>
-                <button title="Add a weekly report" onclick='navigateTo("addweeklyjournal")'>+</button>
+                <button title="Add a weekly report" onclick='navigateTo("addWeeklyJournal")'>+</button>
                 <input type="text" placeholder="Search by content inside text, keyword or date" id="inputSearch"
                     onkeyup="sortByWeekly()">
             </div>
@@ -103,7 +103,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             <div class="title">
                 <h1>There are no weekly reports</h1>
                 <button title="Add a daily report"
-                    onclick='navigateTo("addweeklyjournal")'>+</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    onclick='navigateTo("addWeeklyJournal")'>+</button>&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
         <?php } ?>

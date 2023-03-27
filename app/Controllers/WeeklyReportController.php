@@ -2,7 +2,7 @@
 
 class WeeklyReportController
 {
-    public function weeklyraport(){		
+    public function weeklyRaport(){		
 		// Load configuration file
 		require_once 'app/Views/general/config.php';
 
@@ -17,15 +17,15 @@ class WeeklyReportController
 			// Retrieve all weekly reports that are released and store them in an array
 			$arrayWeeklyIsReleased = $WeeklyReport->getAllWeeklyInRelease()->fetchAll();
 
-			// Load the "weeklyraport" view file to display the lists of weekly reports
-			require 'app/Views/learner/weeklyraport.view.php';
+			// Load the "weeklyRaport" view file to display the lists of weekly reports
+			require 'app/Views/learner/weeklyRaport.view.php';
 		}else{
 			// Redirect user to "login" page if not logged in
 			header("Location: login");
 		}
 	}
 
-	public function addweeklyjournal(){
+	public function addWeeklyJournal(){
 		require_once 'app/Views/general/config.php';
 	
 		// Redirect to login page if user is not logged in
@@ -47,14 +47,14 @@ class WeeklyReportController
 	
 				$status = 0;
 	
-				$WeeklyReport->addWeeklyRaport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $status);
+				$WeeklyReport->addweeklyRaport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $status);
 	
 				// Redirect to the weekly report page after successfully adding the journal entry
-				header('Location: weeklyraport');
+				header('Location: weeklyRaport');
 			}
 	
 			// Load the add weekly journal entry form view
-			require 'app/Views/learner/addweeklyjournal.view.php';
+			require 'app/Views/learner/addWeeklyJournal.view.php';
 		}
 	}	
 
@@ -86,7 +86,7 @@ class WeeklyReportController
 				$WeeklyReport->editWeeklyReport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $id);
 	
 				// Redirect the user to the weekly report page
-				header('Location: weeklyraport');
+				header('Location: weeklyRaport');
 			} else {
 				// Get the data of the weekly report to be edited
 				$getWeeklyReport = $WeeklyReport -> getWeeklyReport($id)->fetchAll();
@@ -117,7 +117,7 @@ class WeeklyReportController
 			$WeeklyReport->deleteWeeklyReport($id);
 			
 			// Redirect the user to the weekly report page
-			header('Location: weeklyraport');
+			header('Location: weeklyRaport');
 		}
 	}
 
@@ -140,30 +140,8 @@ class WeeklyReportController
 			// Call the releaseWeeklyReport() method of the WeeklyReport class to release the weekly report
 			$WeeklyReport->releaseWeeklyReport($id);
 	
-			// Redirect the user to the weeklyraport page
-			header('Location: weeklyraport');
+			// Redirect the user to the weeklyRaport page
+			header('Location: weeklyRaport');
 		}
-	}	
-
-	public function seeWeekly(){
-		// Include the configuration file for views
-		require_once 'app/Views/general/config.php';
-	
-		// Check if the user is logged in
-		if (!isset($_SESSION['access_token']) || empty($_SESSION['access_token'])) {
-			// If the user is not logged in, redirect to the login page and end the script
-			header("Location: login");
-			die();
-		} else {
-			// If the user is logged in, get the id of the weekly report from the URL
-			$id = $_GET['id'];
-	
-			// Create a new instance of the WeeklyReport class and retrieve the weekly report data
-			$WeeklyReport = new WeeklyReport();
-			$WeeklyReport = $WeeklyReport->seeWeekly($id)->fetchAll();
-	
-			// Load the view to display the weekly report data
-			require 'app/Views/learner/seeWeekly.view.php';
-		}
-	}	
+	}
 }

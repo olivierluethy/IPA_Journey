@@ -9,7 +9,7 @@ class Specialist
     }
 
     // Gets all daily raports
-	public function getDailyRaports(){
+	public function getdailyRaports(){
 		$statement = $this->db->prepare("SELECT journal.journalId, journal.text, journal.date, user.full_name, GROUP_CONCAT(t.topic SEPARATOR ' | ') AS selected_topics
         FROM journal
         LEFT JOIN selectedtopics ON journal.journalId = selectedtopics.fk_journalId
@@ -22,7 +22,7 @@ class Specialist
 	}
 
     // Gets all weekly raports
-	public function getWeeklyRaports(){
+	public function getweeklyRaports(){
 		$statement = $this->db->prepare('SELECT *, user.full_name FROM weeklyreport 
 		INNER JOIN user ON user.userId = weeklyreport.fk_userId WHERE weeklyreport.status = 1');
 		$statement->execute();

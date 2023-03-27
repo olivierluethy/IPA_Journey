@@ -6,11 +6,11 @@ $routes = [
 
 	/* For Learners*/
 	'home' => 'JournalController@home',
-	'dailyraport' => 'DailyReportController@dailyraport',
-	'weeklyraport' => 'WeeklyReportController@weeklyraport',
+	'dailyRaport' => 'DailyReportController@dailyRaport',
+	'weeklyRaport' => 'WeeklyReportController@weeklyRaport',
 
 	'keywords' => 'KeywordController@keywords',
-	'editKeyword' => 'KeywordController@editkeywords',
+	'editKeyword' => 'KeywordController@editKeywords',
 	'deleteKeyword' => 'KeywordController@deleteKeyword',
 
 	'editWeeklyRaport' => 'WeeklyReportController@editWeeklyRaport',
@@ -24,18 +24,16 @@ $routes = [
 	'deleteDailyReport' => 'DailyReportController@deleteDailyReport',
 	'releaseDailyReport' => 'DailyReportController@releaseDailyReport',
 
-	'adddailyjournal' => 'DailyReportController@adddailyjournal',
-	'addweeklyjournal' => 'WeeklyReportController@addweeklyjournal',
-	'addkeyword' => 'KeywordController@addkeyword',
+	'addDailyJournal' => 'DailyReportController@addDailyJournal',
+	'addWeeklyJournal' => 'WeeklyReportController@addWeeklyJournal',
+	'addKeyword' => 'KeywordController@addKeyword',
 
 	/* For Specialists */
 	'overview' => 'SpecialistController@overview',
-	'releasedreports' => 'JournalController@releasedreports',
-	'seeDaily' => 'DailyReportController@seeDaily',
-	'seeWeekly' => 'WeeklyReportController@seeWeekly',
+	'releasedReports' => 'JournalController@releasedReports',
 
 	/* For Admin */
-	'useroverview' => 'AdminController@useroverview',
+	'userOverview' => 'AdminController@userOverview',
 
 	/* For everyone */
 	'logout' => 'LoginController@logout',

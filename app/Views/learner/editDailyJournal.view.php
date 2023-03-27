@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    
-<?php
+
+    <?php
 $actual_link = basename(__FILE__);
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
@@ -28,12 +28,22 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 
             <h2>Keywords:</h2>
             <?php 
+            // Get an array of topic ids for the picked keywords
             $pickedKeywordsIds = array_column($getPickedKeywords, 'topicId');
+
+            // Loop through all available keywords and create a checkbox for each
             foreach ($getKeywords as $keyword) {
-                $checked = in_array($keyword['topicId'], $pickedKeywordsIds);
-                echo "<input type='checkbox' name='topics[]' id=" . $keyword['topicId'] . " " . ($checked ? "checked" : "") . " value=" . $keyword['topicId'] .">";
-                echo "<label for=" . $keyword['topicId'] . ">" . $keyword['topic'] . "</label>";
+            // Check if the keyword is in the list of picked keywords
+            $checked = in_array($keyword['topicId'], $pickedKeywordsIds);
+
+            // Create a checkbox input element with the keyword's id as the id attribute
+            // and the keyword's id as the value attribute. If the keyword is in the list
+            // of picked keywords, mark the checkbox as checked.
+            echo "<input type='checkbox' name='topics[]' id=" . $keyword['topicId'] . " " . ($checked ? "checked" : "") . " value=" . $keyword['topicId'] .">";
+
+            echo "<label for=" . $keyword['topicId'] . ">" . $keyword['topic'] . "</label>";
             }
+
             echo "<br><input type='submit'>";
             ?>
         </form>

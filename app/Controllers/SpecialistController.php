@@ -17,10 +17,10 @@ class SpecialistController
 				$Keyword = new Keyword();
 						
 				// Retrieve all daily rapports from database
-				$arrayDailyRaports = $Specialist->getDailyRaports()->fetchAll();
+				$arraydailyRaports = $Specialist->getdailyRaports()->fetchAll();
 
 				// Retrieve all weekly rapports from database
-				$arrayWeeklyRaports = $Specialist->getWeeklyRaports()->fetchAll();
+				$arrayweeklyRaports = $Specialist->getweeklyRaports()->fetchAll();
 
 				// Retrieve all apprentices from database
 				$arrayLernende = $Specialist->getAllLernende()->fetchAll();

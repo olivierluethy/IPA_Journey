@@ -3,7 +3,7 @@
 class DailyReportController
 {
 	/* The page to show daily raports made by user */
-    public function dailyraport() {
+    public function dailyRaport() {
 		// Include configuration file
 		require_once 'app/Views/general/config.php';
 		
@@ -20,12 +20,12 @@ class DailyReportController
 		// Get all daily journals which are released
 		$arrayJournalIsReleased = $Journal->getAllDailyJournalsInRelease()->fetchAll();
 		
-		// Load dailyraport view
-		require 'app/Views/learner/dailyraport.view.php';
+		// Load dailyRaport view
+		require 'app/Views/learner/dailyRaport.view.php';
 	}
 	
 	/* The page to add daily journal */
-	public function adddailyjournal() {
+	public function addDailyJournal() {
 		// Include the database configuration file
 		require_once 'app/Views/general/config.php';
 		
@@ -58,11 +58,11 @@ class DailyReportController
 			}
 		
 			// Redirect the user to the daily report page
-			header('Location: dailyraport');
+			header('Location: dailyRaport');
 		}
 		
 		// Load the daily journal form view
-		require 'app/Views/learner/adddailyjournal.view.php';
+		require 'app/Views/learner/addDailyJournal.view.php';
 	}	
 
 	/* The page to edit a daily report */
@@ -93,7 +93,7 @@ class DailyReportController
 					$dailyReport->addSelectedTopics($topic, $id);
 				}
 				
-				header('Location: dailyraport');
+				header('Location: dailyRaport');
 			} else {
 				// Retrieving data of the daily report and keywords
 				$getDailyReport = $dailyReport->getDailyReport($id)->fetchAll();
@@ -134,7 +134,7 @@ class DailyReportController
 			$DailyReport->deleteDailyReport($id);
 	
 			// Redirect to daily report page after deletion
-			header('Location: dailyraport');
+			header('Location: dailyRaport');
 		}
 	}	
 
@@ -160,30 +160,7 @@ class DailyReportController
 			$DailyReport->releaseDailyReport($id);
 			
 			// Redirect to the daily report page
-			header('Location: dailyraport');
+			header('Location: dailyRaport');
 		}
-	}	
-
-	/* The page to see a written daily report */
-	public function seeDaily(){
-		// Include configuration file
-		require_once 'app/Views/general/config.php';
-	
-		// Get the ID of the daily report from the URL parameter
-		$id = $_GET['id'];
-	
-		// Retrieve the daily report with the given ID
-		$DailyReport = new DailyReport();
-		$dayArray = $DailyReport->seeDaily($id)->fetchAll();
-	
-		// Retrieve all available keywords
-		$Keyword = new Keyword();
-		$getKeywords = $Keyword->getAllKeywords()->fetchAll();
-	
-		// Retrieve the keywords associated with the daily report
-		$getPickedKeywords = $Keyword->getSelectedKeywords($id)->fetchAll();
-	
-		// Load the view for displaying the daily report
-		require 'app/Views/specialist/seeDaily.view.php';
-	}	
+	}
 }

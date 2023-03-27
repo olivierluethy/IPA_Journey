@@ -19,7 +19,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 ?>
 
     <main>
-        <form action="addkeyword" method="POST">
+        <form action="addKeyword" method="POST">
             <h2>Thema:</h2>
             <input type="text" name="thema" id="thema"><br><br><br><br>
             <input type="submit" title="Click to add a keyword" class="send" value="+ Add Keyword">

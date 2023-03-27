@@ -25,7 +25,7 @@ class KeywordController
 	}
 
 	/* In this page you can add a keyword */
-	public function addkeyword(){
+	public function addKeyword(){
 		// Load configuration file
 		require_once 'app/Views/general/config.php';
 
@@ -47,7 +47,7 @@ class KeywordController
 			}
 
 			// Load add keyword view file
-			require 'app/Views/learner/addkeyword.view.php';
+			require 'app/Views/learner/addKeyword.view.php';
 		}
 		/* Redirect user to "login" page */
 		else {
@@ -56,7 +56,7 @@ class KeywordController
 	}
 
 	/* In this page you can edit a keyword */
-	public function editkeywords(){
+	public function editKeywords(){
 		// Load configuration file
 		require_once 'app/Views/general/config.php';
 

@@ -19,7 +19,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 ?>
 
     <main>
-        <form action="adddailyjournal" method="POST">
+        <form action="addDailyJournal" method="POST">
             <h2>Write here your text ...</h2>
             <textarea name="text" id="text" cols="30" rows="10" placeholder="For example: My day was ..."></textarea>
 

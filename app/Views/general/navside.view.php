@@ -25,15 +25,15 @@ if(isset($_SESSION['role'])){
         echo $a;
     }
     if($_SESSION['role'] == 0){
-        $a = '<button title="Go To Daily Raports" onclick="navigateTo(\'dailyraport\')"';
-        if (preg_match("/dailyraport/i", $actual_link)) {
+        $a = '<button title="Go To Daily Raports" onclick="navigateTo(\'dailyRaport\')"';
+        if (preg_match("/dailyRaport/i", $actual_link)) {
             $a .= ' class="active"';
         }
         $a .= '>Daily reports</button>';
         echo $a;
     
-        $a = '<button title="Go To Weekly Raports" onclick="navigateTo(\'weeklyraport\')"';
-        if (preg_match("/weeklyraport/i", $actual_link)) {
+        $a = '<button title="Go To Weekly Raports" onclick="navigateTo(\'weeklyRaport\')"';
+        if (preg_match("/weeklyRaport/i", $actual_link)) {
             $a .= ' class="active"';
         }
         $a .= '>Weekly reports</button>';
@@ -70,20 +70,20 @@ if(isset($_SESSION['role'])){
             // Define an array with key-value pairs where keys are links and values are titles
             $links = [
                 'home' => '<h1>Home</h1>',
-                'dailyraport' => '<h1>Daily reports</h1>',
+                'dailyRaport' => '<h1>Daily reports</h1>',
                 'editDailyReport' => '<h1>Edit reports</h1>',
-                'weeklyraport' => '<h1>Weekly reports</h1>',
+                'weeklyRaport' => '<h1>Weekly reports</h1>',
                 'keywords' => '<h1>Keywords</h1>',
                 'editKeyword' => '<h1>Edit Keyword</h1>',
                 'deleteKeyword' => '<h1>Delete Keyword</h1>',
                 'login' => '<h1>Login</h1>',
                 'editUser' => '<h1>Edit User</h1>',
-                'useroverview' => '<h1>User Overview</h1>',
+                'userOverview' => '<h1>User Overview</h1>',
                 'overview' => '<h1>Overview</h1>',
-                'releasedreports' => '<h1>Released Reports</h1>',
-                'adddailyjournal' => '<h1>Add Daily Report</h1>',
-                'addweeklyjournal' => '<h1>Add Weekly Report</h1>',
-                'addkeyword' => '<h1>Add Keyword</h1>',
+                'releasedReports' => '<h1>Released Reports</h1>',
+                'addDailyJournal' => '<h1>Add Daily Report</h1>',
+                'addWeeklyJournal' => '<h1>Add Weekly Report</h1>',
+                'addKeyword' => '<h1>Add Keyword</h1>',
                 'editWeeklyRaport' => '<h1>Edit Weekly Reports</h1>',
             ];
             

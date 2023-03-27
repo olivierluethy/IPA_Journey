@@ -27,26 +27,26 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <h1>Weekly reports:</h1>
         <div class="flex-container" id="weekly">
             <?php
-                    foreach ($arrayWeeklyRaports as $weeklyraports){?>
+                    foreach ($arrayweeklyRaports as $weeklyRaports){?>
             <div class="container-child">
                 <div class="content">
                     <div class="contentText">
-                        <h1><?= $weeklyraports['full_name'] ?></h1>
+                        <h1><?= $weeklyRaports['full_name'] ?></h1>
                         <h3>Done Work:</h3>
                         <textarea readonly class="ckeditor" name="doneWork"
-                            id="doneWork"><?php echo $weeklyraports['doneWork'] ?></textarea>
+                            id="doneWork"><?php echo $weeklyRaports['doneWork'] ?></textarea>
                         <h3>Ongoing work:</h3>
                         <textarea readonly class="ckeditor" name="ongoingWork"
-                            id="ongoingWork"><?php echo $weeklyraports['ongoingWork'] ?></textarea>
+                            id="ongoingWork"><?php echo $weeklyRaports['ongoingWork'] ?></textarea>
                         <h3>Reflection:</h3>
                         <textarea readonly class="ckeditor" name="reflection"
-                            id="reflection"><?php echo $weeklyraports['reflection'] ?></textarea>
+                            id="reflection"><?php echo $weeklyRaports['reflection'] ?></textarea>
                         <h3>Occurred problems:</h3>
                         <textarea readonly class="ckeditor" name="occurredProblems"
-                            id="occurredProblems"><?php echo $weeklyraports['occurredProblems'] ?></textarea>
+                            id="occurredProblems"><?php echo $weeklyRaports['occurredProblems'] ?></textarea>
                         <div class="datopic">
                             <h3>Published:</h3>
-                            <?php $date = date('dS M Y H:i:s', strtotime($weeklyraports['date']));?>
+                            <?php $date = date('dS M Y H:i:s', strtotime($weeklyRaports['date']));?>
                             <p><?= $date?> o'clock</p>
                         </div>
                     </div>
@@ -58,22 +58,22 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <h1>Daily reports:</h1>
         <div class="flex-container" id="daily">
             <?php
-                    foreach ($arrayDailyRaports as $dailyraports) {?>
+                    foreach ($arraydailyRaports as $dailyRaports) {?>
             <div class="container-child">
                 <div class="content">
                     <div class="contentText">
-                        <h1><?= $dailyraports['full_name'] ?></h1>
+                        <h1><?= $dailyRaports['full_name'] ?></h1>
                         <textarea readonly class="ckeditor" name="text"
-                            id="text"><?php echo $dailyraports['text'] ?></textarea>
-                        <?php if(!empty($dailyraports['selected_topics'])){?>
+                            id="text"><?php echo $dailyRaports['text'] ?></textarea>
+                        <?php if(!empty($dailyRaports['selected_topics'])){?>
                         <div class="datopic">
                             <h3>Topics:</h3>
-                            <p><?= $dailyraports['selected_topics'] ?></p>
+                            <p><?= $dailyRaports['selected_topics'] ?></p>
                         </div>
                         <?php } ?>
                         <div class="datopic">
                             <h3>Published:</h3>
-                            <?php $date = date('dS M Y H:i:s', strtotime($dailyraports['date']));?>
+                            <?php $date = date('dS M Y H:i:s', strtotime($dailyRaports['date']));?>
                             <p><?= $date?> o'clock</p>
                         </div>
                     </div>

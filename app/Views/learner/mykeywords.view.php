@@ -24,7 +24,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <div class="withData">
             <div class="title">
                 <h1>My keywords</h1>
-                <button title="Add a keyword" onclick='navigateTo("addkeyword")'>+</button>
+                <button title="Add a keyword" onclick='navigateTo("addKeyword")'>+</button>
             </div>
 
             <?php
@@ -46,7 +46,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <div class="withData">
             <div class="title">
                 <h1>There are no keywords</h1>
-                <button title="Add a keyword" onclick='navigateTo("addkeyword")'>+</button>
+                <button title="Add a keyword" onclick='navigateTo("addKeyword")'>+</button>
             </div>
         </div>
         <?php } ?>

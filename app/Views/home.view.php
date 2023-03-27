@@ -22,11 +22,11 @@ include ("general/navside.view.php");
 
         <?php if ($_SESSION['role'] == 0) {?>
         <div class="menu">
-            <div onclick="navigateTo('adddailyjournal')">
+            <div onclick="navigateTo('addDailyJournal')">
                 <img src="images/writedailyreport.png" alt="">
                 <p>Write a daily report</p>
             </div>
-            <div onclick="navigateTo('addweeklyjournal')">
+            <div onclick="navigateTo('addWeeklyJournal')">
                 <img src="images/writedailyreport.png" alt="">
                 <p>Write a weekly report</p>
             </div>
