@@ -36,9 +36,6 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             // Check if the keyword is in the list of picked keywords
             $checked = in_array($keyword['topicId'], $pickedKeywordsIds);
 
-            // Create a checkbox input element with the keyword's id as the id attribute
-            // and the keyword's id as the value attribute. If the keyword is in the list
-            // of picked keywords, mark the checkbox as checked.
             echo "<input type='checkbox' name='topics[]' id=" . $keyword['topicId'] . " " . ($checked ? "checked" : "") . " value=" . $keyword['topicId'] .">";
 
             echo "<label for=" . $keyword['topicId'] . ">" . $keyword['topic'] . "</label>";
@@ -49,8 +46,9 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         </form>
     </main>
 
-    <script src="public/js/app.js"></script>
+    <script src="public/js/responsive.js"></script>
     <script src="public/js/route.js"></script>
+    <script src="public/js/addDailyValidation.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
 
     <script>

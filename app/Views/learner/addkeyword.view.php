@@ -20,14 +20,15 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 
     <main>
         <form action="addKeyword" method="POST">
-            <h2>Thema:</h2>
-            <input type="text" name="thema" id="thema"><br><br><br><br>
+            <h2>Topic:</h2>
+            <input type="text" name="topic" id="topic"><br><br><br><br>
             <input type="submit" title="Click to add a keyword" class="send" value="+ Add Keyword">
         </form>
     </main>
 
     <script src="public/js/app.js"></script>
     <script src="public/js/route.js"></script>
+    <script src="public/js/addKeywordValidation.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
 
 </body>

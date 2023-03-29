@@ -32,7 +32,8 @@ class WeeklyReport
     public function getAllWeeklyInProcess(){
 		$statement = $this->db->prepare('SELECT weeklyreport.weeklyReportId, weeklyreport.calendarWeek, weeklyreport.doneWork, 
 		weeklyreport.ongoingWork, weeklyreport.reflection, weeklyreport.occurredProblems, 
-		weeklyreport.status, weeklyreport.date, user.full_name FROM weeklyreport INNER JOIN user ON user.userId = weeklyreport.fk_userId WHERE status = 0');
+		weeklyreport.status, weeklyreport.date, user.full_name FROM weeklyreport INNER JOIN user ON user.userId = weeklyreport.fk_userId WHERE status = 0 AND user.userId = :id');
+		$statement->bindParam(':id', $_SESSION["id"], PDO::PARAM_STR);
 		$statement->execute();
         return $statement;
 	}
@@ -40,7 +41,8 @@ class WeeklyReport
 	public function getAllWeeklyInRelease(){
 		$statement = $this->db->prepare('SELECT weeklyreport.weeklyReportId, weeklyreport.calendarWeek, weeklyreport.doneWork, 
 		weeklyreport.ongoingWork, weeklyreport.reflection, weeklyreport.occurredProblems, 
-		weeklyreport.status, weeklyreport.date, user.full_name FROM weeklyreport INNER JOIN user ON user.userId = weeklyreport.fk_userId WHERE status = 1');
+		weeklyreport.status, weeklyreport.date, user.full_name FROM weeklyreport INNER JOIN user ON user.userId = weeklyreport.fk_userId WHERE status = 1 AND user.userId = :id');
+		$statement->bindParam(':id', $_SESSION["id"], PDO::PARAM_STR);
 		$statement->execute();
         return $statement;
 	}

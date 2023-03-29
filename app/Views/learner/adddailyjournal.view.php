@@ -25,7 +25,9 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 
             <h2>Topics:</h2>
             <?php 
+            /* Check for available topics */
             if(count($arrayTopics) > 0){
+                /* Display all of them */
                 foreach ($arrayTopics as $topic) {
                     echo "<input id=" . $topic['topicId'] ." type='checkbox' name='topics[]' value=" . $topic['topicId'] .">";
                     echo "<label for=" . $topic['topicId'] .">" . $topic['topic'] . "</label><br>";
@@ -40,9 +42,10 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         </form>
     </main>
 
-    <script src="public/js/app.js"></script>
+    <script src="public/js/responsive.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
     <script src="public/js/route.js"></script>
+    <script src="public/js/addDailyValidation.js"></script>
 
     <script>
     CKEDITOR.replace('text');

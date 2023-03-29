@@ -36,8 +36,8 @@ class DailyReport
 	// Adds all selected topics from added daily report
     public function addSelectedTopics($topic, $journalId){
 		if($topic != NULL){
-			$statement = $this->db->prepare('INSERT INTO selectedtopics (fk_topicId, fk_journalId) VALUES (:themaId, :journalId)');
-			$statement->bindParam(':themaId', $topic, PDO::PARAM_STR);
+			$statement = $this->db->prepare('INSERT INTO selectedtopics (fk_topicId, fk_journalId) VALUES (:topicId, :journalId)');
+			$statement->bindParam(':topicId', $topic, PDO::PARAM_STR);
 			$statement->bindParam(':journalId', $journalId, PDO::PARAM_STR);
 			$statement->execute();
 		}

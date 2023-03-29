@@ -26,6 +26,20 @@ class Admin
 
     // Deletes selected user
     public function deleteUser($id){
+        $statement = $this->db->prepare('DELETE selectedtopics FROM `selectedtopics` 
+        INNER JOIN journal ON journal.journalId = selectedtopics.fk_journalId
+        INNER JOIN user ON user.userId = journal.fk_userId WHERE user.userId = :id');
+        $statement->bindParam(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+
+        $statement = $this->db->prepare('DELETE FROM `journal` WHERE fk_userId = :id');
+        $statement->bindParam(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+
+        $statement = $this->db->prepare('DELETE FROM `topic` WHERE fk_userId = :id');
+        $statement->bindParam(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+
         $statement = $this->db->prepare('DELETE FROM `user` WHERE userId = :id');
         $statement->bindParam(':id', $id, PDO::PARAM_STR);
         $statement->execute();

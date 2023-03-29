@@ -16,7 +16,7 @@ class KeywordController
 			$arrayKeywords = $Keyword->getAllKeywords()->fetchAll();
 			
 			// Load the "mykeywords" view file to display the list of keywords
-			require 'app/Views/learner/mykeywords.view.php';	
+			require 'app/Views/learner/myKeywords.view.php';	
 		}
 		/* Redirect user to "login" page */
 		else {
@@ -37,10 +37,10 @@ class KeywordController
 			// Check if server request method is POST
 			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				// Retrieve theme parameter from form data and sanitize it
-				$thema = e(post('thema'));
+				$topic = e(post('topic'));
 
 				// Add new keyword to database
-				$Keyword->addKeywords($thema);
+				$Keyword->addKeywords($topic);
 	
 				// Redirect user to "keywords" page
 				header('Location: keywords');
@@ -71,10 +71,10 @@ class KeywordController
 			// Check if server request method is POST
 			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				// Retrieve title parameter from form data and sanitize it
-				$titel = e(post('thema'));
+				$topic = e(post('topic'));
 
 				// Edit keyword with specified ID in database
-				$Keyword->editKeyword($id, $titel);
+				$Keyword->editKeyword($id, $topic);
 
 				// Redirect user to "keywords" page
 				header('Location: keywords');	

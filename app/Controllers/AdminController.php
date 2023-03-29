@@ -30,8 +30,11 @@ class AdminController
 
 	/* The page to edit a user */
 	public function editUser() {
+		// Include the configuration file
+		require_once 'app/Views/general/config.php';
+
 		// Redirect to login page if user is not logged in
-		if (!isset($_SESSION['user_token'])) {
+		if (!isset($_SESSION['token'])) {
 			header("Location: login");
 			die();
 		}
@@ -41,9 +44,7 @@ class AdminController
 			header("Location: home");
 			die();
 		}
-	
-		require_once 'app/Views/general/config.php';
-	
+		
 		$id = $_GET['id'];
 	
 		$Admin = new Admin();
@@ -59,13 +60,16 @@ class AdminController
 		/* Get Data to edit */
 		$getUser = $Admin->getUser($id)->fetchAll();
 	
-		require 'app/Views/editUser.view.php';
+		require 'app/Views/admin/editUser.view.php';
 	}
 
 	/* The URL to delete a user */
 	public function deleteUser() {
+		// Include configuration file and instantiate Admin object
+		require_once 'app/Views/general/config.php';
+		
 		// Check if user is logged in
-		if (!isset($_SESSION['user_token'])) {
+		if (!isset($_SESSION['token'])) {
 			header("Location: login");
 			die();
 		}
@@ -75,9 +79,7 @@ class AdminController
 			header("Location: home");
 			die();
 		}
-	
-		// Include configuration file and instantiate Admin object
-		require_once 'app/Views/general/config.php';
+
 		$Admin = new Admin();
 	
 		// Connect to the database

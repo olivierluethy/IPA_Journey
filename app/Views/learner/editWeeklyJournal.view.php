@@ -46,6 +46,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
     <script src="public/js/app.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
     <script src="public/js/route.js"></script>
+    <script src="public/js/addWeeklyValidation.js"></script>
 
     <script>
     CKEDITOR.replace('completed_tasks');

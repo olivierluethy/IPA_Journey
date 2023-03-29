@@ -20,7 +20,9 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 ?>
     <main>
         <?php 
+        /* Check if there are any journals available */
         if(count($arrayJournalsInProcess) > 0 || count($arrayJournalIsReleased) > 0){ ?>
+        <!-- Check if there are journals currently in process -->
         <?php if(count($arrayJournalsInProcess) > 0){ ?>
         <h1>Still in process</h1>
         <div class="flex-container">
@@ -38,6 +40,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                             title="Publish this daily report">Publish</button><br><br>
                         <textarea readonly class="ckeditor" name="text"
                             id="text"><?php echo $journalIsProcess['text'] ?></textarea>
+                        <!-- Check if there are any topics -->
                         <?php if(!empty($journalIsProcess['selected_topics'])){?>
                         <div class="datopic">
                             <h3>Topics:</h3>
@@ -55,7 +58,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             <?php } ?>
         </div>
         <?php } ?>
-
+        <!-- Check if there are any released journals -->
         <?php if(count($arrayJournalIsReleased) > 0){ ?>
         <div class="withData">
             <div class="title">
@@ -104,7 +107,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 
     </main>
 
-    <script src="public/js/app.js"></script>
+    <script src="public/js/responsive.js"></script>
     <script src="public/js/route.js"></script>
     <script src="public/js/search.js"></script>
     <script src="ckeditor/ckeditor.js"></script>

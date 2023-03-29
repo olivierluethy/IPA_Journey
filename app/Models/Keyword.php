@@ -27,9 +27,9 @@ class Keyword
         $statement->execute();
 	}
 
-    public function addKeywords($thema){
-		$statement = $this->db->prepare('INSERT INTO `topic` (topic, fk_userId) VALUES (:thema, :id)');
-		$statement->bindParam(':thema', $thema, PDO::PARAM_STR);
+    public function addKeywords($topic){
+		$statement = $this->db->prepare('INSERT INTO `topic` (topic, fk_userId) VALUES (:topic, :id)');
+		$statement->bindParam(':topic', $topic, PDO::PARAM_STR);
 		$statement->bindParam(':id', $_SESSION["id"], PDO::PARAM_STR);
 		$statement->execute();
 	}
@@ -42,8 +42,8 @@ class Keyword
 	}
 
 	public function editKeyword($id, $titel){
-		$statement = $this->db->prepare('UPDATE topic SET topic = :thema WHERE topicId = :id');
-		$statement->bindParam(':thema', $titel, PDO::PARAM_STR);
+		$statement = $this->db->prepare('UPDATE topic SET topic = :topic WHERE topicId = :id');
+		$statement->bindParam(':topic', $titel, PDO::PARAM_STR);
 		$statement->bindParam(':id', $id, PDO::PARAM_STR);
 		$statement->execute();
 	}
