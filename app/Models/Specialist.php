@@ -9,7 +9,7 @@ class Specialist
     }
 
     // Gets all daily raports
-	public function getdailyRaports(){
+	public function getDailyRaports(){
 		$statement = $this->db->prepare("SELECT journal.journalId, journal.text, journal.date, user.full_name, GROUP_CONCAT(t.topic SEPARATOR ' | ') AS selected_topics
         FROM journal
         LEFT JOIN selectedtopics ON journal.journalId = selectedtopics.fk_journalId
@@ -22,7 +22,7 @@ class Specialist
 	}
 
     // Gets all weekly raports
-	public function getweeklyRaports(){
+	public function getWeeklyRaports(){
 		$statement = $this->db->prepare('SELECT *, user.full_name FROM weeklyreport 
 		INNER JOIN user ON user.userId = weeklyreport.fk_userId WHERE weeklyreport.status = 1');
 		$statement->execute();
@@ -30,18 +30,10 @@ class Specialist
 	}
 
     // Gets all apprentices
-    public function getAllLernende(){
+    public function getAllLearner(){
         $statement = $this->db->prepare('SELECT * FROM user
         WHERE user.role = 0');
 		$statement->execute();
         return $statement;
-    }
-
-	// Sort Algorithm
-    public function sortTask($sort_option){
-        // $statement = $this->db->prepare("SELECT * FROM aufgabe WHERE fk_benutzerId = :benutzerId AND status = 0 ORDER BY $sort_option");
-        // $statement->bindParam(':benutzerId', $_SESSION["id"], PDO::PARAM_STR);
-        // $statement->execute();
-        // return $statement;
     }
 }

@@ -52,7 +52,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <?php } ?>
     </main>
 
-    <script src="public/js/app.js"></script>
+    <script src="public/js/responsive.js"></script>
     <script src="public/js/route.js"></script>
 
 </body>

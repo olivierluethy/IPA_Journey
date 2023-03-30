@@ -102,15 +102,9 @@ include ("general/navside.view.php");
             <?php } ?>
         </div>
         <?php } ?>
-
-        <!-- For the administrator -->
-        <?php if($_SESSION['role'] == 2) {?>
-
-
-        <?php } ?>
     </main>
 
-    <script src="public/js/app.js"></script>
+    <script src="public/js/responsive.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
     <script src="public/js/route.js"></script>
 

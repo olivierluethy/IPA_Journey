@@ -14,19 +14,12 @@ class SpecialistController
 			if($_SESSION['role'] == 1){
 				// Create instances of Fachkraft and Keyword classes
 				$Specialist = new Specialist();
-				$Keyword = new Keyword();
 						
 				// Retrieve all daily rapports from database
-				$arraydailyRaports = $Specialist->getdailyRaports()->fetchAll();
+				$arrayDailyRaports = $Specialist->getDailyRaports()->fetchAll();
 
 				// Retrieve all weekly rapports from database
-				$arrayweeklyRaports = $Specialist->getweeklyRaports()->fetchAll();
-
-				// Retrieve all apprentices from database
-				$arrayLernende = $Specialist->getAllLernende()->fetchAll();
-
-				// Retrieve all keywords from database
-				$arrayTopics = $Keyword->getAllKeywords()->fetchAll();
+				$arrayWeeklyRaports = $Specialist->getWeeklyRaports()->fetchAll();
 				
 				// Load overview view file
 				require 'app/Views/specialist/overview.view.php';

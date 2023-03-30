@@ -47,7 +47,7 @@ class WeeklyReportController
 	
 				$status = 0;
 	
-				$WeeklyReport->addweeklyRaport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $status);
+				$WeeklyReport->addWeeklyRaport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $status);
 	
 				// Redirect to the weekly report page after successfully adding the journal entry
 				header('Location: weeklyRaport');

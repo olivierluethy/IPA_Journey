@@ -27,7 +27,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <h1>Weekly reports:</h1>
         <div class="flex-container" id="weekly">
             <?php
-                    foreach ($arrayweeklyRaports as $weeklyRaports){?>
+                    foreach ($arrayWeeklyRaports as $weeklyRaports){?>
             <div class="container-child">
                 <div class="content">
                     <div class="contentText">
@@ -58,7 +58,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <h1>Daily reports:</h1>
         <div class="flex-container" id="daily">
             <?php
-                    foreach ($arraydailyRaports as $dailyRaports) {?>
+                    foreach ($arrayDailyRaports as $dailyRaports) {?>
             <div class="container-child">
                 <div class="content">
                     <div class="contentText">
@@ -85,7 +85,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
     </main>
 
     <script src="public/js/search.js"></script>
-    <script src="public/js/app.js"></script>
+    <script src="public/js/responsive.js"></script>
     <script src="public/js/route.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
 
