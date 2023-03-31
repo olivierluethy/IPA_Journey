@@ -20,11 +20,12 @@ include ("navside.view.php");
 
     <main>
         <div class="login">
-            <!-- main content goes here -->
             <h1>Welcome To Journal Web-App</h1>
             <p>Write journals like never before!</p>
             <?php
+            // Check if user is already logged in
             if (isset($_SESSION['user_token'])) {
+                 // Redirect to home page if user is already logged in
                 header("Location: home");
             } else {
         ?>

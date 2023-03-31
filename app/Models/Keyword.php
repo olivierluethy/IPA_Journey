@@ -27,6 +27,7 @@ class Keyword
         $statement->execute();
 	}
 
+	/* Adds a keyword */
     public function addKeywords($topic){
 		$statement = $this->db->prepare('INSERT INTO `topic` (topic, fk_userId) VALUES (:topic, :id)');
 		$statement->bindParam(':topic', $topic, PDO::PARAM_STR);
@@ -34,6 +35,7 @@ class Keyword
 		$statement->execute();
 	}
 
+	/* Gets a keyword */
     public function getKeyword($id){
 		$statement = $this->db->prepare('SELECT * FROM topic WHERE topicId = :id');
 		$statement->bindParam(':id', $id, PDO::PARAM_STR);
@@ -41,6 +43,7 @@ class Keyword
         return $statement;
 	}
 
+	/* Edits a keyword */
 	public function editKeyword($id, $titel){
 		$statement = $this->db->prepare('UPDATE topic SET topic = :topic WHERE topicId = :id');
 		$statement->bindParam(':topic', $titel, PDO::PARAM_STR);
@@ -48,6 +51,7 @@ class Keyword
 		$statement->execute();
 	}
 
+	/* Get all selected keywords */
 	public function getSelectedKeywords(){
 		$statement = $this->db->prepare('SELECT DISTINCT topic.topicId, topic.topic FROM topic
 		INNER JOIN selectedtopics ON fk_topicId = topic.topicId');

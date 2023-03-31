@@ -56,7 +56,7 @@ class KeywordController
 	}
 
 	/* In this page you can edit a keyword */
-	public function editKeywords(){
+	public function editKeyword(){
 		// Load configuration file
 		require_once 'app/Views/general/config.php';
 

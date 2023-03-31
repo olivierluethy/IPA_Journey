@@ -33,30 +33,42 @@ function reportWindowSize() {
 }
 
 // When the user clicks an daily or weekly on the switch, parts will be shown or hidden
-function showPart(topic){
-  if(topic == "daily"){
-    document.querySelector("main .withData .switch button:nth-child(1)").style.zIndex = 100;
-    document.querySelector("main .withData .switch button:nth-child(1)").style.backgroundColor ="black";
-    document.querySelector("main .withData .switch button:nth-child(1)").style.color ="white";
+// Get the HTML elements we will be manipulating
+const dailyButton = document.querySelector("main .withData .switch button:nth-child(1)");
+const weeklyButton = document.querySelector("main .withData .switch button:nth-child(2)");
+const dailyReports = document.getElementById("dailyreports");
+const weeklyReports = document.getElementById("weeklyreports");
 
-    document.querySelector("main .withData .switch button:nth-child(2)").style.zIndex = 99;
-    document.querySelector("main .withData .switch button:nth-child(2)").style.backgroundColor ="white";
-    document.querySelector("main .withData .switch button:nth-child(2)").style.color ="black";
+// Function to show the appropriate section based on the topic parameter
+function showPart(topic) {
+    if (topic === "daily") {
+        // Style the daily button to appear selected
+        dailyButton.style.zIndex = 100;
+        dailyButton.style.backgroundColor = "black";
+        dailyButton.style.color = "white";
+        // Style the weekly button to appear unselected
+        weeklyButton.style.zIndex = 99;
+        weeklyButton.style.backgroundColor = "white";
+        weeklyButton.style.color = "black";
 
-    document.getElementById("dailyreports").style.display="flex";
-    document.getElementById("weeklyreports").style.display="none";
-  }else if(topic == "weekly"){
-    document.querySelector("main .withData .switch button:nth-child(1)").style.zIndex = 99;
-    document.querySelector("main .withData .switch button:nth-child(1)").style.backgroundColor ="white";
-    document.querySelector("main .withData .switch button:nth-child(1)").style.color ="black";
+        // Show the daily reports section and hide the weekly reports section
+        dailyReports.style.display = "flex";
+        weeklyReports.style.display = "none";
+    } else if (topic === "weekly") {
+        // Style the weekly button to appear selected
+        dailyButton.style.zIndex = 99;
+        dailyButton.style.backgroundColor = "white";
+        dailyButton.style.color = "black";
 
-    document.querySelector("main .withData .switch button:nth-child(2)").style.zIndex = 100;
-    document.querySelector("main .withData .switch button:nth-child(2)").style.backgroundColor ="black";
-    document.querySelector("main .withData .switch button:nth-child(2)").style.color ="white";
+        // Style the daily button to appear unselected
+        weeklyButton.style.zIndex = 100;
+        weeklyButton.style.backgroundColor = "black";
+        weeklyButton.style.color = "white";
 
-    document.getElementById("dailyreports").style.display="none";
-    document.getElementById("weeklyreports").style.display="flex";
-  }
+        // Show the weekly reports section and hide the daily reports section
+        dailyReports.style.display = "none";
+        weeklyReports.style.display = "flex";
+    }
 }
-
-document.getElementById("weeklyreports").style.display="none";
+// Hide the weekly reports section by default
+weeklyReports.style.display = "none";

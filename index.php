@@ -10,7 +10,7 @@ $routes = [
 	'weeklyRaport' => 'WeeklyReportController@weeklyRaport',
 
 	'keywords' => 'KeywordController@keywords',
-	'editKeyword' => 'KeywordController@editKeywords',
+	'editKeyword' => 'KeywordController@editKeyword',
 	'deleteKeyword' => 'KeywordController@deleteKeyword',
 
 	'editWeeklyRaport' => 'WeeklyReportController@editWeeklyRaport',

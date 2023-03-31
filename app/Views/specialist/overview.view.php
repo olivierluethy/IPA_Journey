@@ -15,7 +15,10 @@
 <body>
 
     <?php
+    // Set a variable to hold the basename of the current file
 $actual_link = basename(__FILE__);
+// Include the file "navside.view.php" from the "General" directory one level up
+// using the constant DIRECTORY_SEPARATOR to ensure platform-independent file path
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
@@ -27,6 +30,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <h1>Weekly reports:</h1>
         <div class="flex-container" id="weekly">
             <?php
+            // Go through the entire array
                     foreach ($arrayWeeklyRaports as $weeklyRaports){?>
             <div class="container-child">
                 <div class="content">
@@ -65,7 +69,9 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                         <h1><?= $dailyRaports['full_name'] ?></h1>
                         <textarea readonly class="ckeditor" name="text"
                             id="text"><?php echo $dailyRaports['text'] ?></textarea>
-                        <?php if(!empty($dailyRaports['selected_topics'])){?>
+                        <?php 
+                        // Check if there are no selected topics
+                        if(!empty($dailyRaports['selected_topics'])){?>
                         <div class="datopic">
                             <h3>Topics:</h3>
                             <p><?= $dailyRaports['selected_topics'] ?></p>

@@ -47,12 +47,3 @@ function editUser(id){
 function deleteUser(id){
     location.href = "deleteUser?id=" + id;
 }
-
-/* To see all of daily and weekly for fachkraft */
-function seeDaily(id){
-    location.href = "seeDaily?id=" + id;
-}
-
-function seeWeekly(id){
-    location.href = "seeWeekly?id=" + id;
-}

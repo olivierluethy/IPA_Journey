@@ -13,8 +13,11 @@
 </head>
 
 <body>
-<?php
+    <?php
+    // Set a variable to hold the basename of the current file
 $actual_link = basename(__FILE__);
+// Include the file "navside.view.php" from the "General" directory one level up
+// using the constant DIRECTORY_SEPARATOR to ensure platform-independent file path
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
@@ -32,7 +35,8 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                 placeholder="For example: I'm still working on ..."></textarea>
 
             <h2>Reflection:</h2>
-            <textarea name="reflection" id="reflection" cols="30" rows="10" placeholder="For example: It was ..."></textarea>
+            <textarea name="reflection" id="reflection" cols="30" rows="10"
+                placeholder="For example: It was ..."></textarea>
 
             <h2>Issues:</h2>
             <textarea name="issues" id="issues" cols="30" rows="10"

@@ -15,11 +15,15 @@
 <body>
 
     <?php
+    // Set a variable to hold the basename of the current file
 $actual_link = basename(__FILE__);
+// Include the file "navside.view.php" from the "General" directory one level up
+// using the constant DIRECTORY_SEPARATOR to ensure platform-independent file path
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
     <main>
+        <!-- Get the ID of daily report currently edited -->
         <form action="editDailyReport?id=<?= $getDailyReport[0][0] ?>" method="POST">
             <h1>Edit Daily Report</h1>
             <h2>Text:</h2><br>

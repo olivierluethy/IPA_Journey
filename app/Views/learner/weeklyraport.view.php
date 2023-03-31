@@ -15,17 +15,25 @@
 <body>
 
     <?php
+    // Set a variable to hold the basename of the current file
 $actual_link = basename(__FILE__);
+// Include the file "navside.view.php" from the "General" directory one level up
+// using the constant DIRECTORY_SEPARATOR to ensure platform-independent file path
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
     <main>
-        <?php if(count($arrayWeeklyInProcess) > 0 || count($arrayWeeklyIsReleased) > 0){?>
-        <?php if(count($arrayWeeklyInProcess) > 0){?>
+        <?php 
+        // Check and count if there are values in both arrays
+        if(count($arrayWeeklyInProcess) > 0 || count($arrayWeeklyIsReleased) > 0){?>
+        <?php 
+        // Check if there are any weekly journals in process
+        if(count($arrayWeeklyInProcess) > 0){?>
         <h1>Still in process</h1>
 
         <div class="flex-container">
             <?php
+            // Go through the entire array
                         foreach ($arrayWeeklyInProcess as $weeklyIsProcess){?>
             <div>
                 <div class="content">
@@ -59,7 +67,9 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         </div>
         <?php } ?>
 
-        <?php if(count($arrayWeeklyIsReleased) > 0){?>
+        <?php 
+        // Check if there are any weekly journals which have been released
+        if(count($arrayWeeklyIsReleased) > 0){?>
         <div class="withData">
             <div class="title">
                 <h1>Recently completed</h1>
@@ -69,6 +79,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             </div>
             <div class="flex-container" id="weekly">
                 <?php
+                // Go through the entire array
                     foreach ($arrayWeeklyIsReleased as $weeklyIsReleased){?>
                 <div class="container-child">
                     <div class="content">
@@ -98,7 +109,9 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             </div>
         </div>
         <?php }
-    } else {?>
+    } 
+    // If there are no weekly journals available
+    else {?>
         <div class="withData">
             <div class="title">
                 <h1>There are no weekly reports</h1>

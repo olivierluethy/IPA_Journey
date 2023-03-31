@@ -8,6 +8,7 @@ class WeeklyReport
         $this->db = connectDatabase();
     }
 
+	// Get all weekly journals
     public function getAllWeeklyJournals(){
 		$statement = $this->db->prepare('SELECT * FROM weeklyreport WHERE fk_userId = :id AND status = 1
 		ORDER BY date DESC');
@@ -16,6 +17,7 @@ class WeeklyReport
         return $statement;
 	}
 
+	// Add a new weekly raport to database
     public function addWeeklyRaport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $status){
 		$statement = $this->db->prepare('INSERT INTO `weeklyreport` (calendarWeek, doneWork, ongoingWork, reflection, occurredProblems, status, fk_userId) 
 		VALUES (:kalenderwoche, :erledigte_arbeiten, :laufende_arbeiten, :reflexion, :aufgetretene_probleme, :status, :id)');
@@ -29,6 +31,7 @@ class WeeklyReport
 		$statement->execute();
 	}
 
+	// Get all weekly journals which are currently in process
     public function getAllWeeklyInProcess(){
 		$statement = $this->db->prepare('SELECT weeklyreport.weeklyReportId, weeklyreport.calendarWeek, weeklyreport.doneWork, 
 		weeklyreport.ongoingWork, weeklyreport.reflection, weeklyreport.occurredProblems, 
@@ -38,6 +41,7 @@ class WeeklyReport
         return $statement;
 	}
 
+	// Get all weekly journals which have been released
 	public function getAllWeeklyInRelease(){
 		$statement = $this->db->prepare('SELECT weeklyreport.weeklyReportId, weeklyreport.calendarWeek, weeklyreport.doneWork, 
 		weeklyreport.ongoingWork, weeklyreport.reflection, weeklyreport.occurredProblems, 
@@ -47,18 +51,21 @@ class WeeklyReport
         return $statement;
 	}
 
+	// Delete a weekly report from the database
     public function deleteWeeklyReport($id){
 		$statement = $this->db->prepare('DELETE FROM `weeklyreport` WHERE weeklyReportId = :id');
         $statement->bindParam(':id', $id, PDO::PARAM_STR);
         $statement->execute();
 	}
 
+	// Update a status of a weekly report in the database
 	public function releaseWeeklyReport($id){
 		$statement = $this->db->prepare('UPDATE weeklyreport SET status = 1 WHERE weeklyReportId = :id');
 		$statement->bindParam(':id', $id, PDO::PARAM_STR);
 		$statement->execute();
 	}
 
+	// Update the content of a weekly report
 	public function editWeeklyReport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $id){
 		$statement = $this->db->prepare('UPDATE weeklyreport SET calendarWeek = :kalenderwoche, doneWork = :erledigte_arbeiten, ongoingWork = :laufende_arbeiten, reflection = :reflexion, occurredProblems = :aufgetretene_probleme WHERE weeklyReportId = :id');
 		$statement->bindParam(':kalenderwoche', $calendar_week, PDO::PARAM_STR);
@@ -70,6 +77,7 @@ class WeeklyReport
 		$statement->execute();
 	}
 
+	// Get information from specific weekly report
 	public function getWeeklyReport($id){
 		$statement = $this->db->prepare('SELECT * FROM weeklyreport WHERE weeklyReportId = :id');
 		$statement->bindParam(':id', $id, PDO::PARAM_STR);

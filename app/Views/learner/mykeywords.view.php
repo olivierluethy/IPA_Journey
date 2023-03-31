@@ -15,12 +15,17 @@
 <body>
 
     <?php
+    // Set a variable to hold the basename of the current file
 $actual_link = basename(__FILE__);
+// Include the file "navside.view.php" from the "General" directory one level up
+// using the constant DIRECTORY_SEPARATOR to ensure platform-independent file path
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
     <main>
-        <?php if(count($arrayKeywords) > 0){?>
+        <?php 
+        // Check if there are any keywords in array
+        if(count($arrayKeywords) > 0){?>
         <div class="withData">
             <div class="title">
                 <h1>My keywords</h1>
@@ -28,6 +33,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             </div>
 
             <?php
+            // Go through the entire array
             foreach ($arrayKeywords as $keyword) {?>
             <div class="flex-container">
                 <div>
@@ -42,7 +48,9 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             </div>
             <?php } ?>
         </div>
-        <?php } else {?>
+        <?php } 
+        // If there are no keywords
+        else {?>
         <div class="withData">
             <div class="title">
                 <h1>There are no keywords</h1>

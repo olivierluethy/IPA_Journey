@@ -15,12 +15,16 @@
 
 <body>
     <?php
-$actual_link = basename(__FILE__); // aktueller dateiname (wird für header.php benötigt)
+    // Set a variable to hold the basename of the current file
+$actual_link = basename(__FILE__);
+// Include the file "navside.view.php" from the "General" directory one level up
 include ("general/navside.view.php");
 ?>
     <main>
 
-        <?php if ($_SESSION['role'] == 0) {?>
+        <?php 
+        // Check if the user's role is equal to 0
+        if ($_SESSION['role'] == 0) {?>
         <div class="menu">
             <div onclick="navigateTo('addDailyJournal')">
                 <img src="images/writedailyreport.png" alt="">
@@ -34,12 +38,18 @@ include ("general/navside.view.php");
         <?php } ?>
 
         <div class="withData">
-            <?php if ($_SESSION['role'] == 0) {?>
+            <?php 
+            // Check if the user's role is equal to 0
+            if ($_SESSION['role'] == 0) {?>
             <h2>Recently written reports</h2>
-            <?php } else if ($_SESSION['role'] == 1){?>
+            <?php } else 
+            // Check if the user's role is equal to 1
+            if ($_SESSION['role'] == 1){?>
             <h2>Recently published reports</h2>
             <?php } ?>
-            <?php if ($_SESSION['role'] != 2){?>
+            <?php
+            // Check if the user's role is not equal to 2
+            if ($_SESSION['role'] != 2){?>
             <div class="switch">
                 <button title="Show daily sector" onclick="showPart('daily')">Daily</button>
                 <button title="Show weekly sector" onclick="showPart('weekly')">Weekly</button>
@@ -48,6 +58,7 @@ include ("general/navside.view.php");
 
         <div class="flex-container" id="dailyreports">
             <?php
+            // Go through the entire array
             foreach($arrayJournalsInRelease as $dailyreports){?>
             <div>
                 <div class="content">
@@ -55,7 +66,9 @@ include ("general/navside.view.php");
                         <h2><?= $dailyreports['full_name'] ?></h2>
                         <textarea readonly class="ckeditor" name="text"
                             id="text"><?php echo $dailyreports['text'] ?></textarea>
-                        <?php if(!empty($dailyreports['selected_topics'])){?>
+                        <?php 
+                        // Check if there is no selected topics
+                        if(!empty($dailyreports['selected_topics'])){?>
                         <div class="datopic">
                             <h3>Topics:</h3>
                             <p><?= $dailyreports['selected_topics'] ?></p>
@@ -74,6 +87,7 @@ include ("general/navside.view.php");
 
         <div class="flex-container" id="weeklyreports">
             <?php
+            // Go through the entire array
             foreach($arrayWeeklyIsInRelease as $weeklyreports){?>
             <div>
                 <div class="content">

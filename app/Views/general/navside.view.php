@@ -15,8 +15,6 @@ echo "<nav id='sidebar'>
 
 if(isset($_SESSION['role'])){
     if ($_SESSION['role'] == 0 || $_SESSION['role'] == 1) {
-        echo "<input type='text' placeholder='Search'>";
-        
         $a = '<button title="Go To Home" onclick="navigateTo(\'home\')"';
         if (preg_match("/home/i", $actual_link)) {
             $a .= ' class="active"';
