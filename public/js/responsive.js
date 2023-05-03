@@ -34,41 +34,60 @@ function reportWindowSize() {
 
 // When the user clicks an daily or weekly on the switch, parts will be shown or hidden
 // Get the HTML elements we will be manipulating
-const dailyButton = document.querySelector("main .withData .switch button:nth-child(1)");
-const weeklyButton = document.querySelector("main .withData .switch button:nth-child(2)");
+const dailyButton = document.querySelector(".switch button:nth-child(1)");
+const weeklyButton = document.querySelector(".switch button:nth-child(2)");
 const dailyReports = document.getElementById("dailyreports");
 const weeklyReports = document.getElementById("weeklyreports");
 
 // Function to show the appropriate section based on the topic parameter
 function showPart(topic) {
-    if (topic === "daily") {
-        // Style the daily button to appear selected
-        dailyButton.style.zIndex = 100;
-        dailyButton.style.backgroundColor = "black";
-        dailyButton.style.color = "white";
-        // Style the weekly button to appear unselected
-        weeklyButton.style.zIndex = 99;
-        weeklyButton.style.backgroundColor = "white";
-        weeklyButton.style.color = "black";
+  if (topic === "daily") {
+      // Style the daily button to appear selected
+      dailyButton.style.zIndex = 100;
+      dailyButton.style.backgroundColor = "black";
+      dailyButton.style.color = "white";
+      // Style the weekly button to appear unselected
+      weeklyButton.style.zIndex = 99;
+      weeklyButton.style.backgroundColor = "white";
+      weeklyButton.style.color = "black";
 
-        // Show the daily reports section and hide the weekly reports section
-        dailyReports.style.display = "flex";
-        weeklyReports.style.display = "none";
-    } else if (topic === "weekly") {
-        // Style the weekly button to appear selected
-        dailyButton.style.zIndex = 99;
-        dailyButton.style.backgroundColor = "white";
-        dailyButton.style.color = "black";
+      // Show the daily reports section and hide the weekly reports section
+      if (dailyReports) {
+          dailyReports.style.display = "flex";
+      }
+      if (weeklyReports) {
+          weeklyReports.style.display = "none";
+      }
+  } else if (topic === "weekly") {
+      // Style the weekly button to appear selected
+      weeklyButton.style.zIndex = 100;
+      weeklyButton.style.backgroundColor = "black";
+      weeklyButton.style.color = "white";
 
-        // Style the daily button to appear unselected
-        weeklyButton.style.zIndex = 100;
-        weeklyButton.style.backgroundColor = "black";
-        weeklyButton.style.color = "white";
+      // Style the daily button to appear unselected
+      dailyButton.style.zIndex = 99;
+      dailyButton.style.backgroundColor = "white";
+      dailyButton.style.color = "black";
 
-        // Show the weekly reports section and hide the daily reports section
-        dailyReports.style.display = "none";
-        weeklyReports.style.display = "flex";
-    }
+      // Show the weekly reports section and hide the daily reports section
+      if (weeklyReports) {
+          weeklyReports.style.display = "flex";
+      }
+      if (dailyReports) {
+          dailyReports.style.display = "none";
+      }
+  }
 }
+
+
 // Hide the weekly reports section by default
 weeklyReports.style.display = "none";
+
+// Add click event listeners to the daily and weekly buttons
+dailyButton.addEventListener("click", function() {
+    showPart("daily");
+});
+
+weeklyButton.addEventListener("click", function() {
+    showPart("weekly");
+});

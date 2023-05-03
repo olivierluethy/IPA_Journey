@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="public/css/navside.css">
     <link rel="stylesheet" href="public/fontawesome/css/all.css">
     <link rel="shortcut icon" href="images/favicon.ico">
+
+    <script src="public/js/search.js" defer></script>
+    <script src="public/js/responsive.js" defer></script>
+    <script src="public/js/route.js" defer></script>
+    <script src="ckeditor/ckeditor.js" defer></script>
     <title>Journal - Overview</title>
 </head>
 
@@ -28,6 +33,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             placeholder="Search by user, content inside text, keyword or date">
 
         <h1>Weekly reports:</h1>
+        <?php if(count($arrayWeeklyRaports)){?>
         <div class="flex-container" id="weekly">
             <?php
             // Go through the entire array
@@ -57,9 +63,14 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                 </div>
             </div>
             <?php } ?>
+            <h2 style="color: red;" id="noWeeklyMatches"></h2>
         </div>
+        <?php }else{?>
+            <h2 style="color: red;">There Are No Weekly Entries</h2>
+        <?php } ?>
 
         <h1>Daily reports:</h1>
+        <?php if(count($arrayDailyRaports)){?>
         <div class="flex-container" id="daily">
             <?php
                     foreach ($arrayDailyRaports as $dailyRaports) {?>
@@ -86,14 +97,12 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
                 </div>
             </div>
             <?php } ?>
+            <h2 style="color: red;" id="noDailyMatches"></h2>
         </div>
-
+<?php }else {?>
+    <h2 style="color: red;">There Are No Daily Entries</h2>
+<?php }?>
     </main>
-
-    <script src="public/js/search.js"></script>
-    <script src="public/js/responsive.js"></script>
-    <script src="public/js/route.js"></script>
-    <script src="ckeditor/ckeditor.js"></script>
 
     <script>
     CKEDITOR.replace('doneWork');
