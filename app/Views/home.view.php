@@ -57,8 +57,8 @@ if(count($arrayJournalsInRelease) || count($arrayWeeklyIsInRelease)){?>
         // Check if the user's role is not equal to 2
         if ($_SESSION['role'] != 2){?>
             <div class="switch">
-                <button title="Show daily sector" onclick="showPart('daily')">Daily <?= (count($arrayJournalsInRelease) ? count($arrayJournalsInRelease) : "(empty)") ?></button>
-                <button title="Show weekly sector" onclick="showPart('weekly')">Weekly <?= (count($arrayWeeklyIsInRelease) ? count($arrayWeeklyIsInRelease) : "(empty)") ?></button>
+                <button title="Show daily sector" onclick="showPart('daily')">Daily <?= (count($arrayJournalsInRelease) ? '(' . count($arrayJournalsInRelease) . ')' : "(empty)") ?></button>
+                <button title="Show weekly sector" onclick="showPart('weekly')">Weekly <?= (count($arrayWeeklyIsInRelease) ? '(' . count($arrayWeeklyIsInRelease) . ')' : "(empty)") ?></button>
             </div>
         <?php } ?>
     </div>
@@ -98,7 +98,10 @@ if(count($arrayJournalsInRelease) || count($arrayWeeklyIsInRelease)){?>
             <?php } ?>
         </div>
    <?php }else { ?>
-    <h2>There are no Daily Journals</h2>
+    <div id="noDailyMessage">
+        <h2 style="text-align: center;">There are no Daily Journals</h2>
+        <p>Please got to the "Daily reports" section, add an entry and then you'll see it here!</p>
+    </div>
     <?php }
         if(count($arrayWeeklyIsInRelease)) {
             ?>
@@ -134,13 +137,15 @@ if(count($arrayJournalsInRelease) || count($arrayWeeklyIsInRelease)){?>
         </div>
 
         <?php } } else {?>
-            <h1>There are no entries</h1>
-            <p>Please got to the "Daily reports" or "Weekly reports" section, add an entry and then you'll see it here!</p>
+            <div id="noWeeklyMessage">
+                <h2 style="text-align: center;">There are no Weekly Reports</h2>
+                <p>Please got to the "Weekly reports" section, add an entry and then you'll see it here!</p>
+            </div>
 <?php } ?>
 
 <?php 
         } else {?>
-            <h1>There are no entries</h1>
+            <h2>There are no entries</h2>
             <p>Please got to the "Daily reports" or "Weekly reports" section, add an entry and then you'll see it here!</p>
         <?php } ?>
     </main>
