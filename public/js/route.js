@@ -6,7 +6,7 @@ function navigateTo(page) {
 
 /* For keywords */
 function editKeyword(id){
-    location.href = "editkeyword?id=" + id;
+    location.href = "editKeyword?id=" + id;
 }
 
 function deleteKeyword(id){

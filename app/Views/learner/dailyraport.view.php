@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="public/css/navside.css">
     <link rel="stylesheet" href="public/fontawesome/css/all.css">
     <link rel="shortcut icon" href="images/favicon.ico">
+
+    <script src="public/js/responsive.js" defer></script>
+    <script src="public/js/route.js" defer></script>
+    <script src="ckeditor/ckeditor.js" defer></script>
+    <script src="public/js/search.js" defer></script>
     <title>Journal - Daily Raport</title>
 </head>
 
@@ -108,11 +113,6 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <?php } ?>
 
     </main>
-
-    <script src="public/js/responsive.js"></script>
-    <script src="public/js/route.js"></script>
-    <script src="public/js/search.js"></script>
-    <script src="ckeditor/ckeditor.js"></script>
 
     <script>
     CKEDITOR.replace('text');

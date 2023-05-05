@@ -51,4 +51,22 @@ class Login
         $statement->bindParam(':token', $token);
         $statement->execute();
     }
+
+    // If the information from the user as been changed
+    public function updateUser($email, $firstName, $lastName, $gender, $name, $profileImageUrl, $verifiedEmail, $token){
+        $userId = $this->getId($email)['userId'];
+        if (!$userId) {
+            throw new Exception("User does not exist in the database.");
+        }
+        $statement = $this->db->prepare('UPDATE user SET first_name = :first_name, last_name = :last_name, gender = :gender, full_name = :full_name, picture = :picture, verifiedEmail = :verifiedEmail, token = :token WHERE userId = :userId');
+        $statement->bindParam(':first_name', $firstName);
+        $statement->bindParam(':last_name', $lastName);
+        $statement->bindParam(':gender', $gender);
+        $statement->bindParam(':full_name', $name);
+        $statement->bindParam(':picture', $profileImageUrl);
+        $statement->bindParam(':verifiedEmail', $verifiedEmail);
+        $statement->bindParam(':token', $token);
+        $statement->bindParam(':userId', $userId);
+        $statement->execute();
+    }
 }

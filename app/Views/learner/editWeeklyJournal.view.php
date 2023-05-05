@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="public/css/navside.css">
     <link rel="stylesheet" href="public/fontawesome/css/all.css">
     <link rel="shortcut icon" href="images/favicon.ico">
+
+    <script src="public/js/responsive.js" defer></script>
+    <script src="ckeditor/ckeditor.js" defer></script>
+    <script src="public/js/route.js" defer></script>
+    <script src="public/js/addWeeklyValidation.js" defer></script>
     <title>Journal - Edit Weekly Journal</title>
 </head>
 
@@ -51,11 +56,6 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             <input type="submit" class="send" value="+ Add Weekly Report">
         </form>
     </main>
-
-    <script src="public/js/responsive.js"></script>
-    <script src="ckeditor/ckeditor.js"></script>
-    <script src="public/js/route.js"></script>
-    <script src="public/js/addWeeklyValidation.js"></script>
 
     <script>
     CKEDITOR.replace('completed_tasks');

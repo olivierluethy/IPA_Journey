@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="public/fontawesome/css/all.css">
     <link rel="stylesheet" href="public/css/home.css">
     <link rel="shortcut icon" href="images/favicon.ico">
+
+    <script src="public/js/responsive.js" defer></script>
     <title>Journal - Login</title>
 </head>
 
@@ -38,8 +40,6 @@ include ("navside.view.php");
         ?>
         </div>
     </main>
-
-    <script src="public/js/responsive.js"></script>
 
 </body>
 
