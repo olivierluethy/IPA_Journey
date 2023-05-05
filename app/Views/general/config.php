@@ -13,7 +13,7 @@ $client->setClientId('299537301506-l3upbv160vq5uhtddc0evgnnrkt5i0ps.apps.googleu
 $client->setClientSecret('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');
 
 // Set the redirect URI to redirect the user after logging in
-$client->setRedirectUri('http://localhost/IPA_Olivier/home');
+$client->setRedirectUri('http://localhost/Journey/home');
 
 // Add the required scopes for the Google API
 $client->addScope('https://www.googleapis.com/auth/plus.login');
@@ -32,7 +32,7 @@ if (isset($_GET['code'])) {
   $_SESSION['access_token'] = $token;
 
   // Redirect the user back to the index page
-  header('Location: http://localhost/IPA_Olivier/home');
+  header('Location: http://localhost/Journey/home');
   exit;
 }
 ?>

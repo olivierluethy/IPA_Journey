@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="public/css/navside.css">
     <link rel="stylesheet" href="public/css/dailyweeklyreport.css">
     <link rel="stylesheet" href="public/fontawesome/css/all.css">
+
+    <script src="public/js/responsive.js" defer></script>
+    <script src="ckeditor/ckeditor.js" defer></script>
+    <script src="public/js/route.js" defer></script>
     <link rel="shortcut icon" href="images/favicon.ico">
     <title>Journal - Home</title>
 </head>
@@ -37,24 +41,33 @@ include ("general/navside.view.php");
         </div>
         <?php } ?>
 
-        <div class="withData">
-            <?php 
+        <?php
+if(count($arrayJournalsInRelease) || count($arrayWeeklyIsInRelease)){?>
+    <div class="withData">
+        <?php 
             // Check if the user's role is equal to 0
             if ($_SESSION['role'] == 0) {?>
-            <h2>Recently written reports</h2>
-            <?php } else 
-            // Check if the user's role is equal to 1
-            if ($_SESSION['role'] == 1){?>
-            <h2>Recently published reports</h2>
-            <?php } ?>
-            <?php
-            // Check if the user's role is not equal to 2
-            if ($_SESSION['role'] != 2){?>
+                <h2>Recently written reports</h2>
+        <?php } else 
+                // Check if the user's role is equal to 1
+                if ($_SESSION['role'] == 1){?>
+                <h2>Recently published reports</h2>
+        <?php } ?>
+        <?php
+        // Check if the user's role is not equal to 2
+        if ($_SESSION['role'] != 2){?>
             <div class="switch">
-                <button title="Show daily sector" onclick="showPart('daily')">Daily</button>
-                <button title="Show weekly sector" onclick="showPart('weekly')">Weekly</button>
+                <button title="Show daily sector" onclick="showPart('daily')">Daily <?= (count($arrayJournalsInRelease) ? '(' . count($arrayJournalsInRelease) . ')' : "(empty)") ?></button>
+                <button title="Show weekly sector" onclick="showPart('weekly')">Weekly <?= (count($arrayWeeklyIsInRelease) ? '(' . count($arrayWeeklyIsInRelease) . ')' : "(empty)") ?></button>
             </div>
-        </div>
+        <?php } ?>
+    </div>
+<?php } ?>
+
+    <?php
+        if(count($arrayJournalsInRelease) || count($arrayWeeklyIsInRelease)){
+            if(count($arrayJournalsInRelease)){
+            ?>
 
         <div class="flex-container" id="dailyreports">
             <?php
@@ -84,7 +97,15 @@ include ("general/navside.view.php");
             </div>
             <?php } ?>
         </div>
-
+   <?php }else { ?>
+    <div id="noDailyMessage">
+        <h2 style="text-align: center;">There are no Daily Journals</h2>
+        <p>Please got to the "Daily reports" section, add an entry and then you'll see it here!</p>
+    </div>
+    <?php }
+        if(count($arrayWeeklyIsInRelease)) {
+            ?>
+   
         <div class="flex-container" id="weeklyreports">
             <?php
             // Go through the entire array
@@ -113,14 +134,21 @@ include ("general/navside.view.php");
                     </div>
                 </div>
             </div>
-            <?php } ?>
         </div>
+
+        <?php } } else {?>
+            <div id="noWeeklyMessage">
+                <h2 style="text-align: center;">There are no Weekly Reports</h2>
+                <p>Please got to the "Weekly reports" section, add an entry and then you'll see it here!</p>
+            </div>
+<?php } ?>
+
+<?php 
+        } else {?>
+            <h2>There are no entries</h2>
+            <p>Please got to the "Daily reports" or "Weekly reports" section, add an entry and then you'll see it here!</p>
         <?php } ?>
     </main>
-
-    <script src="public/js/responsive.js"></script>
-    <script src="ckeditor/ckeditor.js"></script>
-    <script src="public/js/route.js"></script>
 
     <script>
     CKEDITOR.replace('recentlyReleased');

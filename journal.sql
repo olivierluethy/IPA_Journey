@@ -13,7 +13,7 @@ CREATE TABLE `user` (
   `last_name` varchar(50) NOT NULL DEFAULT '',
   `gender` varchar(50) DEFAULT '',
   `full_name` varchar(100) NOT NULL DEFAULT '',
-  `picture` varchar(255) NOT NULL DEFAULT '',
+  `picture` varchar(5000) NOT NULL DEFAULT '',
   `verifiedEmail` int(11) NOT NULL DEFAULT 0,
   `token` varchar(255) NOT NULL DEFAULT '',
   `role` TINYINT(2) NOT NULL, /* Learner: 0, Specialist: 1, Administrator: 2 */

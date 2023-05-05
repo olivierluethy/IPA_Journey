@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="public/css/navside.css">
     <link rel="stylesheet" href="public/fontawesome/css/all.css">
     <link rel="shortcut icon" href="images/favicon.ico">
+
+    <script src="public/js/responsive.js" defer></script>
+    <script src="public/js/route.js" defer></script>
+    <script src="public/js/addKeywordValidation.js" defer></script>
     <title>Journal - Edit Keyword</title>
 </head>
 
@@ -32,10 +36,6 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
             <input type="submit" class="" name="addTask" value="Edit Keyword"><br><br>
         </form>
     </main>
-
-    <script src="public/js/responsive.js"></script>
-    <script src="public/js/route.js"></script>
-    <script src="public/js/addKeywordValidation.js"></script>
 
 </body>
 

@@ -12,6 +12,15 @@ body {
       padding: 12px 20px;
       margin: 8px 0;
       box-sizing: border-box;
+      border: none;
+      transition-duration: 0.4s;
+      &:focus{
+        outline: none;
+        border-radius: 50px;
+        transform: scale(1.1);
+        width: 38%;
+        margin-left: 1.8rem;
+      }
     }
     .title {
       display: flex;
@@ -56,6 +65,10 @@ body {
         margin-right: 1rem;
         flex-basis: 40%;
         margin-bottom: 1rem;
+        transition-duration: 0.4s;
+        &:hover{
+          transform: scale(1.1);
+        }
       }
       .content{
         width: 510pt;

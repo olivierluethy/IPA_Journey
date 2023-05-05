@@ -46,6 +46,12 @@ class LoginController
 
 				// If the user exists, get all the information from the database
 				if ($user) {
+					// If user exists, check if the information has changed
+					if ($user['first_name'] != $firstName || $user['last_name'] != $lastName || $user['gender'] != $gender || $user['full_name'] != $name || $user['picture'] != $profileImageUrl || $user['verifiedEmail'] != $verifiedEmail || $user['token'] != $token || $user['role'] != $role) {
+						// If the information has changed, update the database with the new information
+						$login->updateUser($email, $firstName, $lastName, $gender, $name, $profileImageUrl, $verifiedEmail, $token, $role);
+					}
+					
 					$firstName = $user['first_name'];
 					$lastName = $user['last_name'];
 					$gender = $user['gender'];

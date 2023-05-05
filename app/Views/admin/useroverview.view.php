@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="public/css/navside.css">
     <link rel="stylesheet" href="public/fontawesome/css/all.css">
     <link rel="shortcut icon" href="images/favicon.ico">
+
+    <script src="public/js/responsive.js" defer></script>
+    <script src="public/js/route.js" defer></script>
     <title>Journal - User Overview</title>
 </head>
 
@@ -48,9 +51,6 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <h1>There are no users</h1>
         <?php }?>
     </main>
-
-    <script src="public/js/responsive.js"></script>
-    <script src="public/js/route.js"></script>
 
 </body>
 
