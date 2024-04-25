@@ -58,10 +58,9 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
     </main>
 
     <script>
-    CKEDITOR.replace('completed_tasks');
-    CKEDITOR.replace('still_in_work');
-    CKEDITOR.replace('reflection');
-    CKEDITOR.replace('issues');
+    ['completed_tasks', 'still_in_work', 'reflection', 'issues'].forEach(function(id) {
+        CKEDITOR.replace(id);
+    });
     </script>
 
 </body>

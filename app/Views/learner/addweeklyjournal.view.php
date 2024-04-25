@@ -12,7 +12,6 @@
 
     <script src="public/js/responsive.js" defer></script>
     <script src="public/js/route.js" defer></script>
-    <script src="ckeditor/ckeditor.js" defer></script>
     <script src="public/js/addWeeklyValidation.js" defer></script>
     <title>Journal - Add Weekly Journal</title>
 </head>
@@ -50,11 +49,11 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         </form>
     </main>
 
+    <script src="ckeditor/ckeditor.js"></script>
     <script>
-    CKEDITOR.replace('completed_tasks');
-    CKEDITOR.replace('still_in_work');
-    CKEDITOR.replace('reflection');
-    CKEDITOR.replace('issues');
+    ['completed_tasks', 'still_in_work', 'reflection', 'issues'].forEach(function(id) {
+        CKEDITOR.replace(id);
+    });
     </script>
 
 </body>

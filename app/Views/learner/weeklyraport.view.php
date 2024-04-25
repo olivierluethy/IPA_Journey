@@ -13,7 +13,6 @@
     <script src="public/js/responsive.js" defer></script>
     <script src="public/js/route.js" defer></script>
     <script src="public/js/search.js" defer></script>
-    <script src="ckeditor/ckeditor.js" defer></script>
     <title>Journal - Weekly Raport</title>
 </head>
 
@@ -127,11 +126,11 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         <?php } ?>
     </main>
 
+    <script src="ckeditor/ckeditor.js"></script>
     <script>
-    CKEDITOR.replace('doneWork');
-    CKEDITOR.replace('ongoingWork');
-    CKEDITOR.replace('reflection');
-    CKEDITOR.replace('occurredProblems');
+    ['doneWork', 'ongoingWork', 'reflection', 'occurredProblems'].forEach(function(id) {
+        CKEDITOR.replace(id);
+    });
     </script>
 
 </body>
