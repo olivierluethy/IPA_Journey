@@ -13,7 +13,6 @@
     <script src="public/js/responsive.js" defer></script>
     <script src="public/js/route.js" defer></script>
     <script src="public/js/addKeywordValidation.js" defer></script>
-    <script src="ckeditor/ckeditor.js" defer></script>
     <title>Journal - Add Keyword</title>
 </head>
 

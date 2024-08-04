@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="public/fontawesome/css/all.css">
 
     <script src="public/js/responsive.js" defer></script>
-    <script src="ckeditor/ckeditor.js" defer></script>
     <script src="public/js/route.js" defer></script>
     <link rel="shortcut icon" href="images/favicon.ico">
     <title>Journal - Home</title>
@@ -150,6 +149,7 @@ if(count($arrayJournalsInRelease) || count($arrayWeeklyIsInRelease)){?>
         <?php } ?>
     </main>
 
+    <script src="ckeditor/ckeditor.js"></script>
     <script>
     CKEDITOR.replace('recentlyReleased');
     CKEDITOR.replace('dailyreport');

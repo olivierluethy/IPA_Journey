@@ -11,7 +11,6 @@
     <link rel="shortcut icon" href="images/favicon.ico">
 
     <script src="public/js/responsive.js" defer></script>
-    <script src="ckeditor/ckeditor.js" defer></script>
     <script src="public/js/route.js" defer></script>
     <script src="public/js/addDailyValidation.js" defer></script>
     <title>Journal - Add Daily Report</title>
@@ -50,6 +49,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         </form>
     </main>
 
+    <script src="ckeditor/ckeditor.js"></script>
     <script>
     CKEDITOR.replace('text');
     </script>

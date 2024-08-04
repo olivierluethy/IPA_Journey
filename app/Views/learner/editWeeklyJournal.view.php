@@ -11,7 +11,6 @@
     <link rel="shortcut icon" href="images/favicon.ico">
 
     <script src="public/js/responsive.js" defer></script>
-    <script src="ckeditor/ckeditor.js" defer></script>
     <script src="public/js/route.js" defer></script>
     <script src="public/js/addWeeklyValidation.js" defer></script>
     <title>Journal - Edit Weekly Journal</title>
@@ -57,6 +56,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         </form>
     </main>
 
+    <script src="ckeditor/ckeditor.js"></script>
     <script>
     ['completed_tasks', 'still_in_work', 'reflection', 'issues'].forEach(function(id) {
         CKEDITOR.replace(id);

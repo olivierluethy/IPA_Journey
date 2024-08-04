@@ -13,7 +13,6 @@
     <script src="public/js/responsive.js" defer></script>
     <script src="public/js/route.js" defer></script>
     <script src="public/js/addDailyValidation.js" defer></script>
-    <script src="ckeditor/ckeditor.js" defer></script>
     <title>Journal - Edit Daily Report</title>
 </head>
 
@@ -55,6 +54,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
         </form>
     </main>
 
+    <script src="ckeditor/ckeditor.js"></script>
     <script>
     CKEDITOR.replace('text');
     </script>

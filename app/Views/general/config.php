@@ -9,8 +9,8 @@ session_start();
 $client = new Google_Client();
 
 // Set the client ID and client secret for the Google API
-$client->setClientId('299537301506-l3upbv160vq5uhtddc0evgnnrkt5i0ps.apps.googleusercontent.com');
-$client->setClientSecret('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');
+$client->setClientId('736883468974-d8bkak2d3rp15i36qhmd6k1klp4od2dq.apps.googleusercontent.com');
+$client->setClientSecret('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');
 
 // Set the redirect URI to redirect the user after logging in
 $client->setRedirectUri('http://localhost/Journey/home');

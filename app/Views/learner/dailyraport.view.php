@@ -12,7 +12,6 @@
 
     <script src="public/js/responsive.js" defer></script>
     <script src="public/js/route.js" defer></script>
-    <script src="ckeditor/ckeditor.js" defer></script>
     <script src="public/js/search.js" defer></script>
     <title>Journal - Daily Raport</title>
 </head>
@@ -114,6 +113,7 @@ include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "General" .
 
     </main>
 
+    <script src="ckeditor/ckeditor.js"></script>
     <script>
     CKEDITOR.replace('text');
     </script>
