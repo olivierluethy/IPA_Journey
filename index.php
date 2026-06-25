@@ -47,11 +47,5 @@ $routes = [
 	'devLogin' => 'LoginController@devLogin',
 ];
 
-$db = [
-	'name'     => 'journal',
-	'username' => 'root',
-	'password' => '',
-];
-
 $router = new Router($routes);
 $router->run($_GET['url'] ?? '');

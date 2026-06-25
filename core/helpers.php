@@ -189,25 +189,10 @@ function currentIsoWeek(): int
 }
 
 /**
- * Stellt eine Verbindung zur Datenbank her und gibt die
- * Datenbankverbindung als PDO zurück.
+ * Returns a PDO connection. Credentials live in ONE place — see dbConfig()
+ * in core/database.php; this simply delegates so there is no duplicate config.
  */
-$dbInstance = null;
-
 function db(): PDO
 {
-    global $dbInstance;
-
-    if ($dbInstance) {
-        return $dbInstance;
-    }
-
-    try {
-        $dbInstance = new PDO('mysql:host=127.0.0.1;journal=' . $db['name'], $db['username'], $db['password'], [
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-        ]);
-    } catch (PDOException $e) {
-        die('Keine Verbindung zur Datenbank möglich: ' . $e->getMessage());
-    }
+    return connectDatabase();
 }
