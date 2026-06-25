@@ -36,4 +36,46 @@ class Specialist
 		$statement->execute();
         return $statement;
     }
+
+    // Org-wide keyword usage (aggregated by topic name across all apprentices).
+    public function getOrgKeywordUsage(){
+        $statement = $this->db->prepare("SELECT t.topic, COUNT(st.fk_journalId) AS cnt
+            FROM topic t
+            LEFT JOIN selectedtopics st ON st.fk_topicId = t.topicId
+            GROUP BY t.topic
+            ORDER BY cnt DESC, t.topic ASC");
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
+    // Last submission datetime per apprentice (across daily + weekly reports).
+    public function getLastSubmissions(){
+        $statement = $this->db->prepare("SELECT u.userId, u.full_name, MAX(x.d) AS last_sub
+            FROM user u
+            LEFT JOIN (
+                SELECT fk_userId, date AS d FROM journal
+                UNION ALL
+                SELECT fk_userId, date FROM weeklyreport
+            ) x ON x.fk_userId = u.userId
+            WHERE u.role = 0
+            GROUP BY u.userId, u.full_name
+            ORDER BY u.full_name");
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
+    // userId => count of daily reports created today.
+    public function getDailyTodayCounts(){
+        $statement = $this->db->prepare("SELECT fk_userId, COUNT(*) AS c FROM journal WHERE DATE(date) = CURDATE() GROUP BY fk_userId");
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_KEY_PAIR);
+    }
+
+    // userId => count of weekly reports for the given ISO week.
+    public function getWeeklyWeekCounts($week){
+        $statement = $this->db->prepare("SELECT fk_userId, COUNT(*) AS c FROM weeklyreport WHERE calendarWeek = :w GROUP BY fk_userId");
+        $statement->bindParam(':w', $week, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_KEY_PAIR);
+    }
 }

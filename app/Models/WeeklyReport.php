@@ -8,6 +8,15 @@ class WeeklyReport
         $this->db = connectDatabase();
     }
 
+	// Count of weekly reports the user has for a given ISO week (for reminders)
+	public function countWeeklyForWeek($userId, $week){
+		$statement = $this->db->prepare("SELECT COUNT(*) FROM weeklyreport WHERE fk_userId = :id AND calendarWeek = :w");
+		$statement->bindParam(':id', $userId, PDO::PARAM_INT);
+		$statement->bindParam(':w', $week, PDO::PARAM_INT);
+		$statement->execute();
+		return (int) $statement->fetchColumn();
+	}
+
 	// Get all weekly journals
     public function getAllWeeklyJournals(){
 		$statement = $this->db->prepare('SELECT * FROM weeklyreport WHERE fk_userId = :id AND status = 1

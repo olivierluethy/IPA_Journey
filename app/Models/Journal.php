@@ -8,6 +8,14 @@ class Journal
         $this->db = connectDatabase();
     }
 
+	// Count of daily reports the user created today (for submission reminders)
+	public function countDailyToday($userId){
+		$statement = $this->db->prepare("SELECT COUNT(*) FROM journal WHERE fk_userId = :id AND DATE(date) = CURDATE()");
+		$statement->bindParam(':id', $userId, PDO::PARAM_INT);
+		$statement->execute();
+		return (int) $statement->fetchColumn();
+	}
+
 	// Gets all daily journals which have not been released
 	public function getAllDailyJournalsInProcess(){
 		$statement = $this->db->prepare("SELECT journal.journalId, journal.text, journal.date, user.full_name, GROUP_CONCAT(t.topic SEPARATOR ' | ') AS selected_topics

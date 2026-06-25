@@ -28,39 +28,38 @@ class AdminController
 		require 'app/Views/admin/userOverview.view.php';
 	}
 
-	/* The page to edit a user */
+	/* Update endpoint for a user's role (no edit page — editing is inline). */
 	public function editUser() {
 		// Include the configuration file
 		require_once 'app/Views/general/config.php';
 
 		// Redirect to login page if user is not logged in
 		if (!isset($_SESSION['token'])) {
+			if (isAjax()) jsonResponse(['ok' => false, 'error' => 'auth'], 401);
 			header("Location: login");
 			die();
 		}
-	
-		// Redirect to home page if the user is not authorized to access this page
-		if ($_SESSION['role'] == 0 || $_SESSION['role'] == 1) {
+
+		// Only administrators may change roles
+		if ($_SESSION['role'] != 2) {
+			if (isAjax()) jsonResponse(['ok' => false, 'error' => 'forbidden'], 403);
 			header("Location: home");
 			die();
 		}
-		
-		$id = $_GET['id'];
-	
+
+		$id = $_GET['id'] ?? null;
 		$Admin = new Admin();
-	
-		// If the HTTP method is POST, update user details in the database
+
+		// Only POST performs an update; the old GET edit page has been removed.
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$role = e(post('role'));
 			$Admin->editUser($id, $role);
+			if (isAjax()) jsonResponse(['ok' => true, 'id' => $id, 'role' => $role]);
 			header('Location: userOverview');
 			die();
 		}
-	
-		/* Get Data to edit */
-		$getUser = $Admin->getUser($id)->fetchAll();
-	
-		require 'app/Views/admin/editUser.view.php';
+
+		header('Location: userOverview');
 	}
 
 	/* The URL to delete a user */

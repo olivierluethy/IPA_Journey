@@ -27,6 +27,7 @@ $routes = [
 	'addDailyJournal' => 'DailyReportController@addDailyJournal',
 	'addWeeklyJournal' => 'WeeklyReportController@addWeeklyJournal',
 	'addKeyword' => 'KeywordController@addKeyword',
+	'uploadImage' => 'UploadController@image',
 
 	/* For Specialists */
 	'overview' => 'SpecialistController@overview',

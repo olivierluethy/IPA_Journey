@@ -39,63 +39,36 @@ const weeklyButton = document.querySelector(".switch button:nth-child(2)");
 const dailyReports = document.getElementById("dailyreports");
 const weeklyReports = document.getElementById("weeklyreports");
 
-// Function to show the appropriate section based on the topic parameter
+// Function to show the appropriate section based on the topic parameter.
+// Every element is looked up defensively: depending on whether reports exist,
+// either the report container OR its "no entries" message is in the DOM, not both.
 function showPart(topic) {
-    if (topic === "daily") {
-        // Style the daily button to appear selected
-        dailyButton.style.zIndex = 100;
-        dailyButton.style.backgroundColor = "black";
-        dailyButton.style.color = "white";
-        // Style the weekly button to appear unselected
-        weeklyButton.style.zIndex = 99;
-        weeklyButton.style.backgroundColor = "white";
-        weeklyButton.style.color = "black";
+    // The empty-state messages only exist when there are no reports of that kind.
+    const noDailyMessage = document.getElementById("noDailyMessage");
+    const noWeeklyMessage = document.getElementById("noWeeklyMessage");
 
-        document.getElementById("noDailyMessage").style.display = "block";
-        if (document.getElementById("noWeeklyMessage")) {
-            document.getElementById("noWeeklyMessage").style.display = "none";
-        }
+    const dailySelected = topic === "daily";
 
-        // Show the daily reports section and hide the weekly reports section
-        if (dailyReports) {
-            dailyReports.style.display = "flex";
-        }
-        if (weeklyReports) {
-            weeklyReports.style.display = "none";
-        }
-    } else if (topic === "weekly") {
-        // Style the weekly button to appear selected
-        weeklyButton.style.zIndex = 100;
-        weeklyButton.style.backgroundColor = "black";
-        weeklyButton.style.color = "white";
-        // Style the daily button to appear unselected
-        dailyButton.style.zIndex = 99;
-        dailyButton.style.backgroundColor = "white";
-        dailyButton.style.color = "black";
+    // Style the toggle buttons to reflect the selection.
+    if (dailyButton && weeklyButton) {
+        dailyButton.style.zIndex = dailySelected ? 100 : 99;
+        dailyButton.style.backgroundColor = dailySelected ? "black" : "white";
+        dailyButton.style.color = dailySelected ? "white" : "black";
 
-        if (document.getElementById("noDailyMessage")) {
-            document.getElementById("noDailyMessage").style.display = "none";
-        }
-        if (document.getElementById("noWeeklyMessage")) {
-            document.getElementById("noWeeklyMessage").style.display = "block";
-        }
-
-        // Show the weekly reports section and hide the daily reports section
-        if (weeklyReports) {
-            weeklyReports.style.display = "flex";
-        }
-        if (dailyReports) {
-            dailyReports.style.display = "none";
-        }
+        weeklyButton.style.zIndex = dailySelected ? 99 : 100;
+        weeklyButton.style.backgroundColor = dailySelected ? "white" : "black";
+        weeklyButton.style.color = dailySelected ? "black" : "white";
     }
+
+    // Show the selected section (or its empty-state message) and hide the other.
+    if (dailyReports) dailyReports.style.display = dailySelected ? "flex" : "none";
+    if (noDailyMessage) noDailyMessage.style.display = dailySelected ? "block" : "none";
+    if (weeklyReports) weeklyReports.style.display = dailySelected ? "none" : "flex";
+    if (noWeeklyMessage) noWeeklyMessage.style.display = dailySelected ? "none" : "block";
 }
 
-// Hide the weekly reports section by default
-if (weeklyReports) {
-    weeklyReports.style.display = "none";
-}
-
-// Add click event listeners to the daily and weekly buttons
+// Add click event listeners to the daily and weekly buttons and set the
+// initial state to the "daily" view (only on pages that have the switch).
 if (dailyButton && weeklyButton) {
     dailyButton.addEventListener("click", function() {
         showPart("daily");
@@ -103,4 +76,5 @@ if (dailyButton && weeklyButton) {
     weeklyButton.addEventListener("click", function() {
         showPart("weekly");
     });
+    showPart("daily");
 }

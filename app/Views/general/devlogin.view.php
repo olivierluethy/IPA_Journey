@@ -1,66 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/navside.css">
-    <link rel="stylesheet" href="public/fontawesome/css/all.css">
-    <link rel="stylesheet" href="public/css/home.css">
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <title>Journal - Developer Login</title>
-    <style>
-        .devlogin { max-width: 640px; margin: 60px auto; font-family: sans-serif; }
-        .devlogin h1 { margin-bottom: 4px; }
-        .devlogin .hint { color: #666; margin-bottom: 24px; }
-        .devlogin .role-group { margin-bottom: 28px; }
-        .devlogin .role-group h2 { font-size: 1.05rem; border-bottom: 2px solid #eee; padding-bottom: 6px; }
-        .devlogin ul { list-style: none; padding: 0; margin: 0; }
-        .devlogin li { margin: 8px 0; }
-        .devlogin a.user {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px;
-            text-decoration: none; color: #222; transition: background .15s, border-color .15s;
-        }
-        .devlogin a.user:hover { background: #f5f8ff; border-color: #6c8cff; }
-        .devlogin .email { color: #888; font-size: .85rem; }
-        .devlogin .back { display: inline-block; margin-top: 10px; color: #6c8cff; text-decoration: none; }
-    </style>
+    <?php $pageTitle = 'Journal - Developer Login'; include 'app/Views/general/head.php'; ?>
 </head>
 
-<body>
-    <main>
-        <div class="devlogin">
-            <h1>Developer Login</h1>
-            <p class="hint">Local testing only — pick a mock user to log in instantly (no Google needed).</p>
+<body class="min-h-screen grid place-items-center px-4 py-10">
+    <div class="card w-full max-w-xl p-8">
+        <h1 class="text-2xl">Developer Login</h1>
+        <p class="text-sm text-slate-400 mt-1 mb-6">Local testing only — pick a mock user to log in instantly (no Google needed).</p>
 
-            <?php
-            $roleNames = [0 => 'Learners', 1 => 'Specialists', 2 => 'Administrators'];
-            $grouped = [0 => [], 1 => [], 2 => []];
-            foreach ($users as $u) {
-                $grouped[(int) $u['role']][] = $u;
-            }
-            foreach ($roleNames as $roleId => $label):
-                if (empty($grouped[$roleId])) continue;
-            ?>
-            <div class="role-group">
-                <h2><?= $label ?></h2>
-                <ul>
-                    <?php foreach ($grouped[$roleId] as $u): ?>
-                    <li>
-                        <a class="user" href="devLogin?email=<?= urlencode($u['email']) ?>">
-                            <span><?= e($u['full_name']) ?></span>
-                            <span class="email"><?= e($u['email']) ?></span>
-                        </a>
-                    </li>
-                    <?php endforeach; ?>
-                </ul>
+        <?php
+        $roleNames = [0 => 'Learners', 1 => 'Specialists', 2 => 'Administrators'];
+        $grouped = [0 => [], 1 => [], 2 => []];
+        foreach ($users as $u) {
+            $grouped[(int) $u['role']][] = $u;
+        }
+        foreach ($roleNames as $roleId => $label):
+            if (empty($grouped[$roleId])) continue;
+        ?>
+        <div class="mb-7">
+            <h2 class="text-sm uppercase tracking-wide text-slate-400 mb-3"><?= $label ?></h2>
+            <div class="space-y-2">
+                <?php foreach ($grouped[$roleId] as $u): ?>
+                <a href="devLogin?email=<?= urlencode($u['email']) ?>" class="flex items-center justify-between rounded-xl border border-border bg-surface-2 px-4 py-3 hover:border-accent/60 transition">
+                    <span class="text-slate-100 font-medium"><?= e($u['full_name']) ?></span>
+                    <span class="text-xs text-slate-500"><?= e($u['email']) ?></span>
+                </a>
+                <?php endforeach; ?>
             </div>
-            <?php endforeach; ?>
-
-            <a class="back" href="login">&larr; Back to normal login</a>
         </div>
-    </main>
+        <?php endforeach; ?>
+
+        <a href="login" class="btn btn-ghost mt-6">&larr; Back to login</a>
+    </div>
 </body>
 
 </html>

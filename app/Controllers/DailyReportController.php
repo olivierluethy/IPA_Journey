@@ -19,7 +19,11 @@ class DailyReportController
 		
 		// Get all daily journals which are released
 		$arrayJournalIsReleased = $Journal->getAllDailyJournalsInRelease()->fetchAll();
-		
+
+		// Available keywords for inline topic editing
+		$Keyword = new Keyword();
+		$arrayTopics = $Keyword->getAllKeywords()->fetchAll();
+
 		// Load dailyRaport view
 		require 'app/Views/learner/dailyRaport.view.php';
 	}
@@ -42,7 +46,7 @@ class DailyReportController
 		// Check if the form has been submitted
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			// Sanitize and validate the user input
-			$text = e(post('text'));
+			$text = sanitizeHtml(post('text'));
 			$topics = !empty($_POST['topics']) ? $_POST['topics'] : array();
 		
 			// Set the status of the daily report to "not completed"
@@ -65,51 +69,45 @@ class DailyReportController
 		require 'app/Views/learner/addDailyJournal.view.php';
 	}	
 
-	/* The page to edit a daily report */
+	/* Update endpoint for a daily report (no edit page — editing is inline). */
     public function editDailyReport(){
 		// Including configuration file
 		require_once 'app/Views/general/config.php';
+
 		// Checking if the user is logged in
-		if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
-			$id = $_GET['id'];
-			$dailyReport = new DailyReport();
-			
-			// If the form has been submitted
-			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-				// Sanitizing and validating input
-				$text = e(post('text'));
-				$topics = post('topics', []);
-			
-				if (!is_array($topics)) {
-					$topics = [$topics];
-				}
-				
-				$status = 0;
-				// Updating daily report with new data
-				$dailyReport->editDailyReport($id, $text, $status);
-				
-				// Updating topics of the daily report
-				foreach ($topics as $topic) {
-					$dailyReport->addSelectedTopics($topic, $id);
-				}
-				
-				header('Location: dailyRaport');
-			} else {
-				// Retrieving data of the daily report and keywords
-				$getDailyReport = $dailyReport->getDailyReport($id)->fetchAll();
-			
-				$keyword = new Keyword();
-				$getKeywords = $keyword->getAllKeywords()->fetchAll();
-				$getPickedKeywords = $keyword->getSelectedKeywords($id)->fetchAll();
-			}
-			
-			// Loading the edit daily journal view
-			require 'app/Views/learner/editDailyJournal.view.php';
-		}else {
-			// Redirecting to the login page if user is not logged in
+		if (!isset($_SESSION['access_token']) || !$_SESSION['access_token']) {
+			if (isAjax()) jsonResponse(['ok' => false, 'error' => 'auth'], 401);
 			header('Location: login');
+			return;
 		}
-	}		
+
+		$id = $_GET['id'] ?? null;
+		$dailyReport = new DailyReport();
+
+		// Only POST performs an update; the old GET edit page has been removed.
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			$text = sanitizeHtml(post('text'));
+			$topics = post('topics', []);
+			if (!is_array($topics)) {
+				$topics = [$topics];
+			}
+
+			$status = 0;
+			// editDailyReport also clears the existing selected topics.
+			$dailyReport->editDailyReport($id, $text, $status);
+			foreach ($topics as $topic) {
+				$dailyReport->addSelectedTopics($topic, $id);
+			}
+
+			if (isAjax()) {
+				jsonResponse(['ok' => true, 'id' => $id, 'text' => $text]);
+			}
+			header('Location: dailyRaport');
+			return;
+		}
+
+		header('Location: dailyRaport');
+	}
 
 	/* The page to delete a daily report */
 	public function deleteDailyReport() {

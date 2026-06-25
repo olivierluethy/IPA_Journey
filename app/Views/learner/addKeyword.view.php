@@ -2,18 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/dailyweeklyreport.css">
-    <link rel="stylesheet" href="public/css/navside.css">
-    <link rel="stylesheet" href="public/fontawesome/css/all.css">
-    <link rel="shortcut icon" href="images/favicon.ico">
-
-    <script src="public/js/responsive.js" defer></script>
+    <?php $pageTitle = 'Journal - Add keyword'; include 'app/Views/general/head.php'; ?>
     <script src="public/js/route.js" defer></script>
-    <script src="public/js/addKeywordValidation.js" defer></script>
-    <title>Journal - Add Keyword</title>
+    <script src="public/js/app.js" defer></script>
 </head>
 
 <body>
@@ -25,11 +16,17 @@ $actual_link = basename(__FILE__);
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "general" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
-    <main>
-        <form action="addKeyword" method="POST">
-            <h2>Topic:</h2>
-            <input type="text" name="topic" id="topic"><br><br><br><br>
-            <input type="submit" title="Click to add a keyword" class="send" value="+ Add Keyword">
+    <main class="md:ml-60 px-4 sm:px-6 lg:px-8 py-8 max-w-md">
+        <h2 class="text-xl font-semibold mb-6">Add keyword</h2>
+
+        <form action="addKeyword" method="POST" class="card p-6">
+            <label for="topic" class="label">Topic</label>
+            <input type="text" id="topic" name="topic" class="input" placeholder="New keyword…" autocomplete="off">
+
+            <div class="flex items-center gap-2 mt-6">
+                <button type="submit" class="btn btn-primary">Add keyword</button>
+                <button type="button" onclick="navigateTo('keywords')" class="btn btn-ghost">Back to keywords</button>
+            </div>
         </form>
     </main>
 

@@ -40,11 +40,11 @@ class WeeklyReportController
 			// If the form is submitted via POST request, add the weekly journal entry to the database
 			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				$calendar_week = e(post('calendar_week'));
-				$completed_tasks = e(post('completed_tasks'));
-				$still_in_work = e(post('still_in_work'));
-				$reflection = e(post('reflection'));
-				$issues = e(post('issues'));
-	
+				$completed_tasks = sanitizeHtml(post('completed_tasks'));
+				$still_in_work = sanitizeHtml(post('still_in_work'));
+				$reflection = sanitizeHtml(post('reflection'));
+				$issues = sanitizeHtml(post('issues'));
+
 				$status = 0;
 	
 				$WeeklyReport->addWeeklyRaport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $status);
@@ -58,44 +58,40 @@ class WeeklyReportController
 		}
 	}	
 
+    /* Update endpoint for a weekly report (no edit page — editing is inline). */
     public function editWeeklyRaport(){
 		// Require the necessary configuration files
 		require_once 'app/Views/general/config.php';
-	
+
 		// Check if the user is logged in
 		if (!isset($_SESSION['access_token']) || empty($_SESSION['access_token'])) {
-			// Redirect the user to the login page
+			if (isAjax()) jsonResponse(['ok' => false, 'error' => 'auth'], 401);
 			header("Location: login");
-			die();
-		} else {
-			// Get the ID of the weekly report from the URL parameter
-			$id = $_GET['id'];
-	
-			// Create a new instance of the WeeklyReport class
-			$WeeklyReport = new WeeklyReport();
-	
-			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-				// Get the updated values from the form
-				$calendar_week = e(post('calendar_week'));
-				$completed_tasks = e(post('completed_tasks'));
-				$still_in_work = e(post('still_in_work'));
-				$reflection = e(post('reflection'));
-				$issues = e(post('issues'));
-	
-				// Update the weekly report in the database
-				$WeeklyReport->editWeeklyReport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $id);
-	
-				// Redirect the user to the weekly report page
-				header('Location: weeklyRaport');
-			} else {
-				// Get the data of the weekly report to be edited
-				$getWeeklyReport = $WeeklyReport -> getWeeklyReport($id)->fetchAll();
-			}
-	
-			// Load the view for editing the weekly report
-			require 'app/Views/learner/editWeeklyJournal.view.php';
+			return;
 		}
-	}	
+
+		$id = $_GET['id'] ?? null;
+		$WeeklyReport = new WeeklyReport();
+
+		// Only POST performs an update; the old GET edit page has been removed.
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			$calendar_week   = e(post('calendar_week'));
+			$completed_tasks = sanitizeHtml(post('completed_tasks'));
+			$still_in_work   = sanitizeHtml(post('still_in_work'));
+			$reflection      = sanitizeHtml(post('reflection'));
+			$issues          = sanitizeHtml(post('issues'));
+
+			$WeeklyReport->editWeeklyReport($calendar_week, $completed_tasks, $still_in_work, $reflection, $issues, $id);
+
+			if (isAjax()) {
+				jsonResponse(['ok' => true, 'id' => $id]);
+			}
+			header('Location: weeklyRaport');
+			return;
+		}
+
+		header('Location: weeklyRaport');
+	}
 
 	public function deleteWeeklyRaport(){
 		require_once 'app/Views/general/config.php';

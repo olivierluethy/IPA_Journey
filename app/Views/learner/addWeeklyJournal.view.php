@@ -2,18 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/dailyweeklyreport.css">
-    <link rel="stylesheet" href="public/css/navside.css">
-    <link rel="stylesheet" href="public/fontawesome/css/all.css">
-    <link rel="shortcut icon" href="images/favicon.ico">
-
-    <script src="public/js/responsive.js" defer></script>
+    <?php $pageTitle = 'Journal - Add weekly report'; include 'app/Views/general/head.php'; ?>
     <script src="public/js/route.js" defer></script>
-    <script src="public/js/addWeeklyValidation.js" defer></script>
-    <title>Journal - Add Weekly Journal</title>
+    <script src="public/js/app.js" defer></script>
+    <script type="module" src="public/js/editor.js"></script>
 </head>
 
 <body>
@@ -25,36 +17,38 @@ $actual_link = basename(__FILE__);
 include(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "general" . DIRECTORY_SEPARATOR . "navside.view.php");
 ?>
 
-    <main>
-        <form action="addWeeklyJournal" method="POST">
-            <h2>Calendar week:</h2>
-            <input type="number" name="calendar_week" id="calendar_week" min="1" max="52"><br><br><br><br>
+    <main class="md:ml-60 px-4 sm:px-6 lg:px-8 py-8 max-w-2xl">
+        <h1 class="text-2xl font-semibold mb-6">Add weekly report</h1>
 
-            <h2>Completed tasks:</h2>
-            <textarea name="completed_tasks" id="completed_tasks" cols="30" rows="10"
-                placeholder="For example: I have completed ..."></textarea>
+        <form action="addWeeklyJournal" method="POST" class="card p-6 space-y-5">
+            <div>
+                <label class="label" for="calendar_week">Calendar week</label>
+                <input type="number" name="calendar_week" id="calendar_week" min="1" max="52" class="input w-32">
+            </div>
 
-            <h2>Still in work:</h2>
-            <textarea name="still_in_work" id="still_in_work" cols="30" rows="10"
-                placeholder="For example: I'm still working on ..."></textarea>
+            <div>
+                <label class="label">Completed tasks</label>
+                <?= rteField('completed_tasks', '', 'For example: I have completed ...') ?>
+            </div>
 
-            <h2>Reflection:</h2>
-            <textarea name="reflection" id="reflection" cols="30" rows="10"
-                placeholder="For example: It was ..."></textarea>
+            <div>
+                <label class="label">Still in work</label>
+                <?= rteField('still_in_work', '', "For example: I'm still working on ...") ?>
+            </div>
 
-            <h2>Issues:</h2>
-            <textarea name="issues" id="issues" cols="30" rows="10"
-                placeholder="For example: I had problems with ..."></textarea><br>
-            <input type="submit" class="send" value="+ Add Weekly Report">
+            <div>
+                <label class="label">Reflection</label>
+                <?= rteField('reflection', '', 'For example: It was ...') ?>
+            </div>
+
+            <div>
+                <label class="label">Issues</label>
+                <?= rteField('issues', '', 'For example: I had problems with ...') ?>
+            </div>
+
+            <button type="submit" class="btn btn-primary">+ Add Weekly Report</button>
         </form>
     </main>
-
-    <script src="ckeditor/ckeditor.js"></script>
-    <script>
-    ['completed_tasks', 'still_in_work', 'reflection', 'issues'].forEach(function(id) {
-        CKEDITOR.replace(id);
-    });
-    </script>
 
 </body>
 
