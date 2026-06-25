@@ -8,6 +8,13 @@ class Login
         $this->db = connectDatabase();
     }
 
+    // Returns all users (used by the developer login bypass)
+    public function getAllUsers(){
+        $statement = $this->db->prepare('SELECT userId, email, full_name, role FROM user ORDER BY role, full_name');
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
     // Check if the user exists in the database
 	public function doesUserExist($email){
         $statement = $this->db->prepare('SELECT * FROM user WHERE email = :email');

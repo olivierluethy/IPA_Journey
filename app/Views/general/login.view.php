@@ -35,6 +35,12 @@ include ("navside.view.php");
                 <img src="images/google logo.png" alt="Image">
                 <span>Login with Google</span>
             </button>
+            <?php if (getenv('APP_ENV') !== 'production'): ?>
+            <p style="margin-top:20px;">— or —</p>
+            <a href="devLogin" class="loginBtn" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;">
+                <span>Developer Login (mock users)</span>
+            </a>
+            <?php endif; ?>
             <?php
             }
         ?>

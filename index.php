@@ -41,6 +41,9 @@ $routes = [
 
 	'addUser' => 'LoginController@addUser',
 	'doesUserExist' => 'LoginController@doesUserExist',
+
+	/* Developer login bypass (only active when APP_ENV != production) */
+	'devLogin' => 'LoginController@devLogin',
 ];
 
 $db = [

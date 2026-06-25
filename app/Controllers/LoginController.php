@@ -98,6 +98,55 @@ class LoginController
         }
 	}
 
+    /*
+     * Developer login bypass.
+     * Lets you log in as any mock user without Google OAuth so features can be
+     * tested as every role. Disabled when APP_ENV=production.
+     */
+    public function devLogin(){
+        if (getenv('APP_ENV') === 'production') {
+            http_response_code(403);
+            die('Developer login is disabled in production.');
+        }
+
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $login = new Login();
+
+        // A specific user was chosen -> log in as them.
+        if (isset($_GET['email'])) {
+            $user = $login->doesUserExist($_GET['email']);
+            if (!$user) {
+                http_response_code(404);
+                die('Mock user not found: ' . e($_GET['email']));
+            }
+
+            $_SESSION['email']           = $user['email'];
+            $_SESSION['first_name']      = $user['first_name'];
+            $_SESSION['last_name']       = $user['last_name'];
+            $_SESSION['gender']          = $user['gender'];
+            $_SESSION['full_name']       = $user['full_name'];
+            $_SESSION['profileImageUrl'] = $user['picture'];
+            $_SESSION['verifiedEmail']   = $user['verifiedEmail'];
+            $_SESSION['token']           = $user['token'] !== '' ? $user['token'] : 'dev-token';
+            // Different controllers gate on either 'token' or 'access_token';
+            // set both so every authenticated page is reachable.
+            $_SESSION['access_token']    = 'dev-access-token';
+            $_SESSION['role']            = $user['role'];
+            $_SESSION['loggedin']        = true;
+            $_SESSION['id']              = $user['userId'];
+
+            header('Location: home');
+            exit;
+        }
+
+        // No user chosen yet -> show the picker.
+        $users = $login->getAllUsers();
+        require 'app/Views/general/devlogin.view.php';
+    }
+
     /* When person wants to log out */
 	public function logout(){
 		// Initialize the session

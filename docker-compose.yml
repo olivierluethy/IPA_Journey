@@ -1,0 +1,62 @@
+services:
+  # --- Web application (PHP + Apache) -------------------------------------
+  web:
+    build: .
+    container_name: journey_web
+    ports:
+      - "8090:80"          # App available at http://localhost:8090
+    volumes:
+      - .:/var/www/html    # Live-mount the code for instant edits
+    environment:
+      DB_HOST: db
+      DB_NAME: journal
+      DB_USER: root
+      DB_PASS: ""
+      APP_ENV: dev         # Enables the developer login bypass
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # --- MySQL database -----------------------------------------------------
+  db:
+    image: mysql:8.0
+    container_name: journey_db
+    # Treat table names case-insensitively (like MySQL on Windows). The app's
+    # schema uses camelCase table names while the models query them lowercase;
+    # without this, Linux MySQL is case-sensitive and "table not found" errors
+    # occur. Must be set before the data dir is initialised (first startup).
+    command: --lower-case-table-names=1
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: journal
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - "3308:3306"        # Optional: connect a desktop client to localhost:3308
+    volumes:
+      - dbdata:/var/lib/mysql
+      # Schema + mock data run automatically on first startup (alphabetical order).
+      - ./journal.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./docker/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  # --- phpMyAdmin (browse/edit the database in the browser) ---------------
+  phpmyadmin:
+    image: phpmyadmin:5
+    container_name: journey_pma
+    ports:
+      - "8091:80"          # phpMyAdmin available at http://localhost:8091
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: ""
+      UPLOAD_LIMIT: 64M
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  dbdata:
